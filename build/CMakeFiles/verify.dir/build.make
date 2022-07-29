@@ -72,8 +72,8 @@ CMAKE_BINARY_DIR = "/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/build
 # Include the progress variables for this target.
 include CMakeFiles/verify.dir/progress.make
 
-CMakeFiles/verify: program
-	python3 /home/Lucas/Área\ de\ trabalho/c++_projetos/bloco_notas/../scripts/verify-inputs.py ./program
+CMakeFiles/verify: bloco_notas
+	python3 /home/Lucas/Área\ de\ trabalho/c++_projetos/bloco_notas/../scripts/verify-inputs.py ./bloco_notas
 
 verify: CMakeFiles/verify
 verify: CMakeFiles/verify.dir/build.make

@@ -34,6 +34,10 @@ Notas.hpp
 iostream
 -
 
+/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/src/NotasDB.cpp
+NotasDB.hpp
+/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/src/NotasDB.hpp
+
 /home/Lucas/Área de trabalho/c++_projetos/bloco_notas/src/main.cpp
 iostream
 -
@@ -43,10 +47,10 @@ sstream
 -
 algorithm
 -
-Notas.hpp
-/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/src/Notas.hpp
 NotasDB.hpp
 /home/Lucas/Área de trabalho/c++_projetos/bloco_notas/src/NotasDB.hpp
 Pessoa.hpp
 /home/Lucas/Área de trabalho/c++_projetos/bloco_notas/src/Pessoa.hpp
+Notas.hpp
+/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/src/Notas.hpp
 

@@ -14,11 +14,12 @@ class NotasDB{
 
 
 private:
-
+    vector<Notas*> m_notas;
 
 public:
 	NotasDB();
 
+    // salvar em m_notas e em algum db sql
 	void salvar(Notas *nota);
 	void deletar(Notas *nota);
 

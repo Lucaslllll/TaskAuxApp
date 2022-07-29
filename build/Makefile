@@ -143,17 +143,71 @@ verify/fast:
 .PHONY : verify/fast
 
 #=============================================================================
-# Target rules for targets named program
+# Target rules for targets named bloco_notas
 
 # Build rule for target.
-program: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 program
-.PHONY : program
+bloco_notas: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 bloco_notas
+.PHONY : bloco_notas
 
 # fast build rule for target.
-program/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/build
-.PHONY : program/fast
+bloco_notas/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloco_notas.dir/build.make CMakeFiles/bloco_notas.dir/build
+.PHONY : bloco_notas/fast
+
+src/Notas.o: src/Notas.cpp.o
+
+.PHONY : src/Notas.o
+
+# target to build an object file
+src/Notas.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloco_notas.dir/build.make CMakeFiles/bloco_notas.dir/src/Notas.cpp.o
+.PHONY : src/Notas.cpp.o
+
+src/Notas.i: src/Notas.cpp.i
+
+.PHONY : src/Notas.i
+
+# target to preprocess a source file
+src/Notas.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloco_notas.dir/build.make CMakeFiles/bloco_notas.dir/src/Notas.cpp.i
+.PHONY : src/Notas.cpp.i
+
+src/Notas.s: src/Notas.cpp.s
+
+.PHONY : src/Notas.s
+
+# target to generate assembly for a file
+src/Notas.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloco_notas.dir/build.make CMakeFiles/bloco_notas.dir/src/Notas.cpp.s
+.PHONY : src/Notas.cpp.s
+
+src/NotasDB.o: src/NotasDB.cpp.o
+
+.PHONY : src/NotasDB.o
+
+# target to build an object file
+src/NotasDB.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloco_notas.dir/build.make CMakeFiles/bloco_notas.dir/src/NotasDB.cpp.o
+.PHONY : src/NotasDB.cpp.o
+
+src/NotasDB.i: src/NotasDB.cpp.i
+
+.PHONY : src/NotasDB.i
+
+# target to preprocess a source file
+src/NotasDB.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloco_notas.dir/build.make CMakeFiles/bloco_notas.dir/src/NotasDB.cpp.i
+.PHONY : src/NotasDB.cpp.i
+
+src/NotasDB.s: src/NotasDB.cpp.s
+
+.PHONY : src/NotasDB.s
+
+# target to generate assembly for a file
+src/NotasDB.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloco_notas.dir/build.make CMakeFiles/bloco_notas.dir/src/NotasDB.cpp.s
+.PHONY : src/NotasDB.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -161,7 +215,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloco_notas.dir/build.make CMakeFiles/bloco_notas.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -170,7 +224,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloco_notas.dir/build.make CMakeFiles/bloco_notas.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -179,7 +233,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bloco_notas.dir/build.make CMakeFiles/bloco_notas.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 # Help Target
@@ -191,7 +245,13 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... verify"
-	@echo "... program"
+	@echo "... bloco_notas"
+	@echo "... src/Notas.o"
+	@echo "... src/Notas.i"
+	@echo "... src/Notas.s"
+	@echo "... src/NotasDB.o"
+	@echo "... src/NotasDB.i"
+	@echo "... src/NotasDB.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

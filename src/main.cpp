@@ -3,10 +3,10 @@
 #include <sstream>
 #include <algorithm>
 
-
-#include "Notas.hpp"
 #include "NotasDB.hpp"
 #include "Pessoa.hpp"
+#include "Notas.hpp"
+
 
 
 using namespace std;
@@ -17,6 +17,8 @@ using namespace std;
 
 int main(void){
 	string nome;
+    NotasDB *notadb = new NotasDB();
+    
 
 	cout << "Qual o seu nome?" << endl;
 	getline(cin, nome);
@@ -49,7 +51,10 @@ int main(void){
 		break;
 		case 1:
 			cout << "Abrindo Notas..." << endl;
+            
+            
 		break;
+
 	}
 
 	return 0;

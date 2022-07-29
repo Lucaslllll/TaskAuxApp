@@ -21,6 +21,7 @@ private:
 public:
 	Notas(std::string nome, std::string m_data, Pessoa *p);
 
+    void set_status(bool status);
 	bool get_status();
 	std::string get_nome();
 	std::string get_detalhes();
