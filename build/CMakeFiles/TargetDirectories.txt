@@ -1,0 +1,4 @@
+/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/build/CMakeFiles/rebuild_cache.dir
+/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/build/CMakeFiles/edit_cache.dir
+/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/build/CMakeFiles/verify.dir
+/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/build/CMakeFiles/program.dir
