@@ -1,4 +1,4 @@
-/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/build/CMakeFiles/rebuild_cache.dir
-/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/build/CMakeFiles/edit_cache.dir
-/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/build/CMakeFiles/verify.dir
-/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/build/CMakeFiles/bloco_notas.dir
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/build/CMakeFiles/rebuild_cache.dir
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/build/CMakeFiles/edit_cache.dir
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/build/CMakeFiles/verify.dir
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/build/CMakeFiles/bloco_notas.dir

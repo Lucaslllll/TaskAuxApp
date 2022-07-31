@@ -27,6 +27,8 @@ sstream
 -
 algorithm
 -
+fstream
+-
 Notas.hpp
 ../include/Notas.hpp
 
@@ -34,23 +36,7 @@ Notas.hpp
 iostream
 -
 
-/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/src/NotasDB.cpp
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/src/NotasDB.cpp
 NotasDB.hpp
-/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/src/NotasDB.hpp
-
-/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/src/main.cpp
-iostream
--
-vector
--
-sstream
--
-algorithm
--
-NotasDB.hpp
-/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/src/NotasDB.hpp
-Pessoa.hpp
-/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/src/Pessoa.hpp
-Notas.hpp
-/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/src/Notas.hpp
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/src/NotasDB.hpp
 

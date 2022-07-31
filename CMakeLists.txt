@@ -24,7 +24,9 @@ set ( EXEC_NAME "bloco_notas")
 add_executable( ${EXEC_NAME}
                 src/main.cpp
                 src/Notas.cpp
-                src/NotasDB.cpp 
+                src/NotasDB.cpp
+                src/Pessoa.cpp
+                
                 )
 
 # define C++14 standard

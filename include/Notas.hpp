@@ -1,4 +1,4 @@
-#ifdef Notas_hpp
+#ifndef Notas_hpp
 #define Notas_hpp
 
 #include <iostream>
@@ -21,10 +21,12 @@ private:
 public:
 	Notas(std::string nome, std::string m_data, Pessoa *p);
 
+    std::string get_data();
     void set_status(bool status);
-	bool get_status();
+	std::string get_status();
 	std::string get_nome();
-	std::string get_detalhes();
+    void add_detalhes(std::string detalhes);
+    std::string get_detalhes();
 	Pessoa* get_autor();
 
 };

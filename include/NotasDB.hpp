@@ -1,10 +1,11 @@
-#ifdef NotasDB_hpp
+#ifndef NotasDB_hpp
 #define NotasDB_hpp
 
 #include <iostream>
 #include <vector>
 #include <sstream>
 #include <algorithm>
+#include <fstream>
 
 #include "Notas.hpp"
 
@@ -14,7 +15,7 @@ class NotasDB{
 
 
 private:
-    vector<Notas*> m_notas;
+    std::vector<Notas*> m_notas;
 
 public:
 	NotasDB();

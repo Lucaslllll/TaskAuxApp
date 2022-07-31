@@ -4,9 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/src/Notas.cpp" "/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/build/CMakeFiles/bloco_notas.dir/src/Notas.cpp.o"
-  "/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/src/NotasDB.cpp" "/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/build/CMakeFiles/bloco_notas.dir/src/NotasDB.cpp.o"
-  "/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/src/main.cpp" "/home/Lucas/Área de trabalho/c++_projetos/bloco_notas/build/CMakeFiles/bloco_notas.dir/src/main.cpp.o"
+  "/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/src/Notas.cpp" "/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/build/CMakeFiles/bloco_notas.dir/src/Notas.cpp.o"
+  "/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/src/NotasDB.cpp" "/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/build/CMakeFiles/bloco_notas.dir/src/NotasDB.cpp.o"
+  "/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/src/Pessoa.cpp" "/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/build/CMakeFiles/bloco_notas.dir/src/Pessoa.cpp.o"
+  "/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/src/main.cpp" "/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/build/CMakeFiles/bloco_notas.dir/src/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
