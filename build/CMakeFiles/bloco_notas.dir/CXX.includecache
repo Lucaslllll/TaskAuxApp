@@ -36,7 +36,19 @@ Notas.hpp
 iostream
 -
 
-/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/src/NotasDB.cpp
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/src/main.cpp
+iostream
+-
+vector
+-
+sstream
+-
+algorithm
+-
 NotasDB.hpp
 /home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/src/NotasDB.hpp
+Pessoa.hpp
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/src/Pessoa.hpp
+Notas.hpp
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/src/Notas.hpp
 
