@@ -1,15 +1,20 @@
 <Gerenciador>:
 	Menu:
-		name: "menu_name"
+		name: "menu_name"	
 
-	Screen:
-		Button:
-			text: "Ver Tarefas"
-			on_release: root.current = "tarefas_name"
+	# sem utilidade mais
+	#Screen:
+	#	Button:
+	#		text: "Ver Tarefas"
+	#		on_release: root.current = "tarefas_name"
 
-
+	
 	Tarefas:
 		name: "tarefas_name"
+	
+	Ajuda:
+		name: "ajuda_name"
+
 
 <Menu>:
 	BoxLayout:
@@ -26,10 +31,26 @@
 			text: "Tarefas"
 			on_release: app.root.current = 'tarefas_name'
 		Button:
-			text: "Assistente"
+			text: "Ajuda"
+			on_release: app.root.current = "ajuda_name"
 		Button:
 			text: "Sair"
 			on_release: app.stop()
+<Ajuda>:
+	BoxLayout:
+		orientation: "vertical"
+		padding: 70
+		spacing: 20
+		
+
+		ScrollView:
+			BoxLayout:
+				id: box_ajuda
+				orientation: "vertical"
+				size_hint_y: None
+				height: self.minimum_height
+
+		
 
 
 <Tarefas>:
@@ -46,6 +67,7 @@
 				ActionButton:
 					text: "Sair"
 					on_release: app.stop()
+				
 
 		ScrollView:	
 			BoxLayout:
@@ -64,6 +86,10 @@
 				text: "+"
 				size_hint_x: None
 				on_release: root.addWidget()
+
+
+
+
 
 <Tarefa>:
 	size_hint_y: None

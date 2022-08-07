@@ -7,10 +7,26 @@ class Gerenciador(ScreenManager):
     pass
 
 
+class Ajuda(Screen):
+
+
+
+    def on_pre_enter(self):
+        Window.bind(on_keyboard=self.voltar)
+
+    def voltar(self, window, key, *args):
+        if key == 27:
+            App.get_running_app().root.current = "menu_name"
+            return True
+
+        return False
+
+    def on_pre_leave(self):
+        Window.unbind(on_keyboard=self.voltar)        
+
+
 class Menu(Screen):
     pass
-
-
 
 
 
@@ -55,5 +71,5 @@ class FrontAdmin(App):
         return Gerenciador()
 
 
-        
+
 FrontAdmin().run()
