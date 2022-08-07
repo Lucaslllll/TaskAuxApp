@@ -20,29 +20,31 @@
 	BoxLayout:
 		orientation: "vertical"
 		padding: 100
-		spacing: 40
+		spacing: 40 
 		canvas:
 			Color:
-				rgba: (0.1,0.3,0.09,1)
+				rgba: (0,0.1,0.09,1)
 			Rectangle:
 				size: self.size
 				pos: 0, 0
 				source: "moldura.png"
-		
 		Image:
 			source: "logo-tasks-admin-menu.png"
 			size_hint_y: None
 			height: 200
 			allow_stretch: True
-		Botao:
+
+		Button:
 			text: "Tarefas"
 			on_release: app.root.current = 'tarefas_name'
-		Botao:
+		Button:
 			text: "Ajuda"
 			on_release: app.root.current = "ajuda_name"
-		Botao:
+		Button:
 			text: "Sair"
 			on_release: app.stop()
+
+
 <Ajuda>:
 	BoxLayout:
 		orientation: "vertical"
@@ -50,7 +52,6 @@
 			ActionView:
 				ActionPrevious:
 					title: "Ajuda"
-					on_release: app.root.current = "menu_name"
 				ActionButton:
 					text: "Voltar"
 					on_release: app.root.current = "menu_name"
@@ -65,10 +66,9 @@
 
 		Label:
 			text: "Ajuda"
-			halign: 'right'
-    		valign: 'middle'
+			align: "center"
 
- 
+
 		GridLayout:
 			rows: 3
 			cols: 1
@@ -85,18 +85,9 @@
 
 
 
-
-
 <Tarefas>:
 	BoxLayout:
 		orientation: "vertical"
-		canvas:
-			Color:
-				rgba: (1, 1, 1, 0.7)
-			Rectangle:
-				size: self.size
-				pos: 0, 0
-
 		ActionBar:
 			ActionView:
 				ActionPrevious:
@@ -108,8 +99,7 @@
 				ActionButton:
 					text: "Sair"
 					on_release: app.stop()
-		
-		
+				
 
 		ScrollView:	
 			BoxLayout:
@@ -146,25 +136,3 @@
 		size_hint_x: None
 		width: 60
 		on_release: app.root.get_screen('tarefas_name').ids.box.remove_widget(self.parent)
-
-
-
-
-
-# customs
-
-# botão vai herdar tanto behavior quanto label
-<Botao@ButtonBehavior+Label>:
-	canvas.before:
-		Color:
-			rgba: 0.2, 0.6, 0.3, 1
-		Ellipse:
-			pos: self.pos
-			size: self.height, self.height
-		Ellipse:
-			pos: self.x+self.width-self.height, self.y
-			size: self.height, self.height
-		Rectangle:
-			pos: self.x + self.height/2.0, self.y
-			size: self.width-self.height, self.height
-
