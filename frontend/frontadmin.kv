@@ -37,6 +37,7 @@
 		Botao:
 			text: "Tarefas"
 			on_release: app.root.current = 'tarefas_name'
+			cor: 0.1, 0.1, 0.1, 1
 		Botao:
 			text: "Ajuda"
 			on_release: app.root.current = "ajuda_name"
@@ -92,7 +93,7 @@
 		orientation: "vertical"
 		canvas:
 			Color:
-				rgba: (1, 1, 1, 0.7)
+				rgba: (1, 1, 1, 1)
 			Rectangle:
 				size: self.size
 				pos: 0, 0
@@ -124,7 +125,7 @@
 			TextInput:
 				id: texto
 
-			Button:
+			BotaoAdicionar:
 				text: "+"
 				size_hint_x: None
 				on_release: root.addWidget()
@@ -138,10 +139,11 @@
 
 	Label:
 		id: label
-		font_size: 30
+		font_size: 25
+		color: 0,0,0,1
+		font_name:"DotBoundary-Fixed Fixed.otf"
 
-
-	Button:
+	BotaoApagar:
 		text: "X"
 		size_hint_x: None
 		width: 60
@@ -154,17 +156,20 @@
 # customs
 
 # botão vai herdar tanto behavior quanto label
-<Botao@ButtonBehavior+Label>:
+
+# fazer um botão no .kv
+<BotaoApagar@ButtonBehavior+Label>:
 	canvas.before:
 		Color:
-			rgba: 0.2, 0.6, 0.3, 1
-		Ellipse:
-			pos: self.pos
-			size: self.height, self.height
-		Ellipse:
-			pos: self.x+self.width-self.height, self.y
-			size: self.height, self.height
+			rgba: 1, 0, 0, 0.5
 		Rectangle:
-			pos: self.x + self.height/2.0, self.y
-			size: self.width-self.height, self.height
+			pos: self.pos
+			size: self.width, self.height
 
+<BotaoAdicionar@ButtonBehavior+Label>
+	canvas.before:
+		Color:
+			rgba: 0, 0, 1, 0.6
+		Rectangle:
+			pos: self.pos
+			size: self.width, self.height
