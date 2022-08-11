@@ -9,7 +9,6 @@ from kivy.properties import ListProperty
 from kivy.uix.popup import Popup
 from kivy.uix.image import Image
 from kivy.animation import Animation
-import json
 
 
 class Gerenciador(ScreenManager):
@@ -90,8 +89,6 @@ class Botao(ButtonBehavior, Label):
         super(Botao, self).__init__(**kwargs)
         self.atualizar()
 
-    def on_pre_leave(self):
-
 
     def on_pos(self, *args):
         self.atualizar()
@@ -103,7 +100,6 @@ class Botao(ButtonBehavior, Label):
     def on_press(self, *args):
         # atribuição simutânea
         self.cor, self.cor2 = self.cor2, self.cor
-
 
     def on_release(self, *args):
         self.cor = self.cor2
@@ -129,18 +125,14 @@ class Botao(ButtonBehavior, Label):
 
 
 class Tarefas(Screen):
-    tarefas = []
-    path = ''
-
-    # esse metodo é executado antes de entrar na tela
-    def on_pre_enter(self):
-        self.path = App.get_running_app().user_data_dir+"/"
-        self.loadData()
-
-        Window.bind(on_keyboard=self.voltar)
-        for tarefa in self.tarefas:
+    def __init__(self, tarefas=[], **kwargs):
+        super().__init__(**kwargs) # para a herança funcionar 
+        for tarefa in tarefas:
             self.ids.box.add_widget(Tarefa(text=tarefa))
-        
+
+
+    def on_pre_enter(self):
+        Window.bind(on_keyboard=self.voltar)
 
     def voltar(self, window, key, *args):
         # esc tem o codigo 27
@@ -154,35 +146,14 @@ class Tarefas(Screen):
         Window.unbind(on_keyboard=self.voltar)
 
 
-    def loadData(self, *args):
-        # antes de carregar qualquer coisa, certamente
-        # tenho que limpar o lixo de quando a tela 
-        # foi carregada anteriormente
-        self.ids.box.clear_widgets()
 
-        try:
-            with open(self.path+"data.json", 'r') as data:
-                self.tarefas = json.load(data)
-        except FileNotFoundError:
-            pass
-
-
-    def saveData(self, *args):
-        with open(self.path+"data.json", 'w') as data:
-            json.dump(self.tarefas, data)
-
-    def removeWidget(self, tarefa):
-        texto = tarefa.ids.label.text
-        self.ids.box.remove_widget(tarefa)
-        self.tarefas.remove(texto)
-        self.saveData(self.tarefas)
 
     def addWidget(self):
         texto = self.ids.texto.text
         self.ids.box.add_widget(Tarefa(text=texto))
         self.ids.texto.text = ""
-        self.tarefas.append(texto)
-        self.saveData()
+
+
 
 class Tarefa(BoxLayout):
     def __init__(self, text='', **kwargs):
