@@ -91,7 +91,7 @@ class Botao(ButtonBehavior, Label):
         self.atualizar()
 
     def on_pre_leave(self):
-
+        pass
 
     def on_pos(self, *args):
         self.atualizar()
