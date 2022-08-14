@@ -18,9 +18,11 @@
 
 <Menu>:
 	BoxLayout:
+		id:box_menu
 		orientation: "vertical"
-		padding: 100
-		spacing: 40
+		padding: root.width*0.25, root.height*0.1
+		spacing: '30dp'
+
 		canvas:
 			Color:
 				rgba: (0.2, 0.4, 0.9, 1)
@@ -31,8 +33,7 @@
 		
 		Image:
 			source: "logo-tasks-admin-menu.png"
-			size_hint_y: None
-			height: 200
+			size_hint_y: 4
 			allow_stretch: True
 		Botao:
 			text: "Tarefas"
@@ -123,13 +124,14 @@
 
 		BoxLayout:
 			size_hint_y: None
-			height: 60
+			height: '40sp'
 			TextInput:
 				id: texto
 
 			BotaoAdicionar:
 				text: "+"
 				size_hint_x: None
+				width: '40sp'
 				on_release: root.addWidget()
 		
 
@@ -137,7 +139,7 @@
 
 <Tarefa>:
 	size_hint_y: None
-	height: 200
+	height: '100sp'
 
 	Label:
 		id: label

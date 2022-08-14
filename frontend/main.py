@@ -9,7 +9,10 @@ from kivy.properties import ListProperty
 from kivy.uix.popup import Popup
 from kivy.uix.image import Image
 from kivy.animation import Animation
+from kivy.core.audio import SoundLoader
+
 import json
+
 
 
 class Gerenciador(ScreenManager):
@@ -17,8 +20,6 @@ class Gerenciador(ScreenManager):
 
 
 class Ajuda(Screen):
-
-
 
     def on_pre_enter(self):
         Window.bind(on_keyboard=self.voltar)
@@ -38,8 +39,11 @@ class Menu(Screen):
     def on_pre_enter(self):
         Window.bind(on_request_close=self.confirmacao)
 
+    def on_pre_leave(self, *args):
+        # self.ids.box.clear_widgets()
+        pass
+
     def confirmacao(self, *args, **kwargs):
-        print("Chamou")
         box = BoxLayout(orientation="vertical", padding=10, spacing=10)
         botoes = BoxLayout(padding=10, spacing=10)
         
@@ -73,12 +77,10 @@ class Menu(Screen):
         pop.open()
 
 
-        
-
-
-
 
         return True 
+
+
 
 # fazer um botão sem ser no .kv
 class Botao(ButtonBehavior, Label):
@@ -89,9 +91,6 @@ class Botao(ButtonBehavior, Label):
         # herdará de buttonbehavior e label
         super(Botao, self).__init__(**kwargs)
         self.atualizar()
-
-    def on_pre_leave(self):
-        pass
 
     def on_pos(self, *args):
         self.atualizar()
