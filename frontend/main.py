@@ -11,6 +11,10 @@ from kivy.uix.image import Image
 from kivy.animation import Animation
 from kivy.core.audio import SoundLoader
 
+# para poder fazer o teclado subir com textinput
+from kivy.config import Config
+Config.set('kivy', 'keyboard_mode', 'systemandmulti')
+
 import json
 
 
@@ -130,9 +134,14 @@ class Botao(ButtonBehavior, Label):
 class Tarefas(Screen):
     tarefas = []
     path = ''
+    popSound = None
+    poppapSound = None
 
     # esse metodo é executado antes de entrar na tela
     def on_pre_enter(self):
+        if self.popSound == None:
+            self.popSound = SoundLoader.load('pop.mp3')
+            self.poppapSound = SoundLoader.load('poppap.mp3')
         self.path = App.get_running_app().user_data_dir+"/"
         self.loadData()
 
@@ -171,12 +180,14 @@ class Tarefas(Screen):
             json.dump(self.tarefas, data)
 
     def removeWidget(self, tarefa):
+        self.popSound.play()
         texto = tarefa.ids.label.text
         self.ids.box.remove_widget(tarefa)
         self.tarefas.remove(texto)
         self.saveData(self.tarefas)
 
     def addWidget(self):
+        self.poppapSound.play()
         texto = self.ids.texto.text
         self.ids.box.add_widget(Tarefa(text=texto))
         self.ids.texto.text = ""
