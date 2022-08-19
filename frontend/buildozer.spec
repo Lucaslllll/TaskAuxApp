@@ -1,10 +1,10 @@
 [app]
 
 # (str) Title of your application
-title = My Application
+title = frontend
 
 # (str) Package name
-package.name = myapp
+package.name = taskapp
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.test
