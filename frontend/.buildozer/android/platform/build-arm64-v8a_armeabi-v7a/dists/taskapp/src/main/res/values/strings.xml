@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">frontend</string>
-    <string name="private_version">4ab533a3821bb590f6218b0dad34a718e4b2c4e3</string>
+    <string name="private_version">f7f9c1b8a5e813ce116c201f2ef6e0e283d3a0a5</string>
     <string name="presplash_color">#000000</string>
     <string name="urlScheme">kivy</string>
 </resources>
