@@ -47,7 +47,7 @@ requirements = python3,kivy
 #presplash.filename = %(source.dir)s/data/presplash.png
 presplash.filename = %(source.dir)s/logo-app.png
 
-
+READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE
 # (str) Icon of the application
 #icon.filename = %(source.dir)s/data/icon.png
 icon.filename = %(source.dir)s/icon-app.png

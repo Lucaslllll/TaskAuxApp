@@ -13,8 +13,8 @@ from kivy.core.audio import SoundLoader
 from kivy.clock import Clock
 
 # para poder fazer o teclado subir com textinput
-from kivy.config import Config
-Config.set('kivy', 'keyboard_mode', 'systemandmulti')
+#from kivy.config import Config
+#Config.set('kivy', 'keyboard_mode', 'systemandmulti')
 
 import json
 
