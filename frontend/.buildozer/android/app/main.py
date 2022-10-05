@@ -45,15 +45,14 @@ class Menu(Screen):
         Window.bind(on_request_close=self.confirmacao)
 
     def on_pre_leave(self, *args):
-        # self.ids.box.clear_widgets()
-        pass
+        Window.unbind(on_request_close=self.confirmacao)
 
     def confirmacao(self, *args, **kwargs):
         box = BoxLayout(orientation="vertical", padding=10, spacing=10)
-        botoes = BoxLayout(padding=10, spacing=10)
+        botoes = BoxLayout(padding=5, spacing=10)
         
         pop = Popup(title="Deseja mesmo sair", content=box, size_hint=(None, None),
-                    size=(150,150)
+                    size=(250,250)
             )
 
 
@@ -64,7 +63,7 @@ class Menu(Screen):
         botoes.add_widget(nao)
 
 
-        atencao = Image(source="exclamation.png")
+        atencao = Image(source="assets/images/exclamation.png")
 
 
         box.add_widget(atencao)
@@ -140,9 +139,10 @@ class Tarefas(Screen):
 
     # esse metodo é executado antes de entrar na tela
     def on_pre_enter(self):
+        # arquivos de audio .wav
         if self.popSound == None:
-            self.popSound = SoundLoader.load('pop.mp3')
-            self.poppapSound = SoundLoader.load('poppap.mp3')
+            self.popSound = SoundLoader.load('assets/audios/pop.wav')
+            self.poppapSound = SoundLoader.load('assets/audios/poppap.wav')
         self.path = App.get_running_app().user_data_dir+"/"
         self.loadData()
 

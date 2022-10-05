@@ -28,10 +28,10 @@ MODLIBS=           $(LOCALMODLIBS) $(BASEMODLIBS)
 
 # === Variables set by configure
 VERSION=	3.9
-srcdir=		/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/hostpython3/desktop/hostpython3
-VPATH=		/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/hostpython3/desktop/hostpython3
-abs_srcdir=	/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/hostpython3/desktop/hostpython3
-abs_builddir=	/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/hostpython3/desktop/hostpython3/native-build
+srcdir=		/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/hostpython3/desktop/hostpython3
+VPATH=		/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/hostpython3/desktop/hostpython3
+abs_srcdir=	/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/hostpython3/desktop/hostpython3
+abs_builddir=	/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/hostpython3/desktop/hostpython3/native-build
 
 
 CC=		gcc -pthread
@@ -254,8 +254,8 @@ LIBOBJS=
 PYTHON=		python$(EXE)
 BUILDPYTHON=	python$(BUILDEXE)
 
-PYTHON_FOR_REGEN?=python3.9
-UPDATE_FILE=python3.9 $(srcdir)/Tools/scripts/update_file.py
+PYTHON_FOR_REGEN?=python3
+UPDATE_FILE=python3 $(srcdir)/Tools/scripts/update_file.py
 PYTHON_FOR_BUILD=./$(BUILDPYTHON) -E
 _PYTHON_HOST_PLATFORM=
 BUILD_GNU_TYPE=	x86_64-pc-linux-gnu

@@ -13,10 +13,10 @@ package.domain = org.test
 source.dir = .
 
 # (list) Source files to include (let empty to include all the files)
-source.include_exts = py,png,jpg,kv,atlas
+source.include_exts = py,png,jpg,kv,atlas,otf,ttf,wav
 
 # (list) List of inclusions using pattern matching
-#source.include_patterns = assets/*,images/*.png
+source.include_patterns = assets/*,images/*.png,assets/audios/*.wav,assets/fonts/*
 
 # (list) Source files to exclude (let empty to not exclude anything)
 #source.exclude_exts = spec
@@ -45,12 +45,12 @@ requirements = python3,kivy
 
 # (str) Presplash of the application
 #presplash.filename = %(source.dir)s/data/presplash.png
-presplash.filename = %(source.dir)s/logo-app.png
+presplash.filename = %(source.dir)s/assets/images/logo-app.png
 
 READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE
 # (str) Icon of the application
 #icon.filename = %(source.dir)s/data/icon.png
-icon.filename = %(source.dir)s/icon-app.png
+icon.filename = %(source.dir)s/assets/images/icon-app.png
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait
@@ -105,7 +105,7 @@ fullscreen = 0
 #android.api = 27
 
 # (int) Minimum API your APK / AAB will support.
-#android.minapi = 21
+android.minapi = 21
 
 # (int) Android SDK version to use
 #android.sdk = 20

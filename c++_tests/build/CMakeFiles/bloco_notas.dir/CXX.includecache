@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/src/main.cpp
+crow.h
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/src/crow.h
+cpp_redis/core/client.hpp
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/src/cpp_redis/core/client.hpp
+string
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/src/string
+iostream
+-
+vector
+-
+utility
+-
+

@@ -1,50 +1,50 @@
-/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/obj/local/arm64-v8a/objs-debug/SDL2_mixer/load_voc.o: \
-  /home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL2_mixer/load_voc.c \
-  /home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL2_mixer/SDL_mixer.h \
-  /home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_stdinc.h \
-  /home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_config.h \
-  /home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_platform.h \
-  /home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/begin_code.h \
-  /home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/close_code.h \
-  /home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_config_android.h \
-  /home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_rwops.h \
-  /home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_error.h \
-  /home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_audio.h \
-  /home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_endian.h \
-  /home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_mutex.h \
-  /home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_thread.h \
-  /home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_atomic.h \
-  /home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_version.h \
-  /home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL2_mixer/load_voc.h
+/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/obj/local/arm64-v8a/objs-debug/SDL2_mixer/load_voc.o: \
+  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL2_mixer/load_voc.c \
+  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL2_mixer/SDL_mixer.h \
+  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_stdinc.h \
+  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_config.h \
+  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_platform.h \
+  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/begin_code.h \
+  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/close_code.h \
+  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_config_android.h \
+  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_rwops.h \
+  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_error.h \
+  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_audio.h \
+  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_endian.h \
+  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_mutex.h \
+  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_thread.h \
+  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_atomic.h \
+  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_version.h \
+  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL2_mixer/load_voc.h
 
-/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL2_mixer/SDL_mixer.h:
+/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL2_mixer/SDL_mixer.h:
 
-/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_stdinc.h:
+/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_stdinc.h:
 
-/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_config.h:
+/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_config.h:
 
-/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_platform.h:
+/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_platform.h:
 
-/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/begin_code.h:
+/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/begin_code.h:
 
-/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/close_code.h:
+/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/close_code.h:
 
-/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_config_android.h:
+/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_config_android.h:
 
-/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_rwops.h:
+/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_rwops.h:
 
-/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_error.h:
+/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_error.h:
 
-/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_audio.h:
+/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_audio.h:
 
-/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_endian.h:
+/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_endian.h:
 
-/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_mutex.h:
+/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_mutex.h:
 
-/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_thread.h:
+/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_thread.h:
 
-/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_atomic.h:
+/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_atomic.h:
 
-/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_version.h:
+/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL/include/SDL_version.h:
 
-/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL2_mixer/load_voc.h:
+/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/SDL2_mixer/load_voc.h:

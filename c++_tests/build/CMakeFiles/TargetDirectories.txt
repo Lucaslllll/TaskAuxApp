@@ -1,0 +1,6 @@
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/build/CMakeFiles/edit_cache.dir
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/build/CMakeFiles/package_source.dir
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/build/CMakeFiles/rebuild_cache.dir
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/build/CMakeFiles/package.dir
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/build/CMakeFiles/verify.dir
+/home/brinfo-linux/Área de Trabalho/Admin-Auxiliador/build/CMakeFiles/bloco_notas.dir

@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/venv"
+VIRTUAL_ENV="/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

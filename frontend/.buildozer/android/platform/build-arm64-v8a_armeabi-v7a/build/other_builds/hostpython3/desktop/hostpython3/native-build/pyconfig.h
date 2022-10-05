@@ -165,40 +165,40 @@
 /* #undef HAVE_CTERMID_R */
 
 /* Define if you have the 'filter' function. */
-/* #undef HAVE_CURSES_FILTER */
+#define HAVE_CURSES_FILTER 1
 
 /* Define to 1 if you have the <curses.h> header file. */
-/* #undef HAVE_CURSES_H */
+#define HAVE_CURSES_H 1
 
 /* Define if you have the 'has_key' function. */
-/* #undef HAVE_CURSES_HAS_KEY */
+#define HAVE_CURSES_HAS_KEY 1
 
 /* Define if you have the 'immedok' function. */
-/* #undef HAVE_CURSES_IMMEDOK */
+#define HAVE_CURSES_IMMEDOK 1
 
 /* Define if you have the 'is_pad' function or macro. */
-/* #undef HAVE_CURSES_IS_PAD */
+#define HAVE_CURSES_IS_PAD 1
 
 /* Define if you have the 'is_term_resized' function. */
-/* #undef HAVE_CURSES_IS_TERM_RESIZED */
+#define HAVE_CURSES_IS_TERM_RESIZED 1
 
 /* Define if you have the 'resizeterm' function. */
-/* #undef HAVE_CURSES_RESIZETERM */
+#define HAVE_CURSES_RESIZETERM 1
 
 /* Define if you have the 'resize_term' function. */
-/* #undef HAVE_CURSES_RESIZE_TERM */
+#define HAVE_CURSES_RESIZE_TERM 1
 
 /* Define if you have the 'syncok' function. */
-/* #undef HAVE_CURSES_SYNCOK */
+#define HAVE_CURSES_SYNCOK 1
 
 /* Define if you have the 'typeahead' function. */
-/* #undef HAVE_CURSES_TYPEAHEAD */
+#define HAVE_CURSES_TYPEAHEAD 1
 
 /* Define if you have the 'use_env' function. */
-/* #undef HAVE_CURSES_USE_ENV */
+#define HAVE_CURSES_USE_ENV 1
 
 /* Define if you have the 'wchgat' function. */
-/* #undef HAVE_CURSES_WCHGAT */
+#define HAVE_CURSES_WCHGAT 1
 
 /* Define to 1 if you have the declaration of `isfinite', and to 0 if you
    don't. */
@@ -615,7 +615,7 @@
 /* #undef HAVE_LIBUTIL_H */
 
 /* Define you have libuuid. */
-/* #undef HAVE_LIBUUID */
+#define HAVE_LIBUUID 1
 
 /* Define if you have the 'link' function. */
 #define HAVE_LINK 1
@@ -723,7 +723,7 @@
 #define HAVE_MREMAP 1
 
 /* Define to 1 if you have the <ncurses.h> header file. */
-/* #undef HAVE_NCURSES_H */
+#define HAVE_NCURSES_H 1
 
 /* Define to 1 if you have the <ndir.h> header file, and it defines `DIR'. */
 /* #undef HAVE_NDIR_H */
@@ -1237,7 +1237,7 @@
 #define HAVE_TERMIOS_H 1
 
 /* Define to 1 if you have the <term.h> header file. */
-/* #undef HAVE_TERM_H */
+#define HAVE_TERM_H 1
 
 /* Define to 1 if you have the `tgamma' function. */
 #define HAVE_TGAMMA 1
@@ -1304,13 +1304,13 @@
 /* #undef HAVE_UUID_ENC_BE */
 
 /* Define if uuid_generate_time_safe() exists. */
-/* #undef HAVE_UUID_GENERATE_TIME_SAFE */
+#define HAVE_UUID_GENERATE_TIME_SAFE 1
 
 /* Define to 1 if you have the <uuid.h> header file. */
 /* #undef HAVE_UUID_H */
 
 /* Define to 1 if you have the <uuid/uuid.h> header file. */
-/* #undef HAVE_UUID_UUID_H */
+#define HAVE_UUID_UUID_H 1
 
 /* Define to 1 if you have the `wait3' function. */
 #define HAVE_WAIT3 1
@@ -1364,7 +1364,7 @@
 #define MAJOR_IN_SYSMACROS 1
 
 /* Define if mvwdelch in curses.h is an expression. */
-/* #undef MVWDELCH_IS_EXPRESSION */
+#define MVWDELCH_IS_EXPRESSION 1
 
 /* Define to the address where bug reports for this package should be sent. */
 /* #undef PACKAGE_BUGREPORT */
@@ -1533,7 +1533,7 @@
 
 
 /* Define if WINDOW in curses.h offers a field _flags. */
-/* #undef WINDOW_HAS_FLAGS */
+#define WINDOW_HAS_FLAGS 1
 
 /* Define if you want build the _decimal module using a coroutine-local rather
    than a thread-local context */

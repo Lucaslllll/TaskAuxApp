@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -g   CMakeFiles/bloco_notas.dir/src/main.cpp.o CMakeFiles/bloco_notas.dir/src/Notas.cpp.o CMakeFiles/bloco_notas.dir/src/NotasDB.cpp.o CMakeFiles/bloco_notas.dir/src/Pessoa.cpp.o  -o bloco_notas  -lboost_system -lpthread -lcpp_redis -lpthread 

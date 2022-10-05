@@ -1,4 +1,6 @@
-#!/home/Lucas/Documentos/bloco_notas/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/venv/bin/python
+#!/bin/sh
+'''exec' /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/venv/bin/python "$0" "$@"
+' '''
 # -*- coding: utf-8 -*-
 import re
 import sys

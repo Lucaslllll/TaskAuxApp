@@ -1,0 +1,57 @@
+
+cmake_minimum_required(VERSION 3.5)
+project("bloco de notas" VERSION 0.1 LANGUAGES CXX )
+
+# set the compiling flags
+set ( CMAKE_CXX_FLAGS "-Wall -g"  )
+#set( CMAKE_LD_FLAGS "-L/opt/local/lib" ) # was for boost
+
+#--------------------------------
+# This is for old cmake versions
+#set (CMAKE_CXX_STANDARD 11)
+#--------------------------------
+
+### [1] Application target
+# configura o diretório contendo os .h, assim você pode incluílos apenas com include "arquivo.h"
+include_directories( include )
+include_directories(/usr/include/boost)
+
+### [2] Test engine
+# includes do test manager
+include_directories( test_manager/include )
+
+set ( EXEC_NAME "bloco_notas")
+
+# Cria um executável com nome "run_tests", adiciona neste executável os arquivos do test manager e o seu main.cpp
+
+add_executable( ${EXEC_NAME}
+                src/main.cpp
+                src/Notas.cpp
+                src/NotasDB.cpp
+                src/Pessoa.cpp
+                
+                )
+
+# define C++14 standard
+set_property(TARGET ${EXEC_NAME} PROPERTY CXX_STANDARD 14)
+
+
+
+
+
+find_package(Crow)
+target_link_libraries(${EXEC_NAME} PUBLIC Crow::Crow)
+target_link_libraries(${EXEC_NAME} PRIVATE boost_system)
+target_link_libraries(${EXEC_NAME} PRIVATE pthread)
+target_link_libraries(${EXEC_NAME} PRIVATE cpp_redis)
+
+add_custom_target(
+    verify
+    COMMAND python3 ${CMAKE_SOURCE_DIR}/../scripts/verify-inputs.py ./${EXEC_NAME}
+    DEPENDS ${EXEC_NAME}
+)
+
+
+
+
+# The end
