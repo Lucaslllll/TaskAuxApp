@@ -1,4 +1,0 @@
-/home/Lucas/Documentos/Admin-Auxiliador/c++_tests/build/CMakeFiles/rebuild_cache.dir
-/home/Lucas/Documentos/Admin-Auxiliador/c++_tests/build/CMakeFiles/edit_cache.dir
-/home/Lucas/Documentos/Admin-Auxiliador/c++_tests/build/CMakeFiles/verify.dir
-/home/Lucas/Documentos/Admin-Auxiliador/c++_tests/build/CMakeFiles/bloco_notas.dir

@@ -1,9 +1,0 @@
-escrever testes para o programa
-o intuito é um programa util
-e tambem que me ajude a aumentar minhas habilidades em c++
-buscar todas as coisas dificies de c++ e treinar
-
-
-
-
-Autor da Nota: Lucas, Data da Nota: 22-21-2021, Terminou: Não

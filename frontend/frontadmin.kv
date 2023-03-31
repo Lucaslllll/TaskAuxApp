@@ -1,13 +1,6 @@
 <Gerenciador>:
 	Menu:
-		name: "menu_name"	
-
-	# sem utilidade mais
-	#Screen:
-	#	Button:
-	#		text: "Ver Tarefas"
-	#		on_release: root.current = "tarefas_name"
-
+		name: "menu_name"
 	
 	Tarefas:
 		name: "tarefas_name"
@@ -15,17 +8,20 @@
 	Ajuda:
 		name: "ajuda_name"
 
+	Categorias:
+		name: "categorias_name"
+
 
 <Menu>:
 	BoxLayout:
 		id:box_menu
 		orientation: "vertical"
-		padding: root.width*0.25, root.height*0.1
+		padding: root.width*0.20, root.height*0.1
 		spacing: '30dp'
 
 		canvas:
 			Color:
-				rgba: (0.2, 0.4, 0.9, 1)
+				rgba: (1, 1, 1, 1)
 			Rectangle:
 				size: self.size
 				pos: 0, 0
@@ -153,6 +149,14 @@
 		width: 60
 		on_release: app.root.get_screen('tarefas_name').removeWidget(self.parent)
 
+
+
+<Categorias>:
+	BoxLayout:
+		orientation: "vertical"
+
+		Label:
+			text: "Text"
 
 
 

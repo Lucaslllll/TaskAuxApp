@@ -13,7 +13,7 @@ from kivy.core.audio import SoundLoader
 from kivy.clock import Clock
 
 # para poder fazer o teclado subir com textinput
-Window.softinput_mode = 'pan'
+Window.softinput_mode = 'below_target'
 from kivy.config import Config
 Config.set('kivy', 'keyboard_mode', 'systemandmulti')
 
@@ -50,11 +50,11 @@ class Menu(Screen):
         Window.unbind(on_request_close=self.confirmacao)
 
     def confirmacao(self, *args, **kwargs):
-        box = BoxLayout(orientation="vertical", padding=10, spacing=10)
+        box = BoxLayout(orientation="vertical", padding=2, spacing=15)
         botoes = BoxLayout(padding=5, spacing=10)
         
         pop = Popup(title="Deseja mesmo sair", content=box, size_hint=(None, None),
-                    size=(250,250)
+                    size=(350,350)
             )
 
 
@@ -77,7 +77,7 @@ class Menu(Screen):
         animText.repeat = True
         animText.start(sim)        
       
-        anim = Animation(size=(300, 180), duration=0.2, t="out_back")
+        anim = Animation(size=(350, 230), duration=0.2, t="out_back")
         anim.start(pop)
 
         pop.open()
@@ -92,6 +92,7 @@ class Menu(Screen):
 class Botao(ButtonBehavior, Label):
     cor = ListProperty([0.1, 0.5, 0.7, 1])
     cor2 = ListProperty([0.1, 1, 0.2, 1])
+    corAtual = ListProperty([0.1, 0.5, 0.7, 1])
 
     def __init__(self, **kwargs):
         # herdará de buttonbehavior e label
@@ -108,19 +109,19 @@ class Botao(ButtonBehavior, Label):
     def on_press(self, *args):
         # atribuição simutânea
         self.cor, self.cor2 = self.cor2, self.cor
-
+        self.corAtual = self.cor
 
     def on_release(self, *args):
-        self.cor = self.cor2
+        self.corAtual = self.cor2
 
     # no momento que eu crio uma variavel ela tambem ganha sua função de evento
-    def on_cor(self, *args):
+    def on_corAtual(self, *args):
         self.atualizar()
 
     def atualizar(self, *args):
         self.canvas.before.clear()
         with self.canvas.before:
-            Color(rgba=self.cor)
+            Color(rgba=self.corAtual)
             Ellipse(size=(self.height, self.height),
                     pos=(self.pos)
                 )
