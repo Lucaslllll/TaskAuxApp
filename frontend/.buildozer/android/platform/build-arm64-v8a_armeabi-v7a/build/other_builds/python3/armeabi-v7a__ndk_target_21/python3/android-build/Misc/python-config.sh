@@ -4,7 +4,13 @@
 
 exit_with_usage ()
 {
-    echo "Usage: $0 --prefix|--exec-prefix|--includes|--libs|--cflags|--ldflags|--extension-suffix|--help|--abiflags|--configdir|--embed"
+    local usage
+    usage="Usage: $0 --prefix|--exec-prefix|--includes|--libs|--cflags|--ldflags|--extension-suffix|--help|--abiflags|--configdir|--embed"
+    if [ "$1" -eq 0 ]; then
+        echo "$usage"
+    else
+        echo "$usage" >&2
+    fi
     exit $1
 }
 
@@ -30,27 +36,27 @@ prefix_real=$(installed_prefix "$0")
 # locations. Keep prefix & exec_prefix using their original values in case
 # they are referenced in other configure variables, to prevent double
 # substitution, issue #22140.
-prefix="/usr/local"
-exec_prefix="/usr/local"
+prefix="/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root"
+exec_prefix="${prefix}"
 exec_prefix_real=${prefix_real}
 includedir=$(echo "${prefix}/include" | sed "s#$prefix#$prefix_real#")
 libdir=$(echo "${exec_prefix}/lib" | sed "s#$prefix#$prefix_real#")
 CFLAGS=$(echo "-fPIC -DANDROID" | sed "s#$prefix#$prefix_real#")
-VERSION="3.9"
+VERSION="3.14"
 LIBM="-lm"
 LIBC=""
 SYSLIBS="$LIBM $LIBC"
 ABIFLAGS=""
-LIBS="-lpython3.9 -ldl  -lsqlite3 -lffi -lcrypto1.1 -lssl1.1 -lz -lm $SYSLIBS"
-LIBS_EMBED="-lpython${VERSION}${ABIFLAGS} -ldl  -lsqlite3 -lffi -lcrypto1.1 -lssl1.1 -lz -lm $SYSLIBS"
-BASECFLAGS=" -mfloat-abi=softfp -mfpu=vfpv3-d16 -Wno-unused-result -Wsign-compare -Wunreachable-code"
+LIBS="$(BLDLIBRARY) -ldl  -lsqlite3 -lffi -lcrypto -lssl -lz -llog $SYSLIBS"
+LIBS_EMBED="-lpython${VERSION}${ABIFLAGS} -ldl  -lsqlite3 -lffi -lcrypto -lssl -lz -llog $SYSLIBS"
+BASECFLAGS=" -mfloat-abi=softfp -mfpu=vfpv3-d16 -fno-strict-overflow -Wsign-compare -Wunreachable-code"
 LDLIBRARY="libpython$(LDVERSION).so"
-OPT="-DNDEBUG -g -fwrapv -O3 -Wall"
+OPT="-DNDEBUG -g -O3 -Wall"
 PY_ENABLE_SHARED="1"
 LDVERSION="$(VERSION)$(ABIFLAGS)"
 LIBDEST=${prefix_real}/lib/python${VERSION}
-LIBPL=$(echo "$(prefix)/lib/python3.9/config-$(VERSION)$(ABIFLAGS)" | sed "s#$prefix#$prefix_real#")
-SO=".cpython-39.so"
+LIBPL=$(echo "$(prefix)/lib/python3.14/config-$(VERSION)$(ABIFLAGS)-arm-linux-androideabi" | sed "s#$prefix#$prefix_real#")
+SO=".cpython-314-arm-linux-androideabi.so"
 PYTHONFRAMEWORK=""
 INCDIR="-I$includedir/python${VERSION}${ABIFLAGS}"
 PLATINCDIR="-I$includedir/python${VERSION}${ABIFLAGS}"

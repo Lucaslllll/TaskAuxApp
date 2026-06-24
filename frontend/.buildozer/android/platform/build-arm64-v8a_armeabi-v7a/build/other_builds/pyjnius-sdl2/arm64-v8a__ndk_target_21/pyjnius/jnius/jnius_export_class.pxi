@@ -1,7 +1,5 @@
 from cpython cimport PyObject
-from cpython.version cimport PY_MAJOR_VERSION
 from warnings import warn
-
 
 class JavaException(Exception):
     '''Can be a real java exception, or just an exception from the wrapper.
@@ -15,6 +13,15 @@ class JavaException(Exception):
         self.innermessage = innermessage
         self.stacktrace = stacktrace
         Exception.__init__(self, message)
+
+    def __str__(self):
+        '''
+        Override __str__ so that we can see the Java stacktrace
+        '''
+        rtr = self.args[0]
+        if self.stacktrace is not None:
+            rtr += '\n' + '\n\t'.join(self.stacktrace)
+        return rtr
 
 
 cdef class JavaObject(object):
@@ -44,7 +51,7 @@ cdef class JavaClassStorage:
 class MetaJavaBase(type):
     def __instancecheck__(cls, value):
         cdef JNIEnv *j_env = get_jnienv()
-        cdef JavaClassStorage meta = getattr(cls, '__cls_storage', None)
+        cdef JavaClassStorage meta = getattr(cls, CLS_STORAGE_NAME, None)
         cdef JavaObject jo
         cdef JavaClass jc
         cdef PythonJavaClass pc
@@ -133,7 +140,7 @@ class MetaJavaClass(MetaJavaBase):
 
     def __subclasscheck__(cls, value):
         cdef JNIEnv *j_env = get_jnienv()
-        cdef JavaClassStorage me = getattr(cls, '__cls_storage')
+        cdef JavaClassStorage me = getattr(cls, CLS_STORAGE_NAME)
         cdef JavaClassStorage jcs
         cdef JavaClass jc
         cdef jclass obj = NULL
@@ -142,7 +149,7 @@ class MetaJavaClass(MetaJavaBase):
             jc = value
             obj = jc.j_self.obj
         else:
-            jcs = getattr(value, '__cls_storage', None)
+            jcs = getattr(value, CLS_STORAGE_NAME, None)
             if jcs is not None:
                 obj = jcs.j_cls
 
@@ -171,19 +178,25 @@ class MetaJavaClass(MetaJavaBase):
 
         cdef JavaClassStorage jcs = JavaClassStorage()
         cdef bytes __javaclass__ = <bytes>classDict['__javaclass__']
-        cdef bytes __javainterfaces__ = <bytes>classDict.get('__javainterfaces__', b'')
+        __javainterfaces__ = classDict.get('__javainterfaces__', None) # List[str]
         cdef bytes __javabaseclass__ = <bytes>classDict.get('__javabaseclass__', b'')
-        cdef jmethodID getProxyClass, getClassLoader
-        cdef jclass *interfaces
-        cdef jobject *jargs
         cdef JNIEnv *j_env = get_jnienv()
 
+        cdef jclass classClass = j_env[0].FindClass(j_env, b"java/lang/Class")
+
+        cdef jmethodID getProxyClass, getClassLoader
+        # cdef jclass *interfaces
+        cdef jvalue *jargs
+
         if __javainterfaces__ and __javabaseclass__:
+
             baseclass = j_env[0].FindClass(j_env, <char*>__javabaseclass__)
-            interfaces = <jclass *>malloc(sizeof(jclass) * len(__javainterfaces__))
+            interfaces = j_env[0].NewObjectArray(j_env, len(__javainterfaces__), classClass, NULL)
+            # interfaces = <jclass *>malloc(sizeof(jclass) * len(__javainterfaces__))
 
             for n, i in enumerate(__javainterfaces__):
-                interfaces[n] = j_env[0].FindClass(j_env, <char*>i)
+                # interfaces[n] = j_env[0].FindClass(j_env, <char*>i)
+                j_env[0].SetObjectArrayElement(j_env, interfaces, n, j_env[0].FindClass(j_env, <char*>i))
 
             getProxyClass = j_env[0].GetStaticMethodID(
                 j_env, baseclass, "getProxyClass",
@@ -192,15 +205,16 @@ class MetaJavaClass(MetaJavaBase):
             getClassLoader = j_env[0].GetStaticMethodID(
                 j_env, baseclass, "getClassLoader", "()Ljava/lang/Class;")
 
+            jargs = <jvalue*>malloc(sizeof(jvalue) * 2)
             with nogil:
                 classLoader = j_env[0].CallStaticObjectMethodA(
                         j_env, baseclass, getClassLoader, NULL)
-                jargs = <jobject *>malloc(sizeof(jobject) * 2)
-                jargs[0] = <jobject *>classLoader
-                jargs[1] = interfaces
-                jcs.j_cls = j_env[0].CallStaticObjectMethod(
+                
+                jargs[0].l = classLoader
+                jargs[1].l = interfaces
+                jcs.j_cls = j_env[0].CallStaticObjectMethodA(
                         j_env, baseclass, getProxyClass, jargs)
-
+            free(jargs)
             j_env[0].DeleteLocalRef(j_env, baseclass)
 
             if jcs.j_cls == NULL:
@@ -219,13 +233,13 @@ class MetaJavaClass(MetaJavaBase):
         #    in the section Local and Global References
         jcs.j_cls = j_env[0].NewGlobalRef(j_env, jcs.j_cls)
 
-        classDict['__cls_storage'] = jcs
+        classDict[CLS_STORAGE_NAME] = jcs
 
         # search all the static JavaMethod within our class, and resolve them
         cdef JavaMethod jm
         cdef JavaMultipleMethod jmm
         cdef jboolean resolve_static = True
-        for name, value in items_compat(classDict):
+        for name, value in classDict.items():
             if isinstance(value, JavaMethod):
                 jm = value
                 if not jm.is_static:
@@ -239,7 +253,7 @@ class MetaJavaClass(MetaJavaBase):
 
         # search all the static JavaField within our class, and resolve them
         cdef JavaField jf
-        for name, value in items_compat(classDict):
+        for name, value in classDict.items():
             if not isinstance(value, JavaField):
                 continue
             jf = value
@@ -264,7 +278,7 @@ cdef class JavaClass(object):
     def __init__(self, *args, **kwargs):
         super(JavaClass, self).__init__()
         # copy the current attribute in the storage to our class
-        cdef JavaClassStorage jcs = self.__cls_storage
+        cdef JavaClassStorage jcs = getattr(self, CLS_STORAGE_NAME, None)
         self.j_cls = jcs.j_cls
 
         if 'noinstance' not in kwargs:
@@ -285,6 +299,7 @@ cdef class JavaClass(object):
         cdef jmethodID constructor = NULL
         cdef JNIEnv *j_env = get_jnienv()
         cdef list found_definitions = []
+        debug = kwargs.get("debug", False)
 
         # get the constructor definition if exist
         definitions = [('()V', False)]
@@ -350,6 +365,9 @@ cdef class JavaClass(object):
                 )
             scores.sort()
             score, definition, d_ret, d_args, args_ = scores[-1]
+            if debug:
+                print(scores)
+                print("Selected %s for invocation" % definition)
 
         try:
             # convert python arguments to java arguments
@@ -403,7 +421,7 @@ cdef class JavaClass(object):
         cdef JavaMultipleMethod jmm
         cdef JNIEnv *j_env = get_jnienv()
         cdef jboolean resolve_static = False
-        for name, value in items_compat(self.__class__.__dict__):
+        for name, value in self.__class__.__dict__.items():
             if isinstance(value, JavaMethod):
                 jm = value
                 if jm.is_static:
@@ -419,7 +437,7 @@ cdef class JavaClass(object):
         # search all the JavaField within our class, and resolve them
         cdef JavaField jf
         cdef JNIEnv *j_env = get_jnienv()
-        for name, value in items_compat(self.__class__.__dict__):
+        for name, value in self.__class__.__dict__.items():
             if not isinstance(value, JavaField):
                 continue
             jf = value
@@ -586,10 +604,7 @@ cdef class JavaField(object):
         elif r == 'C':
             j_char = j_env[0].GetCharField(
                     j_env, j_self, self.j_field)
-            if PY_MAJOR_VERSION < 3:
-                ret = chr(<char>j_char)
-            else:
-                ret = chr(j_char)
+            ret = chr(j_char)
         elif r == 'S':
             j_short = j_env[0].GetShortField(
                     j_env, j_self, self.j_field)
@@ -713,10 +728,7 @@ cdef class JavaField(object):
         elif r == 'C':
             j_char = j_env[0].GetStaticCharField(
                     j_env, self.j_cls, self.j_field)
-            if PY_MAJOR_VERSION < 3:
-                ret = chr(<char>j_char)
-            else:
-                ret = chr(j_char)
+            ret = chr(j_char)
         elif r == 'S':
             j_short = j_env[0].GetStaticShortField(
                     j_env, self.j_cls, self.j_field)
@@ -929,10 +941,7 @@ cdef class JavaMethod(object):
             with nogil:
                 j_char = j_env[0].CallCharMethodA(
                         j_env, j_self, self.j_method, j_args)
-            if PY_MAJOR_VERSION < 3:
-                ret = chr(<char>j_char)
-            else:
-                ret = chr(j_char)
+            ret = chr(j_char)
         elif r == 'S':
             with nogil:
                 j_short = j_env[0].CallShortMethodA(
@@ -1020,10 +1029,7 @@ cdef class JavaMethod(object):
             with nogil:
                 j_char = j_env[0].CallStaticCharMethodA(
                         j_env, self.j_cls, self.j_method, j_args)
-            if PY_MAJOR_VERSION < 3:
-                ret = chr(<char>j_char)
-            else:
-                ret = chr(j_char)
+            ret = chr(j_char)
         elif r == 'S':
             with nogil:
                 j_short = j_env[0].CallStaticShortMethodA(
@@ -1136,13 +1142,14 @@ cdef class JavaMultipleMethod(object):
         cdef dict methods
         cdef int max_sign_args
         cdef list found_signatures = []
+        debug = kwargs.get("debug", False)
 
         if self.j_self:
             methods = self.instance_methods
         else:
             methods = self.static_methods
 
-        for signature, jm in items_compat(methods):
+        for signature, jm in methods.items():
             # store signatures for the exception
             found_signatures.append(signature)
 
@@ -1171,6 +1178,9 @@ cdef class JavaMultipleMethod(object):
             )
         scores.sort()
         score, signature = scores[-1]
+        if debug:
+            print(scores)
+            print("Selected %s for invocation" % signature)
 
         jm = methods[signature]
         jm.j_self = self.j_self

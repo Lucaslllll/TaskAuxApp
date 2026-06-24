@@ -78,7 +78,12 @@ try:
 except ImportError:
     kivy_deps = None
 from kivy.factory import Factory
-from PyInstaller.depend import bindepend
+try:
+    # Pyinstaller >= 6
+    from PyInstaller.depend.bindepend import get_imports
+except ImportError:
+    # Pyinstaller < 6
+    from PyInstaller.depend.bindepend import selectImports as get_imports
 
 from os import environ
 if 'KIVY_DOC' not in environ:
@@ -294,10 +299,11 @@ def add_dep_paths():
             if not ispkg:
                 continue
             try:
-                mod = importer.find_module(modname).load_module(modname)
+                module_spec = importer.find_spec(modname)
+                mod = importlib.util.module_from_spec(module_spec)
+                module_spec.loader.exec_module(mod)
             except ImportError as e:
-                logging.warn(
-                    "deps: Error importing dependency: {}".format(str(e)))
+                logging.warning(f"deps: Error importing dependency: {e}")
                 continue
 
             if hasattr(mod, 'dep_bins'):
@@ -312,9 +318,11 @@ def add_dep_paths():
         if not ispkg:
             continue
         try:
-            mod = importer.find_module(modname).load_module(modname)
+            module_spec = importer.find_spec(modname)
+            mod = importlib.util.module_from_spec(module_spec)
+            module_spec.loader.exec_module(mod)
         except ImportError as e:
-            logging.warn("deps: Error importing dependency: {}".format(str(e)))
+            logging.warning(f"deps: Error importing dependency: {e}")
             continue
 
         if hasattr(mod, 'dep_bins'):
@@ -358,13 +366,13 @@ def _find_gst_binaries():
         plugin_filepaths.extend(
             glob.glob(os.path.join(plugin_dir, 'libgst*')))
     if len(plugin_filepaths) == 0:
-        logging.warn('Could not find GStreamer plugins. ' +
+        logging.warning('Could not find GStreamer plugins. ' +
                      'Possible solution: set GST_PLUGIN_PATH')
         return []
 
     lib_filepaths = set()
     for plugin_filepath in plugin_filepaths:
-        plugin_deps = bindepend.selectImports(plugin_filepath)
+        plugin_deps = get_imports(plugin_filepath)
         lib_filepaths.update([path for _, path in plugin_deps])
 
     plugin_binaries = [(f, 'gst-plugins') for f in plugin_filepaths]

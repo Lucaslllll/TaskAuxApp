@@ -2,6 +2,8 @@
 preserve
 [clinic start generated code]*/
 
+#include "pycore_modsupport.h"    // _PyArg_CheckPositional()
+
 PyDoc_STRVAR(_symtable_symtable__doc__,
 "symtable($module, source, filename, startstr, /)\n"
 "--\n"
@@ -9,7 +11,7 @@ PyDoc_STRVAR(_symtable_symtable__doc__,
 "Return symbol and scope dictionaries used internally by compiler.");
 
 #define _SYMTABLE_SYMTABLE_METHODDEF    \
-    {"symtable", (PyCFunction)(void(*)(void))_symtable_symtable, METH_FASTCALL, _symtable_symtable__doc__},
+    {"symtable", _PyCFunction_CAST(_symtable_symtable), METH_FASTCALL, _symtable_symtable__doc__},
 
 static PyObject *
 _symtable_symtable_impl(PyObject *module, PyObject *source,
@@ -20,7 +22,7 @@ _symtable_symtable(PyObject *module, PyObject *const *args, Py_ssize_t nargs)
 {
     PyObject *return_value = NULL;
     PyObject *source;
-    PyObject *filename;
+    PyObject *filename = NULL;
     const char *startstr;
 
     if (!_PyArg_CheckPositional("symtable", nargs, 3, 3)) {
@@ -46,6 +48,9 @@ _symtable_symtable(PyObject *module, PyObject *const *args, Py_ssize_t nargs)
     return_value = _symtable_symtable_impl(module, source, filename, startstr);
 
 exit:
+    /* Cleanup for filename */
+    Py_XDECREF(filename);
+
     return return_value;
 }
-/*[clinic end generated code: output=a12f75cdbdf4e52a input=a9049054013a1b77]*/
+/*[clinic end generated code: output=7a8545d9a1efe837 input=a9049054013a1b77]*/

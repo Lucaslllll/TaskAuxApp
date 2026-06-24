@@ -59,7 +59,7 @@ class CameraAndroid(CameraBase):
         self.fps = 30.
 
         pf = params.getPreviewFormat()
-        assert(pf == ImageFormat.NV21)  # default format is NV21
+        assert pf == ImageFormat.NV21  # default format is NV21
         self._bufsize = int(ImageFormat.getBitsPerPixel(pf) / 8. *
                             width * height)
 
@@ -188,7 +188,7 @@ class CameraAndroid(CameraBase):
         from cv2 import cvtColor
 
         w, h = self._resolution
-        arr = np.fromstring(buf, 'uint8').reshape((h + h / 2, w))
+        arr = np.fromstring(buf, 'uint8').reshape((h + h // 2, w))
         arr = cvtColor(arr, 93)  # NV21 -> BGR
         return arr
 

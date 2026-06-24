@@ -3,7 +3,6 @@
      com.gamemaker.game
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="org.test.taskapp"
       android:versionCode="10211"
       android:versionName="0.1"
       android:installLocation="auto">
@@ -19,13 +18,12 @@
     />
 
     <!-- Android 2.3.3 -->
-    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="27" />
+    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="33" />
 
     <!-- OpenGL ES 2.0 -->
     <uses-feature android:glEsVersion="0x00020000" />
 
-    <!-- Allow writing to external storage -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- Set permissions -->
     
 
     
@@ -63,17 +61,20 @@
                   android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|fontScale|uiMode|uiMode|screenSize|smallestScreenSize|layoutDirection"
                   android:screenOrientation="portrait"
                   android:exported="true"
+                  android:theme="@style/KivySupportCutout"
                   
                   android:launchMode="singleTask"
                   
                   >
 
-            
             <intent-filter>
+            
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            </activity>
+            
+
+            
+            </intent-filter></activity>
 
         
 

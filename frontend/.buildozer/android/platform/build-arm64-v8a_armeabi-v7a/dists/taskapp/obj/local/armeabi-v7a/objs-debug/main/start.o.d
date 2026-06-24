@@ -1,437 +1,350 @@
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/obj/local/armeabi-v7a/objs-debug/main/start.o: \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/start.c \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/Python.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/patchlevel.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pyconfig.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pymacconfig.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pyport.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/exports.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pymacro.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pymath.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pytime.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/object.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/object.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pymem.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/pymem.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/objimpl.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/objimpl.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/typeslots.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pyhash.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pydebug.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/bytearrayobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/bytearrayobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/bytesobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/bytesobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/unicodeobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/unicodeobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/longobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/longintrepr.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/boolobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/floatobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/complexobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/rangeobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/memoryobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/tupleobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/tupleobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/listobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/listobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/dictobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/dictobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/odictobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/enumobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/setobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/methodobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/methodobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/moduleobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/funcobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/classobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/fileobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/fileobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pycapsule.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/code.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/code.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pyframe.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/traceback.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/traceback.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/sliceobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cellobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/iterobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/genobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pystate.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/pystate.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/initconfig.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/descrobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/genericaliasobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/warnings.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/weakrefobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/structseq.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/namespaceobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/picklebufobject.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/codecs.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pyerrors.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/pyerrors.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pythread.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/context.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pyarena.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/modsupport.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/compile.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pythonrun.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pylifecycle.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/pylifecycle.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/ceval.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/ceval.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/sysmodule.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/sysmodule.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/osmodule.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/intrcheck.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/import.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/import.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/abstract.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/abstract.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/bltinmodule.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/eval.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pyctype.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pystrtod.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pystrcmp.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/fileutils.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/fileutils.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pyfpe.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/tracemalloc.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/bootstrap_name.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_main.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_stdinc.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_config.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_platform.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/begin_code.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/close_code.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_config_android.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_assert.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_atomic.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_audio.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_error.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_endian.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_mutex.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_thread.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_rwops.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_clipboard.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_cpuinfo.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_events.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_video.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_pixels.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_rect.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_surface.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_blendmode.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_keyboard.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_keycode.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_scancode.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_mouse.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_joystick.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_gamecontroller.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_quit.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_gesture.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_touch.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_filesystem.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_haptic.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_hints.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_loadso.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_log.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_messagebox.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_power.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_render.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_sensor.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_shape.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_system.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_timer.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_version.h \
-  /home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_opengles2.h
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/Python.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/patchlevel.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pyconfig.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pymacconfig.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pyport.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/exports.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pymacro.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pymath.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pytime.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/object.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/object.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pymem.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/pymem.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/objimpl.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/objimpl.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/typeslots.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pyhash.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pydebug.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/bytearrayobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/bytearrayobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/bytesobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/bytesobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/unicodeobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/unicodeobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/longobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/longintrepr.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/boolobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/floatobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/complexobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/rangeobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/memoryobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/tupleobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/tupleobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/listobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/listobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/dictobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/dictobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/odictobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/enumobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/setobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/methodobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/methodobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/moduleobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/funcobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/classobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/fileobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/fileobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pycapsule.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/code.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/code.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pyframe.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/traceback.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/traceback.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/sliceobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cellobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/iterobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/genobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pystate.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/pystate.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/initconfig.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/descrobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/genericaliasobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/warnings.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/weakrefobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/structseq.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/namespaceobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/picklebufobject.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/codecs.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pyerrors.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/pyerrors.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pythread.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/context.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pyarena.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/modsupport.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/compile.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pythonrun.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pylifecycle.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/pylifecycle.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/ceval.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/ceval.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/sysmodule.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/sysmodule.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/osmodule.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/intrcheck.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/import.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/import.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/abstract.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/abstract.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/bltinmodule.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/eval.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pyctype.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pystrtod.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pystrcmp.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/fileutils.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/cpython/fileutils.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/pyfpe.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/Include/tracemalloc.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/bootstrap_name.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_main.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_stdinc.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_config.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_platform.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/begin_code.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/close_code.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_config_android.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_assert.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_atomic.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_audio.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_error.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_endian.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_mutex.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_thread.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_rwops.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_clipboard.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_cpuinfo.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_events.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_video.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_pixels.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_rect.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_surface.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_blendmode.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_keyboard.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_keycode.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_scancode.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_mouse.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_joystick.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_gamecontroller.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_quit.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_gesture.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_touch.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_filesystem.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_haptic.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_hints.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_loadso.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_log.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_messagebox.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_power.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_render.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_sensor.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_shape.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_system.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_timer.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_version.h:
-
-/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_opengles2.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/obj/local/armeabi-v7a/objs-debug/main/start.o: \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/start.c \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/Python.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/patchlevel.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pyconfig.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pymacconfig.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pyport.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/exports.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pymacro.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pymath.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pymem.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pymem.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pytypedefs.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pybuffer.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pystats.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pyatomic.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pyatomic.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pyatomic_gcc.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/lock.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/lock.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/critical_section.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/critical_section.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/object.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/object.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/refcount.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/objimpl.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/objimpl.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/typeslots.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pyhash.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pyhash.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pydebug.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/bytearrayobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/bytearrayobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/bytesobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/bytesobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/unicodeobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/unicodeobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pyerrors.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pyerrors.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/longobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/longobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/longintrepr.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/boolobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/floatobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/floatobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/complexobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/complexobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/rangeobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/memoryobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/memoryobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/tupleobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/tupleobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/listobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/listobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/dictobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/dictobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/odictobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/enumobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/setobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/setobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/methodobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/methodobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/moduleobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/monitoring.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/monitoring.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/funcobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/classobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/fileobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/fileobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pycapsule.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/code.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pyframe.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pyframe.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/traceback.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/traceback.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/sliceobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/cellobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/iterobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/initconfig.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pystate.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pystate.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/genobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/descrobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/descrobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/genericaliasobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/warnings.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/warnings.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/weakrefobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/weakrefobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/structseq.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/picklebufobject.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pytime.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/codecs.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pythread.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pythread.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/context.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/modsupport.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/modsupport.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/compile.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/compile.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pythonrun.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pythonrun.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pylifecycle.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pylifecycle.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/ceval.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/ceval.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/sysmodule.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/audit.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/audit.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/osmodule.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/intrcheck.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/import.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/import.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/abstract.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/abstract.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/bltinmodule.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pyctype.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pystrtod.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pystrcmp.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/fileutils.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/fileutils.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pyfpe.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/tracemalloc.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/bootstrap_name.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_main.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_stdinc.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_config.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_platform.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/begin_code.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/close_code.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_config_android.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_assert.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_atomic.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_audio.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_error.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_endian.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_mutex.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_thread.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_rwops.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_clipboard.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_cpuinfo.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_events.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_video.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_pixels.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_rect.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_surface.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_blendmode.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_keyboard.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_keycode.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_scancode.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_mouse.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_joystick.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_guid.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_gamecontroller.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_sensor.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_quit.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_gesture.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_touch.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_filesystem.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_haptic.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_hidapi.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_hints.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_loadso.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_log.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_messagebox.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_metal.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_power.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_render.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_shape.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_system.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_timer.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_version.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_locale.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_misc.h \
+  /home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_opengles2.h
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/Python.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/patchlevel.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pyconfig.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pymacconfig.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pyport.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/exports.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pymacro.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pymath.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pymem.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pymem.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pytypedefs.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pybuffer.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pystats.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pyatomic.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pyatomic.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pyatomic_gcc.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/lock.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/lock.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/critical_section.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/critical_section.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/object.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/object.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/refcount.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/objimpl.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/objimpl.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/typeslots.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pyhash.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pyhash.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pydebug.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/bytearrayobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/bytearrayobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/bytesobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/bytesobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/unicodeobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/unicodeobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pyerrors.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pyerrors.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/longobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/longobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/longintrepr.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/boolobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/floatobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/floatobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/complexobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/complexobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/rangeobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/memoryobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/memoryobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/tupleobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/tupleobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/listobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/listobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/dictobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/dictobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/odictobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/enumobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/setobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/setobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/methodobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/methodobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/moduleobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/monitoring.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/monitoring.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/funcobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/classobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/fileobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/fileobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pycapsule.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/code.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pyframe.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pyframe.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/traceback.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/traceback.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/sliceobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/cellobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/iterobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/initconfig.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pystate.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pystate.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/genobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/descrobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/descrobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/genericaliasobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/warnings.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/warnings.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/weakrefobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/weakrefobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/structseq.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/picklebufobject.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pytime.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/codecs.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pythread.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pythread.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/context.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/modsupport.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/modsupport.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/compile.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/compile.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pythonrun.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pythonrun.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pylifecycle.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pylifecycle.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/ceval.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/ceval.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/sysmodule.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/audit.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/audit.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/osmodule.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/intrcheck.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/import.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/import.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/abstract.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/abstract.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/bltinmodule.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pyctype.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pystrtod.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/pystrcmp.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/fileutils.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/fileutils.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/pyfpe.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/armeabi-v7a__ndk_target_21/python3/android-build/android-root/include/python3.14/cpython/tracemalloc.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/bootstrap_name.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_main.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_stdinc.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_config.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_platform.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/begin_code.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/close_code.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_config_android.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_assert.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_atomic.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_audio.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_error.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_endian.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_mutex.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_thread.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_rwops.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_clipboard.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_cpuinfo.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_events.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_video.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_pixels.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_rect.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_surface.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_blendmode.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_keyboard.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_keycode.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_scancode.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_mouse.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_joystick.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_guid.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_gamecontroller.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_sensor.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_quit.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_gesture.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_touch.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_filesystem.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_haptic.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_hidapi.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_hints.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_loadso.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_log.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_messagebox.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_metal.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_power.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_render.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_shape.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_system.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_timer.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_version.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_locale.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_misc.h:
+/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/bootstrap_builds/sdl2/jni/application/src/../../SDL/include/SDL_opengles2.h:

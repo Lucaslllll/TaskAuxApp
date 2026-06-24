@@ -1,1 +1,1 @@
-build/lib.linux-aarch64-3.9
+build/lib.android-21-arm64_v8a-3.14

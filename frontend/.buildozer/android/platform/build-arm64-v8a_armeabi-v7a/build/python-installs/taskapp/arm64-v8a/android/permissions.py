@@ -98,6 +98,15 @@ class Permission:
     BLUETOOTH = (
         "android.permission.BLUETOOTH"
         )
+    BLUETOOTH_ADVERTISE = (
+        "android.permission.BLUETOOTH_ADVERTISE"
+        )
+    BLUETOOTH_CONNECT = (
+        "android.permission.BLUETOOTH_CONNECT"
+        )
+    BLUETOOTH_SCAN = (
+        "android.permission.BLUETOOTH_SCAN"
+        )
     BLUETOOTH_ADMIN = (
         "android.permission.BLUETOOTH_ADMIN"
         )
@@ -233,6 +242,9 @@ class Permission:
     MOUNT_UNMOUNT_FILESYSTEMS = (
         "android.permission.MOUNT_UNMOUNT_FILESYSTEMS"
         )
+    NEARBY_WIFI_DEVICES = (
+        "android.permission.NEARBY_WIFI_DEVICES"
+        )
     NFC = (
         "android.permission.NFC"
         )
@@ -244,6 +256,9 @@ class Permission:
         )
     PERSISTENT_ACTIVITY = (
         "android.permission.PERSISTENT_ACTIVITY"
+        )
+    POST_NOTIFICATIONS = (
+        "android.permission.POST_NOTIFICATIONS"
         )
     PROCESS_OUTGOING_CALLS = (
         "android.permission.PROCESS_OUTGOING_CALLS"
@@ -268,6 +283,15 @@ class Permission:
         )
     READ_LOGS = (
         "android.permission.READ_LOGS"
+        )
+    READ_MEDIA_AUDIO = (
+        "android.permission.READ_MEDIA_AUDIO"
+        )
+    READ_MEDIA_IMAGES = (
+        "android.permission.READ_MEDIA_IMAGES"
+        )
+    READ_MEDIA_VIDEO = (
+        "android.permission.READ_MEDIA_VIDEO"
         )
     READ_PHONE_NUMBERS = (
         "android.permission.READ_PHONE_NUMBERS"
@@ -425,6 +449,9 @@ class Permission:
     WRITE_VOICEMAIL = (
         "com.android.voicemail.permission.WRITE_VOICEMAIL"
         )
+    MANAGE_EXTERNAL_STORAGE = (  # Convenient use of paths to manage files
+        "android.permission.MANAGE_EXTERNAL_STORAGE"
+        )
 
 
 PERMISSION_GRANTED = 0
@@ -563,7 +590,7 @@ def request_permissions(permissions, callback=None):
     See Android documentation for onPermissionsCallbackResult for
     further information.
 
-    Note that if the request is interupted the callback may contain an empty
+    Note that if the request is interrupted the callback may contain an empty
     list of permissions, without permissions being granted; the App should
     check that each permission requested has been granted.
 

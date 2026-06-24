@@ -7,8 +7,10 @@ from weakref import proxy
 import io
 import _pyio as pyio
 
-from test.support import TESTFN, gc_collect
-from test import support
+from test.support import gc_collect
+from test.support.os_helper import TESTFN
+from test.support import os_helper
+from test.support import warnings_helper
 from collections import UserList
 
 class AutoFileTests:
@@ -20,7 +22,7 @@ class AutoFileTests:
     def tearDown(self):
         if self.f:
             self.f.close()
-        support.unlink(TESTFN)
+        os_helper.unlink(TESTFN)
 
     def testWeakRefs(self):
         # verify weak references
@@ -52,7 +54,7 @@ class AutoFileTests:
         # verify readinto refuses text files
         a = array('b', b'x'*10)
         self.f.close()
-        self.f = self.open(TESTFN, 'r')
+        self.f = self.open(TESTFN, encoding="utf-8")
         if hasattr(self.f, "readinto"):
             self.assertRaises(TypeError, self.f.readinto, a)
 
@@ -124,7 +126,7 @@ class AutoFileTests:
         # it must also return None if an exception was given
         try:
             1/0
-        except:
+        except ZeroDivisionError:
             self.assertEqual(self.f.__exit__(*sys.exc_info()), None)
 
     def testReadWhenWriting(self):
@@ -140,7 +142,7 @@ class PyAutoFileTests(AutoFileTests, unittest.TestCase):
 class OtherFileTests:
 
     def tearDown(self):
-        support.unlink(TESTFN)
+        os_helper.unlink(TESTFN)
 
     def testModeStrings(self):
         # check invalid mode strings
@@ -204,7 +206,7 @@ class OtherFileTests:
         # make sure that explicitly setting the buffer size doesn't cause
         # misbehaviour especially with repeated close() calls
         for s in (-1, 0, 512):
-            with support.check_no_warnings(self,
+            with warnings_helper.check_no_warnings(self,
                                            message='line buffering',
                                            category=RuntimeWarning):
                 self._checkBufferSize(s)
@@ -214,8 +216,18 @@ class OtherFileTests:
         with self.assertWarnsRegex(RuntimeWarning, 'line buffering'):
             self._checkBufferSize(1)
 
+    def testDefaultBufferSize(self):
+        with self.open(TESTFN, 'wb') as f:
+            blksize = f.raw._blksize
+            f.write(b"\0" * 5_000_000)
+
+        with self.open(TESTFN, 'rb') as f:
+            data = f.read1()
+            expected_size = max(min(blksize, 8192 * 1024), io.DEFAULT_BUFFER_SIZE)
+            self.assertEqual(len(data), expected_size)
+
     def testTruncateOnWindows(self):
-        # SF bug <http://www.python.org/sf/801631>
+        # SF bug <https://bugs.python.org/issue801631>
         # "file.truncate fault on windows"
 
         f = self.open(TESTFN, 'wb')

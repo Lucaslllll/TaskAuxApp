@@ -1,5 +1,5 @@
 '''
-Pyjnius
+PyJNIus
 =======
 
 Accessing Java classes from Python.
@@ -7,7 +7,7 @@ Accessing Java classes from Python.
 All the documentation is available at: http://pyjnius.readthedocs.org
 '''
 
-__version__ = '1.4.2'
+__version__ = '1.7.0'
 
 from .env import get_java_setup
 
@@ -44,15 +44,13 @@ else:
     from .jnius import *  # noqa
     from .reflect import *  # noqa
 
-from six import with_metaclass
-
 # XXX monkey patch methods that cannot be in cython.
 # Cython doesn't allow to set new attribute on methods it compiled
 
 HASHCODE_MAX = 2 ** 31 - 1
 
 
-class PythonJavaClass_(with_metaclass(MetaJavaBase, PythonJavaClass)):
+class PythonJavaClass_(PythonJavaClass, metaclass=MetaJavaBase):
 
     @java_method('()I', name='hashCode')
     def hashCode(self):

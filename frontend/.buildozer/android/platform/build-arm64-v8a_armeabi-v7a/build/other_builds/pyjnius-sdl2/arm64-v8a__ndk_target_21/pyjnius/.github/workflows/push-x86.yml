@@ -7,13 +7,11 @@ jobs:
     strategy:
       matrix:
         python:
-           - '3.6'
-           - '3.7'
-           - '3.8'
            - '3.9'
            - '3.10'
+           - '3.11'
     container:
-      image: i386/python:${{ matrix.python }}-buster
+      image: i386/python:${{ matrix.python }}-bullseye
     steps:
     - name: info
       run: |
@@ -27,6 +25,7 @@ jobs:
     - name: checkout
       run: |
         linux32 sh -ec '
+          git config --global --add safe.directory '*'
           git init .
           git remote add origin https://github.com/$GITHUB_REPOSITORY
           git config --local gc.auto 0

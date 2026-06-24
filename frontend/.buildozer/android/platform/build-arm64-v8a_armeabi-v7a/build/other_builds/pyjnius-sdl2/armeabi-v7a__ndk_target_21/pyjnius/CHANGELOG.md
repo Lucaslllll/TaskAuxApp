@@ -1,5 +1,69 @@
 # Change Log
 
+# [1.7.0](https://github.com/kivy/pyjnius/tree/1.7.0) (2025-09-08)
+[Full Changelog](https://github.com/kivy/pyjnius/compare/1.6.1...1.7.0)
+
+# Highlights
+- [\#713](https://github.com/kivy/pyjnius/pull/713) Remove support for Python 3.7 as reached EOL
+- [\#696](https://github.com/kivy/pyjnius/pull/696) Display Java stacktrace by default in JavaException
+- [\#753](https://github.com/kivy/pyjnius/pull/753) fixes for Cython 3.1 support
+- [\#762](https://github.com/kivy/pyjnius/pull/762) Remove support for Python 3.8 which reached EOL on 2024-10-07
+- [\#756](https://github.com/kivy/pyjnius/pull/756) Remove python long to support Cython >= 3.1.x
+- [\#766](https://github.com/kivy/pyjnius/pull/766) Remove support for Cython versions prior to 3.x.x
+- [\#764](https://github.com/kivy/pyjnius/pull/764) Add support for Python 3.13, fix incompatible pointers
+
+
+# [1.6.1](https://github.com/kivy/pyjnius/tree/1.6.1) (2023-11-05)
+[Full Changelog](https://github.com/kivy/pyjnius/compare/1.6.0...1.6.1)
+
+**Implemented enhancements:**
+- [\#684](https://github.com/kivy/pyjnius/pull/684) Add (now mandatory) `.readthedocs.yaml` file, add docs extras and update sphinx conf
+- [\#691](https://github.com/kivy/pyjnius/pull/691) Cleanup some Java code in NativeInvocationHandler.java
+- [\#692](https://github.com/kivy/pyjnius/pull/692) Skip getting version from `Cython` on Android. Instead add `ANDROID_PYJNUS_CYTHON_3` env var
+- [\#693](https://gtihub.com/kivy/pyjnius/pull/693) Use the `release/v1` tag for `pypa/gh-action-pypi-publish`, as `master` is deprecated
+
+# [1.6.0](https://github.com/kivy/pyjnius/tree/1.6.0) (2023-10-07)
+[Full Changelog](https://github.com/kivy/pyjnius/compare/1.5.0...1.6.0)
+
+**Implemented enhancements:**
+- [\#659](https://github.com/kivy/pyjnius/pull/659) introduce protocol_map for Map$Entry
+- [\#669](https://github.com/kivy/pyjnius/pull/669) Support both Cython >3 and Cython < 3
+- [\#672](https://github.com/kivy/pyjnius/pull/672) Support Java 20, remove Java 7 support
+- [\#673](https://github.com/kivy/pyjnius/pull/673) Remove pkg_resources for Python >=3.9
+- [\#681](https://github.com/kivy/pyjnius/pull/681) Add missing Python supported version label for Python 3.12
+
+**Packaging**
+- [\#680](https://github.com/kivy/pyjnius/pull/680) Update cibuildwheel to perform build for Python 3.12
+
+**CI**
+- [\#676](https://github.com/kivy/pyjnius/pull/676) Ensure we test the produced wheel, and not the one from the index
+- [\#678](https://github.com/kivy/pyjnius/pull/678) Add tests for python 3.12
+- [\#677](https://github.com/kivy/pyjnius/pull/677) Now Github Actions provides python3 via setup-python also for Apple Silicon Macs
+- [\#679](https://github.com/kivy/pyjnius/pull/679) Add tests on push for Apple Silicon
+- [\#682](https://github.com/kivy/pyjnius/pull/682) Build stdist needs Cython to perform the build
+
+
+## [1.5.0](https://github.com/kivy/pyjnius/tree/1.5.0) (2023-05-10)
+[Full Changelog](https://github.com/kivy/pyjnius/compare/1.4.2...1.5.0)
+
+**Implemented enhancements:**
+- [\#633](https://github.com/kivy/pyjnius/pull/633) Add BSD Unix build support (FreeBSD, OpenBSD, NetBSD, ..)
+- [\#643](https://github.com/kivy/pyjnius/pull/643) Initialize logger as a child of the Kivy's one
+- [\#657](https://github.com/kivy/pyjnius/pull/657) Add support request automation (as other kivy projects)
+- [\#656](https://github.com/kivy/pyjnius/pull/656) Add support for Python 3.11
+
+**Cleanup**
+- [\#619](https://github.com/kivy/pyjnius/pull/619) Remove Python 2 support, six dependency
+- [\#641](https://github.com/kivy/pyjnius/pull/641) Removes some Python2-era complexity
+- [\#654](https://github.com/kivy/pyjnius/pull/654) Remove Python 3.6 from supported and test matrix, as it reached EOL
+
+**CI**
+- [\#655](https://github.com/kivy/pyjnius/pull/655) Linux x86 tests force as safe directory
+
+**Packaging**
+- [\#653](https://github.com/kivy/pyjnius/pull/653) Build (and test) `manylinux-aarch64` wheels via our `kivy-ubuntu-arm64` self-hosted runner
+
+
 ## [1.4.2](https://github.com/kivy/pyjnius/tree/1.4.2) (2022-07-02)
 [Full Changelog](https://github.com/kivy/pyjnius/compare/1.4.1...1.4.2)
 

@@ -4,7 +4,13 @@
 
 exit_with_usage ()
 {
-    echo "Usage: $0 --prefix|--exec-prefix|--includes|--libs|--cflags|--ldflags|--extension-suffix|--help|--abiflags|--configdir|--embed"
+    local usage
+    usage="Usage: $0 --prefix|--exec-prefix|--includes|--libs|--cflags|--ldflags|--extension-suffix|--help|--abiflags|--configdir|--embed"
+    if [ "$1" -eq 0 ]; then
+        echo "$usage"
+    else
+        echo "$usage" >&2
+    fi
     exit $1
 }
 
@@ -30,27 +36,27 @@ prefix_real=$(installed_prefix "$0")
 # locations. Keep prefix & exec_prefix using their original values in case
 # they are referenced in other configure variables, to prevent double
 # substitution, issue #22140.
-prefix="/usr/local"
+prefix="/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/hostpython3/desktop/hostpython3/native-build/root/usr/local"
 exec_prefix="${prefix}"
 exec_prefix_real=${prefix_real}
 includedir=$(echo "${prefix}/include" | sed "s#$prefix#$prefix_real#")
 libdir=$(echo "${exec_prefix}/lib" | sed "s#$prefix#$prefix_real#")
 CFLAGS=$(echo "" | sed "s#$prefix#$prefix_real#")
-VERSION="3.9"
+VERSION="3.14"
 LIBM="-lm"
 LIBC=""
 SYSLIBS="$LIBM $LIBC"
 ABIFLAGS=""
-LIBS=" -lcrypt -lpthread -ldl  -lutil -lm $SYSLIBS"
-LIBS_EMBED="-lpython${VERSION}${ABIFLAGS} -lcrypt -lpthread -ldl  -lutil -lm $SYSLIBS"
-BASECFLAGS=" -Wno-unused-result -Wsign-compare"
+LIBS=" -ldl  $SYSLIBS"
+LIBS_EMBED="-lpython${VERSION}${ABIFLAGS} -ldl  $SYSLIBS"
+BASECFLAGS=" -fno-strict-overflow -Wsign-compare"
 LDLIBRARY="libpython$(VERSION)$(ABIFLAGS).a"
-OPT="-DNDEBUG -g -fwrapv -O3 -Wall"
+OPT="-DNDEBUG -g -O3 -Wall"
 PY_ENABLE_SHARED="0"
 LDVERSION="$(VERSION)$(ABIFLAGS)"
 LIBDEST=${prefix_real}/lib/python${VERSION}
-LIBPL=$(echo "$(prefix)/lib/python3.9/config-$(VERSION)$(ABIFLAGS)-x86_64-linux-gnu" | sed "s#$prefix#$prefix_real#")
-SO=".cpython-39-x86_64-linux-gnu.so"
+LIBPL=$(echo "$(prefix)/lib/python3.14/config-$(VERSION)$(ABIFLAGS)-x86_64-linux-gnu" | sed "s#$prefix#$prefix_real#")
+SO=".cpython-314-x86_64-linux-gnu.so"
 PYTHONFRAMEWORK=""
 INCDIR="-I$includedir/python${VERSION}${ABIFLAGS}"
 PLATINCDIR="-I$includedir/python${VERSION}${ABIFLAGS}"

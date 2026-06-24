@@ -106,14 +106,16 @@ ELIF JNIUS_PLATFORM == "win32":
 ELSE:
     include "jnius_jvm_dlopen.pxi"
 
+# from Cython 3.0, in the MetaJavaClass, this is accessed as _JavaClass__cls_storage
+# see https://cython.readthedocs.io/en/latest/src/userguide/migrating_to_cy30.html#class-private-name-mangling
+cdef CLS_STORAGE_NAME = '_JavaClass__cls_storage'
+
 include "jnius_env.pxi"
 include "jnius_utils.pxi"
 include "jnius_conversion.pxi"
 include "jnius_localref.pxi"
-IF JNIUS_PYTHON3:
-    include "jnius_nativetypes3.pxi"
-ELSE:
-    include "jnius_nativetypes.pxi"
+
+include "jnius_nativetypes3.pxi"
 
 include "jnius_export_func.pxi"
 include "jnius_export_class.pxi"
