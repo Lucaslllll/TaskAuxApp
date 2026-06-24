@@ -2,7 +2,6 @@ import sys
 import os
 from os.path import join
 from jnius.env import get_java_setup
-from cpython.version cimport PY_MAJOR_VERSION
 
 # on desktop, we need to create an env :)
 # example taken from http://www.inonit.com/cygwin/jni/invocationApi/c.html
@@ -46,6 +45,7 @@ cdef void create_jnienv() except *:
     args.nOptions = len(optarr)
     args.ignoreUnrecognized = JNI_FALSE
 
+    attempted = []
     if sys.version_info >= (3, 8):
         # uh, let's see if this works and cleanup later
         java = get_java_setup('win32')
@@ -62,6 +62,7 @@ cdef void create_jnienv() except *:
             if not os.path.isdir(path):
                 continue
             with os.add_dll_directory(path):
+                attempted.append(path)
                 try:
                     ret = JNI_CreateJavaVM(&jvm, <void **>&_platform_default_env, &args)
                 except Exception as e:
@@ -69,8 +70,10 @@ cdef void create_jnienv() except *:
                 else:
                     break
         else:
-            raise Exception("Unable to create jni env, no jvm dll found.")
-
+            if len(attempted) > 0:
+                raise Exception("Unable to create jni env, no jvm dll found in %s" % str(attempted))
+            else:                
+                raise Exception("Unable to create jni env, no valid java library paths were found in %s, perhaps you need to update JAVA_HOME" % jdk_home)
     else:
         ret = JNI_CreateJavaVM(&jvm, <void **>&_platform_default_env, &args)
 

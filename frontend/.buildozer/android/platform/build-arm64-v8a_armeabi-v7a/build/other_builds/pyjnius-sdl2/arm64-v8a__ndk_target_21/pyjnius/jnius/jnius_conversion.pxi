@@ -1,5 +1,3 @@
-from cpython.version cimport PY_MAJOR_VERSION
-
 activeLambdaJavaProxies = set()
 
 cdef jstringy_arg(argtype):
@@ -64,7 +62,7 @@ cdef void populate_args(JNIEnv *j_env, tuple definition_args, jvalue *j_args, ar
                 j_args[index].l = NULL
 
             # numeric types
-            elif isinstance(py_arg, (int, long)):
+            elif isinstance(py_arg, int):
                 j_args[index].l = convert_python_to_jobject(
                     j_env, 'Ljava/lang/Integer;', py_arg
                 )
@@ -90,7 +88,7 @@ cdef void populate_args(JNIEnv *j_env, tuple definition_args, jvalue *j_args, ar
                 jo = py_arg
                 j_args[index].l = jo.obj
             elif isinstance(py_arg, MetaJavaClass):
-                jcs = py_arg.__cls_storage
+                jcs = getattr(py_arg, CLS_STORAGE_NAME)
                 j_args[index].l = jcs.j_cls
             elif isinstance(py_arg, PythonJavaClass):
                 # from python class, get the proxy/python class
@@ -142,12 +140,7 @@ cdef void populate_args(JNIEnv *j_env, tuple definition_args, jvalue *j_args, ar
             if py_arg is None:
                 j_args[index].l = NULL
                 continue
-            if isinstance(py_arg, basestring) and PY_MAJOR_VERSION < 3:
-                if argtype == '[B':
-                    py_arg = map(ord, py_arg)
-                elif argtype == '[C':
-                    py_arg = list(py_arg)
-            if isinstance(py_arg, str) and PY_MAJOR_VERSION >= 3 and argtype == '[C':
+            if isinstance(py_arg, str) and argtype == '[C':
                 py_arg = list(py_arg)
             if isinstance(py_arg, ByteArray) and argtype != '[B':
                 raise JavaException(
@@ -260,10 +253,7 @@ cdef convert_jstring_to_python(JNIEnv *j_env, jstring j_string):
     finally:
         j_env[0].ReleaseStringChars(j_env, j_string, j_chars)
 
-    if PY_MAJOR_VERSION < 3:
-        return py_uni.encode('utf-8')
-    else:
-        return py_uni
+    return py_uni
 
 cdef convert_jarray_to_python(JNIEnv *j_env, definition, jobject j_object):
     cdef jboolean iscopy
@@ -311,10 +301,7 @@ cdef convert_jarray_to_python(JNIEnv *j_env, definition, jobject j_object):
         j_chars = j_env[0].GetCharArrayElements(
                 j_env, j_object, &iscopy)
 
-        if PY_MAJOR_VERSION < 3:
-            ret = [chr(<char>j_chars[i]) for i in range(array_size)]
-        else:
-            ret = [chr(j_chars[i]) for i in range(array_size)]
+        ret = [chr(j_chars[i]) for i in range(array_size)]
         j_env[0].ReleaseCharArrayElements(
                 j_env, j_object, j_chars, 0)
 
@@ -492,7 +479,7 @@ cdef jobject convert_python_to_jobject(JNIEnv *j_env, definition, obj) except *:
             return convert_pystr_to_java(j_env, to_unicode(obj))
 
         # numeric types
-        elif isinstance(obj, (int, long)) and \
+        elif isinstance(obj, int) and \
                 definition in (
                     'Ljava/lang/Integer;',
                     'Ljava/lang/Number;',
@@ -528,7 +515,7 @@ cdef jobject convert_python_to_jobject(JNIEnv *j_env, definition, obj) except *:
             jo = obj
             return jo.obj
         elif isinstance(obj, MetaJavaClass):
-            jcs = obj.__cls_storage
+            jcs = getattr(obj, CLS_STORAGE_NAME)
             return jcs.j_cls
         elif isinstance(obj, PythonJavaClass):
             # from python class, get the proxy/python class
@@ -551,24 +538,13 @@ cdef jobject convert_python_to_jobject(JNIEnv *j_env, definition, obj) except *:
                         definition[1:-1], obj))
 
     elif definition[0] == '[':
-        if PY_MAJOR_VERSION < 3:
-            conversions = {
-                int: 'I',
-                bool: 'Z',
-                long: 'J',
-                float: 'F',
-                unicode: 'Ljava/lang/String;',
-                bytes: 'Ljava/lang/String;'
-            }
-        else:
-            conversions = {
-                int: 'I',
-                bool: 'Z',
-                long: 'J',
-                float: 'F',
-                unicode: 'Ljava/lang/String;',
-                bytes: 'B'
-            }
+        conversions = {
+            int: 'I',
+            bool: 'Z',
+            float: 'F',
+            unicode: 'Ljava/lang/String;',
+            bytes: 'B'
+        }
         retclass = j_env[0].FindClass(j_env, 'java/lang/Object')
         retobject = j_env[0].NewObjectArray(j_env, len(obj), retclass, NULL)
         for index, item in enumerate(obj):
@@ -661,23 +637,13 @@ cdef jobject convert_pyarray_to_java(JNIEnv *j_env, definition, pyarray) except 
     if definition == 'Ljava/lang/Object;' and len(pyarray) > 0:
         # then the method will accept any array type as param
         # let's be as precise as we can
-        if PY_MAJOR_VERSION < 3:
-            conversions = {
-                int: 'I',
-                bool: 'Z',
-                long: 'J',
-                float: 'F',
-                basestring: 'Ljava/lang/String;',
-            }
-        else:
-            conversions = {
-                int: 'I',
-                bool: 'Z',
-                long: 'J',
-                float: 'F',
-                bytes: 'B',
-                str: 'Ljava/lang/String;',
-            }
+        conversions = {
+            int: 'I',
+            bool: 'Z',
+            float: 'F',
+            bytes: 'B',
+            str: 'Ljava/lang/String;',
+        }
         for _type, override in conversions.iteritems():
             if isinstance(pyarray[0], _type):
                 definition = override

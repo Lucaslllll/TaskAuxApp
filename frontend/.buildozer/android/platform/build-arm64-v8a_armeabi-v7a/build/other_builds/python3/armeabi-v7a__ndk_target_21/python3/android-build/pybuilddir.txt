@@ -1,1 +1,1 @@
-build/lib.linux-arm-3.9
+build/lib.android-21-armeabi_v7a-3.14

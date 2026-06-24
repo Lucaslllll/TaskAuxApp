@@ -1,17 +1,5 @@
 cdef str_for_c(s):
-     if PY2:
-        if isinstance(s, unicode):
-            return s.encode('utf-8')
-        else:
-            return s
-     else:
-        return s.encode('utf-8')
-
-cdef items_compat(d):
-     if not PY2:
-         return d.items()
-     else:
-        return d.iteritems()                
+    return s.encode('utf-8')
 
 cdef parse_definition(definition):
     # not a function, just a field
@@ -88,7 +76,7 @@ cdef void check_exception(JNIEnv *j_env) except *:
             j_env[0].DeleteLocalRef(j_env, e_msg)
         j_env[0].DeleteLocalRef(j_env, exc)
 
-        raise JavaException('JVM exception occurred: %s' % (pymsg + " " + str(pyexcclass) if pymsg is not None else pyexcclass), pyexcclass, pymsg, pystack)
+        raise JavaException('JVM exception occurred: %s' % (str(pyexcclass) + ": " + pymsg if pymsg is not None else pyexcclass), pyexcclass, pymsg, pystack)
 
 
 cdef void _append_exception_trace_messages(
@@ -312,27 +300,26 @@ cdef int calculate_score(sign_args, args, is_varargs=False) except *:
         r = sign_args[index]
         arg = args[index]
 
-        if r == 'Z':
+        if r == 'Z': # boolean
             if not isinstance(arg, bool):
                 return -1
             score += 10
             continue
 
-        if r == 'B':
+        if r == 'B': # byte
             if not isinstance(arg, int):
                 return -1
             score += 10
             continue
 
-        if r == 'C':
+        if r == 'C': # char
             if not isinstance(arg, str) or len(arg) != 1:
                 return -1
             score += 10
             continue
 
-        if r == 'S' or r == 'I':
-            if isinstance(arg, int) or (
-                    (isinstance(arg, long) and arg < 2147483648)):
+        if r == 'S': # short
+            if isinstance(arg, int) and arg <= 32767 and arg >= -32768:
                 score += 10
                 continue
             elif isinstance(arg, float):
@@ -341,8 +328,8 @@ cdef int calculate_score(sign_args, args, is_varargs=False) except *:
             else:
                 return -1
 
-        if r == 'J':
-            if isinstance(arg, int) or isinstance(arg, long):
+        if r == 'I': # int
+            if isinstance(arg, int) and arg <= 2147483647 and arg >= -2147483648:
                 score += 10
                 continue
             elif isinstance(arg, float):
@@ -351,7 +338,17 @@ cdef int calculate_score(sign_args, args, is_varargs=False) except *:
             else:
                 return -1
 
-        if r == 'F' or r == 'D':
+        if r == 'J': # long
+            if isinstance(arg, int):
+                score += 10
+                continue
+            elif isinstance(arg, float):
+                score += 5
+                continue
+            else:
+                return -1
+
+        if r == 'F' or r == 'D': # float or double
             if isinstance(arg, int):
                 score += 5
                 continue
@@ -361,7 +358,7 @@ cdef int calculate_score(sign_args, args, is_varargs=False) except *:
             else:
                 return -1
 
-        if r[0] == 'L':
+        if r[0] == 'L': # classname
 
             r = r[1:-1]
 
@@ -370,11 +367,7 @@ cdef int calculate_score(sign_args, args, is_varargs=False) except *:
                 continue
 
             # if it's a string, accept any python string
-            if r == 'java/lang/String' and isinstance(arg, base_string) and PY2:
-                score += 10
-                continue
-
-            if r == 'java/lang/String' and isinstance(arg, str) and not PY2:
+            if r == 'java/lang/String' and isinstance(arg, str):
                 score += 10
                 continue
 
@@ -440,15 +433,11 @@ cdef int calculate_score(sign_args, args, is_varargs=False) except *:
                 score += 10
                 continue
 
-            if (r == '[B' or r == '[C') and isinstance(arg, base_string) and PY2:
+            if (r == '[B') and isinstance(arg, bytes):
                 score += 10
                 continue
 
-            if (r == '[B') and isinstance(arg, bytes) and not PY2:
-                score += 10
-                continue
-
-            if (r == '[C') and isinstance(arg, str) and not PY2:
+            if (r == '[C') and isinstance(arg, str):
                 score += 10
                 continue
 

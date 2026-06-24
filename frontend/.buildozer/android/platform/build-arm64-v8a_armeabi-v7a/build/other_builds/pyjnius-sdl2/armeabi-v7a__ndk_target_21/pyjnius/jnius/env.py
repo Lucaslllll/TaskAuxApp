@@ -9,17 +9,11 @@ from os import getenv
 from platform import machine
 from subprocess import Popen, check_output, PIPE
 from shlex import split
-from logging import getLogger
+import logging
 from textwrap import dedent
+from shutil import which
 
-log = getLogger(__name__)
-
-PY2 = sys.version_info.major < 3
-
-if PY2:
-    from distutils.spawn import find_executable as which
-else:
-    from shutil import which
+log = logging.getLogger('kivy').getChild(__name__)
 
 machine = machine()  # not expected to change at runtime
 
@@ -86,6 +80,8 @@ def get_java_setup(platform=DEFAULT_PLATFORM):
         return WindowsJavaLocation(platform, JAVA_HOME)
     if platform == "darwin": #only this?
         return MacOsXJavaLocation(platform, JAVA_HOME)    
+    if 'bsd' in platform:
+        return BSDJavaLocation(platform, JAVA_HOME)
     if platform in ('linux', 'linux2', 'sunos5'): #only this?
         return UnixJavaLocation(platform, JAVA_HOME)
     log.warning("warning: unknown platform %s assuming linux or sunOS" % platform)
@@ -236,6 +232,29 @@ class UnixJavaLocation(JavaLocation):
         ]
 
 
+# NOTE: Build works on FreeBSD. Other BSD flavors may need tuning!
+class BSDJavaLocation(JavaLocation):
+    def _get_platform_include_dir(self):
+        os = self.platform.translate({ord(n): None for n in '0123456789'})
+        return join(self.home, 'include', os)
+
+    def _possible_lib_locations(self):
+        root = self.home
+        if root.endswith('jre'):
+            root = root[:-3]
+
+        cpu = get_cpu()
+        log.debug(
+            f"Platform {self.platform} may need cpu in path to find libjvm, which is: {cpu}"
+        )
+
+        return [
+            'lib/server/libjvm.so',
+            'jre/lib/{}/default/libjvm.so'.format(cpu),
+            'jre/lib/{}/server/libjvm.so'.format(cpu),
+        ]
+
+
 class MacOsXJavaLocation(UnixJavaLocation):
     def _get_platform_include_dir(self):
         return join(self.home, 'include', 'darwin')
@@ -343,9 +362,7 @@ def get_osx_framework():
         stdout=PIPE, shell=True
     ).communicate()[0]
 
-    if not PY2:
-        framework = framework.decode('utf-8')
-
+    framework = framework.decode('utf-8')
     return framework.strip()
 
 

@@ -1,5 +1,5 @@
 # See: man pkg-config
-prefix=/usr/local
+prefix=/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/hostpython3/desktop/hostpython3/native-build/root/usr/local
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
@@ -7,7 +7,7 @@ includedir=${prefix}/include
 Name: Python
 Description: Build a C extension for Python
 Requires:
-Version: 3.9
-Libs.private: -lcrypt -lpthread -ldl  -lutil -lm
-Libs:
-Cflags: -I${includedir}/python3.9
+Version: 3.14
+Libs.private: -ldl 
+Libs: -L${libdir} 
+Cflags: -I${includedir}/python3.14

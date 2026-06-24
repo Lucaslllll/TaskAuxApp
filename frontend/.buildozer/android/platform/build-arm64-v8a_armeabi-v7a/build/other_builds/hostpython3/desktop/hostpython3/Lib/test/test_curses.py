@@ -5,8 +5,12 @@ import string
 import sys
 import tempfile
 import unittest
+from unittest.mock import MagicMock
 
-from test.support import requires, import_module, verbose, SaveSignals
+from test.support import (requires, verbose, SaveSignals, cpython_only,
+                          check_disallow_instantiation, MISSING_C_DOCSTRINGS,
+                          gc_collect)
+from test.support.import_helper import import_module
 
 # Optionally test curses module.  This currently requires that the
 # 'curses' resource be given on the regrtest command line using the -u
@@ -178,6 +182,14 @@ class TestCurses(unittest.TestCase):
         self.assertEqual(win3.getparyx(), (2, 1))
         self.assertEqual(win3.getmaxyx(), (6, 11))
 
+    def test_subwindows_references(self):
+        win = curses.newwin(5, 10)
+        win2 = win.subwin(3, 7)
+        del win
+        gc_collect()
+        del win2
+        gc_collect()
+
     def test_move_cursor(self):
         stdscr = self.stdscr
         win = stdscr.subwin(10, 15, 2, 5)
@@ -266,7 +278,12 @@ class TestCurses(unittest.TestCase):
         stdscr.echochar(b'A')
         stdscr.echochar(65)
         with self.assertRaises((UnicodeEncodeError, OverflowError)):
-            stdscr.echochar('\u20ac')
+            # Unicode is not fully supported yet, but at least it does
+            # not crash.
+            # It is supposed to fail because either the character is
+            # not encodable with the current encoding, or it is encoded to
+            # a multibyte sequence.
+            stdscr.echochar('\u0114')
         stdscr.echochar('A', curses.A_BOLD)
         self.assertIs(stdscr.is_wintouched(), False)
 
@@ -565,13 +582,12 @@ class TestCurses(unittest.TestCase):
     @requires_curses_window_meth('enclose')
     def test_enclose(self):
         win = curses.newwin(5, 15, 2, 5)
-        # TODO: Return bool instead of 1/0
-        self.assertTrue(win.enclose(2, 5))
-        self.assertFalse(win.enclose(1, 5))
-        self.assertFalse(win.enclose(2, 4))
-        self.assertTrue(win.enclose(6, 19))
-        self.assertFalse(win.enclose(7, 19))
-        self.assertFalse(win.enclose(6, 20))
+        self.assertIs(win.enclose(2, 5), True)
+        self.assertIs(win.enclose(1, 5), False)
+        self.assertIs(win.enclose(2, 4), False)
+        self.assertIs(win.enclose(6, 19), True)
+        self.assertIs(win.enclose(7, 19), False)
+        self.assertIs(win.enclose(6, 20), False)
 
     def test_putwin(self):
         win = curses.newwin(5, 12, 1, 2)
@@ -744,7 +760,6 @@ class TestCurses(unittest.TestCase):
         curses.nl(False)
         curses.nl()
 
-
     def test_input_options(self):
         stdscr = self.stdscr
 
@@ -857,10 +872,13 @@ class TestCurses(unittest.TestCase):
         self.assertEqual(curses.getsyx(), (4, 5))
 
     def bad_colors(self):
-        return (-2**31 - 1, 2**31, -2**63 - 1, 2**63, 2**64)
+        return (-1, curses.COLORS, -2**31 - 1, 2**31, -2**63 - 1, 2**63, 2**64)
+
+    def bad_colors2(self):
+        return (curses.COLORS, 2**31, 2**63, 2**64)
 
     def bad_pairs(self):
-        return (-2**31 - 1, 2**31, -2**63 - 1, 2**63, 2**64)
+        return (-1, -2**31 - 1, 2**31, -2**63 - 1, 2**63, 2**64)
 
     def test_has_colors(self):
         self.assertIsInstance(curses.has_colors(), bool)
@@ -878,14 +896,11 @@ class TestCurses(unittest.TestCase):
     def test_color_content(self):
         self.assertEqual(curses.color_content(curses.COLOR_BLACK), (0, 0, 0))
         curses.color_content(0)
-        maxcolor = min(curses.COLORS - 1, SHORT_MAX)
+        maxcolor = curses.COLORS - 1
         curses.color_content(maxcolor)
 
         for color in self.bad_colors():
-            self.assertRaises(OverflowError, curses.color_content, color)
-        if curses.COLORS <= SHORT_MAX:
-            self.assertRaises(curses.error, curses.color_content, curses.COLORS)
-        self.assertRaises(curses.error, curses.color_content, -1)
+            self.assertRaises(ValueError, curses.color_content, color)
 
     @requires_colors
     def test_init_color(self):
@@ -903,7 +918,7 @@ class TestCurses(unittest.TestCase):
         curses.init_color(0, 1000, 1000, 1000)
         self.assertEqual(curses.color_content(0), (1000, 1000, 1000))
 
-        maxcolor = min(curses.COLORS - 1, SHORT_MAX)
+        maxcolor = curses.COLORS - 1
         old = curses.color_content(maxcolor)
         curses.init_color(maxcolor, *old)
         self.addCleanup(curses.init_color, maxcolor, *old)
@@ -911,31 +926,38 @@ class TestCurses(unittest.TestCase):
         self.assertEqual(curses.color_content(maxcolor), (0, 500, 1000))
 
         for color in self.bad_colors():
-            self.assertRaises(OverflowError, curses.init_color, color, 0, 0, 0)
-        if curses.COLORS <= SHORT_MAX:
-            self.assertRaises(curses.error, curses.init_color, curses.COLORS, 0, 0, 0)
-        self.assertRaises(curses.error, curses.init_color, -1, 0, 0, 0)
+            self.assertRaises(ValueError, curses.init_color, color, 0, 0, 0)
         for comp in (-1, 1001):
-            self.assertRaises(curses.error, curses.init_color, 0, comp, 0, 0)
-            self.assertRaises(curses.error, curses.init_color, 0, 0, comp, 0)
-            self.assertRaises(curses.error, curses.init_color, 0, 0, 0, comp)
+            self.assertRaises(ValueError, curses.init_color, 0, comp, 0, 0)
+            self.assertRaises(ValueError, curses.init_color, 0, 0, comp, 0)
+            self.assertRaises(ValueError, curses.init_color, 0, 0, 0, comp)
 
     def get_pair_limit(self):
-        return min(curses.COLOR_PAIRS, SHORT_MAX)
+        pair_limit = curses.COLOR_PAIRS
+        if hasattr(curses, 'ncurses_version'):
+            if curses.has_extended_color_support():
+                pair_limit += 2*curses.COLORS + 1
+            if (not curses.has_extended_color_support()
+                    or (6, 1) <= curses.ncurses_version < (6, 2)):
+                pair_limit = min(pair_limit, SHORT_MAX)
+            # If use_default_colors() is called, the upper limit of the extended
+            # range may be restricted, so we need to check if the limit is still
+            # correct
+            try:
+                curses.init_pair(pair_limit - 1, 0, 0)
+            except ValueError:
+                pair_limit = curses.COLOR_PAIRS
+        return pair_limit
 
     @requires_colors
     def test_pair_content(self):
-        if not hasattr(curses, 'use_default_colors'):
-            self.assertEqual(curses.pair_content(0),
-                             (curses.COLOR_WHITE, curses.COLOR_BLACK))
         curses.pair_content(0)
         maxpair = self.get_pair_limit() - 1
         if maxpair > 0:
             curses.pair_content(maxpair)
 
         for pair in self.bad_pairs():
-            self.assertRaises(OverflowError, curses.pair_content, pair)
-        self.assertRaises(curses.error, curses.pair_content, -1)
+            self.assertRaises(ValueError, curses.pair_content, pair)
 
     @requires_colors
     def test_init_pair(self):
@@ -945,7 +967,7 @@ class TestCurses(unittest.TestCase):
 
         curses.init_pair(1, 0, 0)
         self.assertEqual(curses.pair_content(1), (0, 0))
-        maxcolor = min(curses.COLORS - 1, SHORT_MAX)
+        maxcolor = curses.COLORS - 1
         curses.init_pair(1, maxcolor, 0)
         self.assertEqual(curses.pair_content(1), (maxcolor, 0))
         curses.init_pair(1, 0, maxcolor)
@@ -956,14 +978,10 @@ class TestCurses(unittest.TestCase):
             self.assertEqual(curses.pair_content(maxpair), (0, 0))
 
         for pair in self.bad_pairs():
-            self.assertRaises(OverflowError, curses.init_pair, pair, 0, 0)
-        self.assertRaises(curses.error, curses.init_pair, -1, 0, 0)
-        for color in self.bad_colors():
-            self.assertRaises(OverflowError, curses.init_pair, 1, color, 0)
-            self.assertRaises(OverflowError, curses.init_pair, 1, 0, color)
-        if curses.COLORS <= SHORT_MAX:
-            self.assertRaises(curses.error, curses.init_pair, 1, curses.COLORS, 0)
-            self.assertRaises(curses.error, curses.init_pair, 1, 0, curses.COLORS)
+            self.assertRaises(ValueError, curses.init_pair, pair, 0, 0)
+        for color in self.bad_colors2():
+            self.assertRaises(ValueError, curses.init_pair, 1, color, 0)
+            self.assertRaises(ValueError, curses.init_pair, 1, 0, color)
 
     @requires_colors
     def test_color_attrs(self):
@@ -977,13 +995,27 @@ class TestCurses(unittest.TestCase):
     @requires_curses_func('use_default_colors')
     @requires_colors
     def test_use_default_colors(self):
-        old = curses.pair_content(0)
         try:
             curses.use_default_colors()
         except curses.error:
             self.skipTest('cannot change color (use_default_colors() failed)')
         self.assertEqual(curses.pair_content(0), (-1, -1))
-        self.assertIn(old, [(curses.COLOR_WHITE, curses.COLOR_BLACK), (-1, -1), (0, 0)])
+
+    @requires_curses_func('assume_default_colors')
+    @requires_colors
+    def test_assume_default_colors(self):
+        try:
+            curses.assume_default_colors(-1, -1)
+        except curses.error:
+            self.skipTest('cannot change color (assume_default_colors() failed)')
+        self.assertEqual(curses.pair_content(0), (-1, -1))
+        curses.assume_default_colors(curses.COLOR_YELLOW, curses.COLOR_BLUE)
+        self.assertEqual(curses.pair_content(0), (curses.COLOR_YELLOW, curses.COLOR_BLUE))
+        curses.assume_default_colors(curses.COLOR_RED, -1)
+        self.assertEqual(curses.pair_content(0), (curses.COLOR_RED, -1))
+        curses.assume_default_colors(-1, curses.COLOR_GREEN)
+        self.assertEqual(curses.pair_content(0), (-1, curses.COLOR_GREEN))
+        curses.assume_default_colors(-1, -1)
 
     def test_keyname(self):
         # TODO: key_name()
@@ -1040,11 +1072,13 @@ class TestCurses(unittest.TestCase):
         panel.set_userptr(A())
         panel.set_userptr(None)
 
+    @cpython_only
     @requires_curses_func('panel')
-    def test_new_curses_panel(self):
+    def test_disallow_instantiation(self):
+        # Ensure that the type disallows instantiation (bpo-43916)
         w = curses.newwin(10, 10)
         panel = curses.panel.new_panel(w)
-        self.assertRaises(TypeError, type(panel))
+        check_disallow_instantiation(self, type(panel))
 
     @requires_curses_func('is_term_resized')
     def test_is_term_resized(self):
@@ -1066,6 +1100,14 @@ class TestCurses(unittest.TestCase):
         self.assertEqual(curses.LINES, lines)
         self.assertEqual(curses.COLS, cols)
 
+        with self.assertRaises(OverflowError):
+            curses.resize_term(35000, 1)
+        with self.assertRaises(OverflowError):
+            curses.resize_term(1, 35000)
+        # GH-120378: Overflow failure in resize_term() causes refresh to fail
+        tmp = curses.initscr()
+        tmp.erase()
+
     @requires_curses_func('resizeterm')
     def test_resizeterm(self):
         curses.update_lines_cols()
@@ -1079,6 +1121,14 @@ class TestCurses(unittest.TestCase):
         curses.resizeterm(lines, cols)
         self.assertEqual(curses.LINES, lines)
         self.assertEqual(curses.COLS, cols)
+
+        with self.assertRaises(OverflowError):
+            curses.resizeterm(35000, 1)
+        with self.assertRaises(OverflowError):
+            curses.resizeterm(1, 35000)
+        # GH-120378: Overflow failure in resizeterm() causes refresh to fail
+        tmp = curses.initscr()
+        tmp.erase()
 
     def test_ungetch(self):
         curses.ungetch(b'A')
@@ -1127,6 +1177,8 @@ class TestCurses(unittest.TestCase):
         with self.assertRaises(TypeError):
             del stdscr.encoding
 
+    @unittest.skipIf(MISSING_C_DOCSTRINGS,
+                     "Signature information for builtins requires docstrings")
     def test_issue21088(self):
         stdscr = self.stdscr
         #
@@ -1196,12 +1248,16 @@ class MiscTests(unittest.TestCase):
         self.assertGreaterEqual(v.minor, 0)
         self.assertGreaterEqual(v.patch, 0)
 
+    def test_has_extended_color_support(self):
+        r = curses.has_extended_color_support()
+        self.assertIsInstance(r, bool)
+
 
 class TestAscii(unittest.TestCase):
 
     def test_controlnames(self):
         for name in curses.ascii.controlnames:
-            self.assertTrue(hasattr(curses.ascii, name), name)
+            self.assertHasAttr(curses.ascii, name)
 
     def test_ctypes(self):
         def check(func, expected):
@@ -1300,6 +1356,83 @@ def lorem_ipsum(win):
     maxy, maxx = win.getmaxyx()
     for y, line in enumerate(text[:maxy]):
         win.addstr(y, 0, line[:maxx - (y == maxy - 1)])
+
+
+class TextboxTest(unittest.TestCase):
+    def setUp(self):
+        self.mock_win = MagicMock(spec=curses.window)
+        self.mock_win.getyx.return_value = (1, 1)
+        self.mock_win.getmaxyx.return_value = (10, 20)
+        self.textbox = curses.textpad.Textbox(self.mock_win)
+
+    def test_init(self):
+        """Test textbox initialization."""
+        self.mock_win.reset_mock()
+        tb = curses.textpad.Textbox(self.mock_win)
+        self.mock_win.getmaxyx.assert_called_once_with()
+        self.mock_win.keypad.assert_called_once_with(1)
+        self.assertEqual(tb.insert_mode, False)
+        self.assertEqual(tb.stripspaces, 1)
+        self.assertIsNone(tb.lastcmd)
+        self.mock_win.reset_mock()
+
+    def test_insert(self):
+        """Test inserting a printable character."""
+        self.mock_win.reset_mock()
+        self.textbox.do_command(ord('a'))
+        self.mock_win.addch.assert_called_with(ord('a'))
+        self.textbox.do_command(ord('b'))
+        self.mock_win.addch.assert_called_with(ord('b'))
+        self.textbox.do_command(ord('c'))
+        self.mock_win.addch.assert_called_with(ord('c'))
+        self.mock_win.reset_mock()
+
+    def test_delete(self):
+        """Test deleting a character."""
+        self.mock_win.reset_mock()
+        self.textbox.do_command(curses.ascii.BS)
+        self.textbox.do_command(curses.KEY_BACKSPACE)
+        self.textbox.do_command(curses.ascii.DEL)
+        assert self.mock_win.delch.call_count == 3
+        self.mock_win.reset_mock()
+
+    def test_move_left(self):
+        """Test moving the cursor left."""
+        self.mock_win.reset_mock()
+        self.textbox.do_command(curses.KEY_LEFT)
+        self.mock_win.move.assert_called_with(1, 0)
+        self.mock_win.reset_mock()
+
+    def test_move_right(self):
+        """Test moving the cursor right."""
+        self.mock_win.reset_mock()
+        self.textbox.do_command(curses.KEY_RIGHT)
+        self.mock_win.move.assert_called_with(1, 2)
+        self.mock_win.reset_mock()
+
+    def test_move_left_and_right(self):
+        """Test moving the cursor left and then right."""
+        self.mock_win.reset_mock()
+        self.textbox.do_command(curses.KEY_LEFT)
+        self.mock_win.move.assert_called_with(1, 0)
+        self.textbox.do_command(curses.KEY_RIGHT)
+        self.mock_win.move.assert_called_with(1, 2)
+        self.mock_win.reset_mock()
+
+    def test_move_up(self):
+        """Test moving the cursor up."""
+        self.mock_win.reset_mock()
+        self.textbox.do_command(curses.KEY_UP)
+        self.mock_win.move.assert_called_with(0, 1)
+        self.mock_win.reset_mock()
+
+    def test_move_down(self):
+        """Test moving the cursor down."""
+        self.mock_win.reset_mock()
+        self.textbox.do_command(curses.KEY_DOWN)
+        self.mock_win.move.assert_called_with(2, 1)
+        self.mock_win.reset_mock()
+
 
 if __name__ == '__main__':
     unittest.main()

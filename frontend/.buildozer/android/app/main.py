@@ -2,22 +2,20 @@ from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
-from kivy.uix.behaviors.button import ButtonBehavior
-from kivy.uix.label import Label
-from kivy.graphics import Color, Rectangle, Ellipse
-from kivy.properties import ListProperty, StringProperty
 from kivy.uix.popup import Popup
-from kivy.uix.image import Image
-from kivy.animation import Animation
 from kivy.core.audio import SoundLoader
-from kivy.clock import Clock
+from kivy.factory import Factory
+from kivy.metrics import dp
+from kivy.properties import StringProperty, BooleanProperty, NumericProperty
 
 # para poder fazer o teclado subir com textinput
-#from kivy.config import Config
-#Config.set('kivy', 'keyboard_mode', 'systemandmulti')
+Window.softinput_mode = 'below_target'
+from kivy.config import Config
+Config.set('kivy', 'keyboard_mode', 'systemandmulti')
+
 
 import json
-
+import threading
 
 
 class Gerenciador(ScreenManager):
@@ -37,119 +35,87 @@ class Ajuda(Screen):
         return False
 
     def on_pre_leave(self):
-        Window.unbind(on_keyboard=self.voltar)        
+        Window.unbind(on_keyboard=self.voltar)
+
+
+class Categorias(Screen):
+    pass
 
 
 class Menu(Screen):
+    pendentes = NumericProperty(0)
+    feitas = NumericProperty(0)
+    progress = NumericProperty(0)
+
     def on_pre_enter(self):
         Window.bind(on_request_close=self.confirmacao)
+        self.atualizarResumo()
 
     def on_pre_leave(self, *args):
         Window.unbind(on_request_close=self.confirmacao)
 
+    def atualizarResumo(self):
+        # le os dados salvos e mostra um resumo de progresso no menu
+        path = App.get_running_app().user_data_dir + "/data.json"
+        dados = []
+        try:
+            with open(path, 'r') as f:
+                dados = json.load(f)
+        except (FileNotFoundError, ValueError):
+            dados = []
+
+        feitas = sum(1 for item in dados
+                     if isinstance(item, dict) and item.get("feito"))
+        total = len(dados)
+        self.feitas = feitas
+        self.pendentes = total - feitas
+        self.progress = (feitas / total) if total else 0
+
     def confirmacao(self, *args, **kwargs):
-        box = BoxLayout(orientation="vertical", padding=10, spacing=10)
-        botoes = BoxLayout(padding=5, spacing=10)
-        
-        pop = Popup(title="Deseja mesmo sair", content=box, size_hint=(None, None),
-                    size=(250,250)
-            )
-
-
-        sim = Botao(text="Sim", on_release=App.get_running_app().stop)
-        nao = Botao(text="Não", on_release=pop.dismiss)
-
-        botoes.add_widget(sim)
-        botoes.add_widget(nao)
-
-
-        atencao = Image(source="assets/images/exclamation.png")
-
-
-        box.add_widget(atencao)
-        box.add_widget(botoes)
-
-        # se eu quiser uma animações paralelas inves de combina-las
-        # com + posso usar &
-        animText = Animation(color=(0,0,0,1)) + Animation(color=(1,1,1,1))
-        animText.repeat = True
-        animText.start(sim)        
-      
-        anim = Animation(size=(300, 180), duration=0.2, t="out_back")
-        anim.start(pop)
-
+        content = Factory.ConfirmContent()
+        pop = Popup(title="", separator_height=0, background="",
+                    background_color=(0, 0, 0, 0.45),
+                    size_hint=(None, None), size=(dp(300), dp(210)),
+                    auto_dismiss=True)
+        content.ids.cancelar.bind(on_release=pop.dismiss)
+        content.ids.sair.bind(on_release=lambda *a: App.get_running_app().stop())
+        pop.content = content
         pop.open()
-
-
-
-        return True 
-
-
-
-# fazer um botão sem ser no .kv
-class Botao(ButtonBehavior, Label):
-    cor = ListProperty([0.1, 0.5, 0.7, 1])
-    cor2 = ListProperty([0.1, 1, 0.2, 1])
-
-    def __init__(self, **kwargs):
-        # herdará de buttonbehavior e label
-        super(Botao, self).__init__(**kwargs)
-        self.atualizar()
-
-    def on_pos(self, *args):
-        self.atualizar()
-
-    def on_size(self, *args):
-        self.atualizar()
-
-
-    def on_press(self, *args):
-        # atribuição simutânea
-        self.cor, self.cor2 = self.cor2, self.cor
-
-
-    def on_release(self, *args):
-        self.cor = self.cor2
-
-    # no momento que eu crio uma variavel ela tambem ganha sua função de evento
-    def on_cor(self, *args):
-        self.atualizar()
-
-    def atualizar(self, *args):
-        self.canvas.before.clear()
-        with self.canvas.before:
-            Color(rgba=self.cor)
-            Ellipse(size=(self.height, self.height),
-                    pos=(self.pos)
-                )
-            Ellipse(size=(self.height, self.height),
-                    pos=(self.x+self.width-self.height, self.y)
-                )
-            Rectangle(size=(self.width-self.height, self.height),
-                      pos=(self.x+self.height/2.0, self.y)
-                )
-
+        return True
 
 
 class Tarefas(Screen):
-    tarefas = []
     path = ''
     popSound = None
     poppapSound = None
+    _sonsIniciados = False
 
-    # esse metodo é executado antes de entrar na tela
+    # esse metodo e executado antes de entrar na tela
     def on_pre_enter(self):
-        # arquivos de audio .wav
-        if self.popSound == None:
-            self.popSound = SoundLoader.load('assets/audios/pop.wav')
-            self.poppapSound = SoundLoader.load('assets/audios/poppap.wav')
-        self.path = App.get_running_app().user_data_dir+"/"
+        self._carregarSons()
+        self.path = App.get_running_app().user_data_dir + "/"
         self.loadData()
 
         Window.bind(on_keyboard=self.voltar)
-        for tarefa in self.tarefas:
-            self.ids.box.add_widget(Tarefa(text=tarefa))
-        
+
+    def _carregarSons(self):
+        # Carrega os efeitos sonoros em uma thread separada. Em alguns
+        # sistemas a inicializacao do audio pode demorar (ou ate travar)
+        # ao abrir o dispositivo; fazendo isso fora da thread principal a
+        # interface nunca congela ao entrar nesta tela. Se o audio falhar,
+        # o app continua funcionando normalmente, apenas sem os sons.
+        if self._sonsIniciados:
+            return
+        self._sonsIniciados = True
+
+        def _load():
+            try:
+                self.popSound = SoundLoader.load('assets/audios/pop.wav')
+                self.poppapSound = SoundLoader.load('assets/audios/poppap.wav')
+            except Exception:
+                pass
+
+        threading.Thread(target=_load, daemon=True).start()
 
     def voltar(self, window, key, *args):
         # esc tem o codigo 27
@@ -162,43 +128,78 @@ class Tarefas(Screen):
     def on_pre_leave(self):
         Window.unbind(on_keyboard=self.voltar)
 
-
     def loadData(self, *args):
-        # antes de carregar qualquer coisa, certamente
-        # tenho que limpar o lixo de quando a tela 
-        # foi carregada anteriormente
+        # antes de carregar qualquer coisa, limpa o que ficou da
+        # ultima vez que a tela foi montada
         self.ids.box.clear_widgets()
 
+        dados = []
         try:
-            with open(self.path+"data.json", 'r') as data:
-                self.tarefas = json.load(data)
-        except FileNotFoundError:
-            pass
+            with open(self.path + "data.json", 'r') as data:
+                dados = json.load(data)
+        except (FileNotFoundError, ValueError):
+            dados = []
 
+        for item in dados:
+            # compatibilidade: o formato antigo era uma lista de strings
+            if isinstance(item, str):
+                texto, feito = item, False
+            else:
+                texto, feito = item.get("texto", ""), item.get("feito", False)
+            self.ids.box.add_widget(Tarefa(texto=texto, feito=feito))
+
+        self.atualizarEstado()
+
+    def coletar(self):
+        # children ficam em ordem reversa de insercao, entao invertemos
+        return [{"texto": w.texto, "feito": w.feito}
+                for w in reversed(self.ids.box.children)]
 
     def saveData(self, *args):
-        with open(self.path+"data.json", 'w') as data:
-            json.dump(self.tarefas, data)
+        with open(self.path + "data.json", 'w') as data:
+            json.dump(self.coletar(), data)
 
-    def removeWidget(self, tarefa):
-        self.popSound.play()
-        texto = tarefa.ids.label.text
-        self.ids.box.remove_widget(tarefa)
-        self.tarefas.remove(texto)
-        self.saveData(self.tarefas)
+    def atualizarEstado(self):
+        # mostra o estado vazio quando nao ha tarefas
+        vazio = len(self.ids.box.children) == 0
+        self.ids.empty_state.opacity = 1 if vazio else 0
+        self.ids.empty_state.disabled = not vazio
 
     def addWidget(self):
-        self.poppapSound.play()
-        texto = self.ids.texto.text
-        self.ids.box.add_widget(Tarefa(text=texto))
+        texto = self.ids.texto.text.strip()
+        if not texto:
+            return
+        if self.poppapSound:
+            self.poppapSound.play()
+        self.ids.box.add_widget(Tarefa(texto=texto))
         self.ids.texto.text = ""
-        self.tarefas.append(texto)
+        self.saveData()
+        self.atualizarEstado()
+
+    def removeWidget(self, tarefa):
+        if self.popSound:
+            self.popSound.play()
+        self.ids.box.remove_widget(tarefa)
+        self.saveData()
+        self.atualizarEstado()
+
+    def onToggle(self):
+        # chamado quando uma tarefa e marcada/desmarcada como feita
         self.saveData()
 
+
 class Tarefa(BoxLayout):
-    def __init__(self, text='', **kwargs):
+    texto = StringProperty('')
+    feito = BooleanProperty(False)
+
+    def __init__(self, texto='', feito=False, **kwargs):
         super().__init__(**kwargs)
-        self.ids.label.text = text
+        self.texto = texto
+        self.feito = feito
+
+    def alternar(self, *args):
+        self.feito = not self.feito
+        App.get_running_app().root.get_screen('tarefas_name').onToggle()
 
 
 class FrontAdmin(App):
@@ -206,22 +207,4 @@ class FrontAdmin(App):
         return Gerenciador()
 
 
-
 FrontAdmin().run()
-
-
-
-
-# <Botao@ButtonBehavior+Label>:
-#     canvas.before:
-#         Color:
-#             rgba: 0.2, 0.6, 0.3, 1
-#         Ellipse:
-#             pos: self.pos
-#             size: self.height, self.height
-#         Ellipse:
-#             pos: self.x+self.width-self.height, self.y
-#             size: self.height, self.height
-#         Rectangle:
-#             pos: self.x + self.height/2.0, self.y
-#             size: self.width-self.height, self.height

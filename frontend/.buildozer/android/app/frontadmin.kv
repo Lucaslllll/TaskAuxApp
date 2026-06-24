@@ -1,179 +1,612 @@
+#:set BG        (0.945, 0.957, 0.980, 1)
+#:set CARD      (1, 1, 1, 1)
+#:set PRIMARY   (0.345, 0.337, 0.839, 1)
+#:set PRIMARYD  (0.263, 0.220, 0.792, 1)
+#:set LAVENDER  (0.831, 0.855, 0.996, 1)
+#:set LAVBG     (0.918, 0.929, 0.996, 1)
+#:set SUCCESS   (0.063, 0.725, 0.506, 1)
+#:set DANGER    (0.937, 0.267, 0.267, 1)
+#:set DANGERD   (0.800, 0.180, 0.180, 1)
+#:set INK       (0.094, 0.129, 0.208, 1)
+#:set MUTED     (0.420, 0.471, 0.553, 1)
+#:set BORDER    (0.886, 0.910, 0.941, 1)
+
+
 <Gerenciador>:
 	Menu:
-		name: "menu_name"	
-
-	# sem utilidade mais
-	#Screen:
-	#	Button:
-	#		text: "Ver Tarefas"
-	#		on_release: root.current = "tarefas_name"
-
-	
+		name: "menu_name"
 	Tarefas:
 		name: "tarefas_name"
-	
 	Ajuda:
 		name: "ajuda_name"
+	Categorias:
+		name: "categorias_name"
 
 
-<Menu>:
+# Componentes reutilizaveis
+
+<Card@BoxLayout>:
+	canvas.before:
+		Color:
+			rgba: 0, 0, 0, 0.05
+		RoundedRectangle:
+			pos: self.x, self.y - dp(3)
+			size: self.width, self.height
+			radius: [18,]
+		Color:
+			rgba: CARD
+		RoundedRectangle:
+			pos: self.pos
+			size: self.size
+			radius: [18,]
+
+<PrimaryBtn@ButtonBehavior+Label>:
+	size_hint_y: None
+	height: '58dp'
+	color: 1, 1, 1, 1
+	font_size: '18sp'
+	bold: True
+	canvas.before:
+		Color:
+			rgba: PRIMARYD if self.state == 'down' else PRIMARY
+		RoundedRectangle:
+			pos: self.pos
+			size: self.size
+			radius: [16,]
+
+<GhostBtn@ButtonBehavior+Label>:
+	size_hint_y: None
+	height: '58dp'
+	color: PRIMARY
+	font_size: '18sp'
+	bold: True
+	canvas.before:
+		Color:
+			rgba: (0.96, 0.96, 1, 1) if self.state == 'down' else CARD
+		RoundedRectangle:
+			pos: self.pos
+			size: self.size
+			radius: [16,]
+		Color:
+			rgba: LAVENDER
+		Line:
+			rounded_rectangle: (self.x + 1, self.y + 1, self.width - 2, self.height - 2, 16)
+			width: 1.3
+
+<DangerBtn@ButtonBehavior+Label>:
+	size_hint_y: None
+	height: '52dp'
+	color: 1, 1, 1, 1
+	font_size: '17sp'
+	bold: True
+	canvas.before:
+		Color:
+			rgba: DANGERD if self.state == 'down' else DANGER
+		RoundedRectangle:
+			pos: self.pos
+			size: self.size
+			radius: [14,]
+
+<DangerLink@ButtonBehavior+Label>:
+	size_hint_y: None
+	height: '44dp'
+	color: DANGER
+	font_size: '15sp'
+	bold: True
+
+<BackBtn@ButtonBehavior+Widget>:
+	size_hint_x: None
+	width: '46dp'
+	canvas:
+		Color:
+			rgba: 1, 1, 1, 0.18 if self.state == 'down' else 0
+		RoundedRectangle:
+			pos: self.center_x - dp(20), self.center_y - dp(20)
+			size: dp(40), dp(40)
+			radius: [12,]
+		Color:
+			rgba: 1, 1, 1, 1
+		Line:
+			points: [self.center_x + dp(5), self.center_y + dp(9), self.center_x - dp(5), self.center_y, self.center_x + dp(5), self.center_y - dp(9)]
+			width: 2
+			cap: 'round'
+			joint: 'round'
+
+<TopBar@BoxLayout>:
+	title: ''
+	size_hint_y: None
+	height: '84dp'
+	padding: '6dp', '8dp', '18dp', '12dp'
+	spacing: '2dp'
+	canvas.before:
+		Color:
+			rgba: PRIMARY
+		RoundedRectangle:
+			pos: self.x, self.y - dp(24)
+			size: self.width, self.height + dp(24)
+			radius: [0, 0, 22, 22]
+	BackBtn:
+		on_release: app.root.current = 'menu_name'
+	Label:
+		text: root.title
+		font_size: '23sp'
+		bold: True
+		color: 1, 1, 1, 1
+		halign: 'left'
+		valign: 'middle'
+		text_size: self.size
+
+<CheckCircle@ButtonBehavior+Widget>:
+	feito: False
+	size_hint_x: None
+	width: '34dp'
+	canvas:
+		Color:
+			rgba: SUCCESS if self.feito else CARD
+		RoundedRectangle:
+			pos: self.center_x - dp(13), self.center_y - dp(13)
+			size: dp(26), dp(26)
+			radius: [8,]
+		Color:
+			rgba: (0, 0, 0, 0) if self.feito else BORDER
+		Line:
+			rounded_rectangle: (self.center_x - dp(13), self.center_y - dp(13), dp(26), dp(26), 8)
+			width: 1.4
+		Color:
+			rgba: (1, 1, 1, 1) if self.feito else (1, 1, 1, 0)
+		Line:
+			points: [self.center_x - dp(6), self.center_y - dp(1), self.center_x - dp(2), self.center_y - dp(5), self.center_x + dp(7), self.center_y + dp(6)]
+			width: 1.8
+			cap: 'round'
+			joint: 'round'
+
+<DeleteBtn@ButtonBehavior+Widget>:
+	size_hint_x: None
+	width: '34dp'
+	canvas:
+		Color:
+			rgba: (0.98, 0.90, 0.90, 1) if self.state == 'down' else (1, 1, 1, 0)
+		RoundedRectangle:
+			pos: self.center_x - dp(16), self.center_y - dp(16)
+			size: dp(32), dp(32)
+			radius: [10,]
+		Color:
+			rgba: DANGER if self.state == 'down' else (0.78, 0.81, 0.86, 1)
+		Line:
+			points: [self.center_x - dp(6), self.center_y - dp(6), self.center_x + dp(6), self.center_y + dp(6)]
+			width: 1.9
+			cap: 'round'
+		Line:
+			points: [self.center_x - dp(6), self.center_y + dp(6), self.center_x + dp(6), self.center_y - dp(6)]
+			width: 1.9
+			cap: 'round'
+
+<AddButton@ButtonBehavior+Label>:
+	size_hint_x: None
+	width: '52dp'
+	text: '+'
+	font_size: '32sp'
+	color: 1, 1, 1, 1
+	canvas.before:
+		Color:
+			rgba: PRIMARYD if self.state == 'down' else PRIMARY
+		RoundedRectangle:
+			pos: self.pos
+			size: self.size
+			radius: [14,]
+
+<ConfirmContent@BoxLayout>:
+	orientation: 'vertical'
+	padding: '22dp'
+	spacing: '14dp'
+	canvas.before:
+		Color:
+			rgba: CARD
+		RoundedRectangle:
+			pos: self.pos
+			size: self.size
+			radius: [20,]
+	Label:
+		text: 'Deseja mesmo sair?'
+		bold: True
+		color: INK
+		font_size: '20sp'
+		size_hint_y: None
+		height: '30dp'
+	Label:
+		text: 'Suas tarefas continuam salvas.'
+		color: MUTED
+		font_size: '14sp'
 	BoxLayout:
-		id:box_menu
-		orientation: "vertical"
-		padding: root.width*0.25, root.height*0.1
-		spacing: '30dp'
+		spacing: '12dp'
+		size_hint_y: None
+		height: '52dp'
+		GhostBtn:
+			id: cancelar
+			text: 'Cancelar'
+			height: '52dp'
+		DangerBtn:
+			id: sair
+			text: 'Sair'
 
+<HelpCard@BoxLayout>:
+	icon: ''
+	head: ''
+	body: ''
+	size_hint_y: None
+	height: '98dp'
+	padding: '16dp'
+	spacing: '14dp'
+	canvas.before:
+		Color:
+			rgba: 0, 0, 0, 0.04
+		RoundedRectangle:
+			pos: self.x, self.y - dp(2)
+			size: self.width, self.height
+			radius: [16,]
+		Color:
+			rgba: CARD
+		RoundedRectangle:
+			pos: self.pos
+			size: self.size
+			radius: [16,]
+	Widget:
+		size_hint_x: None
+		width: '46dp'
 		canvas:
 			Color:
-				rgba: (0.2, 0.4, 0.9, 1)
-			Rectangle:
-				size: self.size
-				pos: 0, 0
-				source: "moldura.png"
-		
-		Image:
-			source: "assets/images/logo-tasks-admin-menu.png"
-			size_hint_y: 3
-			allow_stretch: True
-		Botao:
-			text: "Tarefas"
-			on_release: app.root.current = 'tarefas_name'
-			cor: 0.1, 0.3, 0.6, 1
-		Botao:
-			text: "Ajuda"
-			on_release: app.root.current = "ajuda_name"
-			cor: 0.1, 0.3, 0.6, 1
-		Botao:
-			text: "Sair"
-			on_release: root.confirmacao()
-			cor: 0.8, 0.3, 0.4, 1
-<Ajuda>:
-	BoxLayout:
-		orientation: "vertical"
-		ActionBar:
-			ActionView:
-				ActionPrevious:
-					title: "Ajuda"
-					on_release: app.root.current = "menu_name"
-				ActionButton:
-					text: "Voltar"
-					on_release: app.root.current = "menu_name"
-
-
-		ScrollView:
-			BoxLayout:
-				id: box_ajuda
-				orientation: "vertical"
-				size_hint_y: None
-				height: self.minimum_height
-
+				rgba: LAVBG
+			RoundedRectangle:
+				pos: self.center_x - dp(23), self.center_y - dp(23)
+				size: dp(46), dp(46)
+				radius: [13,]
 		Label:
-			text: "Ajuda"
-			halign: 'right'
-    		valign: 'middle'
+			text: root.icon
+			font_size: '22sp'
+			bold: True
+			color: PRIMARY
+			center: self.parent.center
+			size: self.parent.size
+			halign: 'center'
+			valign: 'middle'
+			text_size: self.parent.size
+	BoxLayout:
+		orientation: 'vertical'
+		Label:
+			text: root.head
+			bold: True
+			font_size: '16sp'
+			color: INK
+			halign: 'left'
+			valign: 'bottom'
+			text_size: self.size
+		Label:
+			text: root.body
+			font_size: '13.5sp'
+			color: MUTED
+			halign: 'left'
+			valign: 'top'
+			text_size: self.size
 
- 
-		GridLayout:
-			rows: 3
-			cols: 1
-			
 
-			Label:
-				text: "Esse aplicativo tem a finalidade de organizar tarefas"
-				
-			Label:
-				text: "Use a interface amigável do app"	
+# Telas
 
-			Label:
-				text: "Feche quando não precisar mais do aplicativo"
+<Menu>:
+	pendentes: 0
+	feitas: 0
+	progress: 0
+	FloatLayout:
+		canvas.before:
+			Color:
+				rgba: BG
+			Rectangle:
+				pos: self.pos
+				size: self.size
+		BoxLayout:
+			orientation: 'vertical'
+			padding: '22dp'
+			spacing: '16dp'
+			pos_hint: {'top': 1}
+			size_hint_y: None
+			height: self.minimum_height
 
+			BoxLayout:
+				size_hint_y: None
+				height: '70dp'
+				BoxLayout:
+					orientation: 'vertical'
+					Label:
+						text: 'Bem-vindo,'
+						color: MUTED
+						font_size: '15sp'
+						halign: 'left'
+						valign: 'bottom'
+						text_size: self.size
+					Label:
+						text: '[b]Suas tarefas[/b]'
+						markup: True
+						color: INK
+						font_size: '26sp'
+						halign: 'left'
+						valign: 'top'
+						text_size: self.size
+				Widget:
+					size_hint_x: None
+					width: '52dp'
+					canvas:
+						Color:
+							rgba: PRIMARY
+						Ellipse:
+							pos: self.center_x - dp(24), self.center_y - dp(24)
+							size: dp(48), dp(48)
+					Label:
+						text: 'CL'
+						bold: True
+						color: 1, 1, 1, 1
+						center: self.parent.center
+						size: self.parent.size
+						halign: 'center'
+						valign: 'middle'
+						text_size: self.parent.size
 
+			Card:
+				orientation: 'vertical'
+				size_hint_y: None
+				height: '120dp'
+				padding: '20dp'
+				BoxLayout:
+					Label:
+						text: '[b][size=38]' + str(root.pendentes) + '[/size][/b]  pendentes'
+						markup: True
+						color: INK
+						halign: 'left'
+						valign: 'middle'
+						text_size: self.size
+					Label:
+						text: '[b][size=38]' + str(root.feitas) + '[/size][/b]  feitas'
+						markup: True
+						color: SUCCESS
+						halign: 'left'
+						valign: 'middle'
+						text_size: self.size
+				Widget:
+					size_hint_y: None
+					height: '10dp'
+					canvas:
+						Color:
+							rgba: BORDER
+						RoundedRectangle:
+							pos: self.x, self.center_y - dp(4)
+							size: self.width, dp(8)
+							radius: [4,]
+						Color:
+							rgba: SUCCESS
+						RoundedRectangle:
+							pos: self.x, self.center_y - dp(4)
+							size: self.width * root.progress, dp(8)
+							radius: [4,]
 
+			Widget:
+				size_hint_y: None
+				height: '8dp'
+
+			PrimaryBtn:
+				text: 'Minhas Tarefas'
+				on_release: app.root.current = 'tarefas_name'
+			GhostBtn:
+				text: 'Ajuda'
+				on_release: app.root.current = 'ajuda_name'
+
+			Widget:
+				size_hint_y: None
+				height: '4dp'
+
+			DangerLink:
+				text: 'Sair do aplicativo'
+				on_release: root.confirmacao()
 
 
 <Tarefas>:
 	BoxLayout:
-		orientation: "vertical"
-		canvas:
+		orientation: 'vertical'
+		canvas.before:
 			Color:
-				rgba: (1, 1, 1, 1)
+				rgba: BG
 			Rectangle:
+				pos: self.pos
 				size: self.size
-				pos: 0, 0
 
-		ActionBar:
-			ActionView:
-				ActionPrevious:
-					title: "Tarefas"
-					on_release: app.root.current = "menu_name"
-				ActionButton:
-					text: "Menu"
-				ActionSeparator:	
-				ActionButton:
-					text: "Sair"
-					on_release: app.stop()
-		
-		
+		TopBar:
+			title: 'Tarefas'
 
-		ScrollView:
+		FloatLayout:
+			ScrollView:
+				BoxLayout:
+					id: box
+					orientation: 'vertical'
+					padding: '18dp'
+					spacing: '12dp'
+					size_hint_y: None
+					height: self.minimum_height
+
 			BoxLayout:
-				id: box
+				id: empty_state
 				orientation: 'vertical'
-				size_hint_y: None
-				height: self.minimum_height
+				spacing: '6dp'
+				size_hint: None, None
+				size: '240dp', '210dp'
+				pos_hint: {'center_x': .5, 'center_y': .55}
+				Widget:
+					size_hint_y: None
+					height: '120dp'
+					canvas:
+						Color:
+							rgba: LAVBG
+						Ellipse:
+							pos: self.center_x - dp(55), self.center_y - dp(55)
+							size: dp(110), dp(110)
+					Label:
+						text: '+'
+						font_size: '60sp'
+						color: PRIMARY
+						center: self.parent.center
+						size: self.parent.size
+						halign: 'center'
+						valign: 'middle'
+						text_size: self.parent.size
+				Label:
+					text: '[b]Nenhuma tarefa ainda[/b]'
+					markup: True
+					color: INK
+					font_size: '19sp'
+					size_hint_y: None
+					height: '34dp'
+				Label:
+					text: 'Toque em + para adicionar\nsua primeira tarefa'
+					halign: 'center'
+					valign: 'top'
+					color: MUTED
+					font_size: '14sp'
 
 		BoxLayout:
 			size_hint_y: None
-			height: '40sp'
-			TextInput:
-				id: texto
-
-			BotaoAdicionar:
-				text: "+"
-				size_hint_x: None
-				width: '40sp'
+			height: '74dp'
+			padding: '16dp', '10dp'
+			spacing: '12dp'
+			canvas.before:
+				Color:
+					rgba: CARD
+				Rectangle:
+					pos: self.pos
+					size: self.size
+				Color:
+					rgba: BORDER
+				Rectangle:
+					pos: self.x, self.top - 1
+					size: self.width, 1
+			BoxLayout:
+				padding: '12dp', 0
+				canvas.before:
+					Color:
+						rgba: BG
+					RoundedRectangle:
+						pos: self.pos
+						size: self.size
+						radius: [14,]
+					Color:
+						rgba: BORDER
+					Line:
+						rounded_rectangle: (self.x, self.y, self.width, self.height, 14)
+						width: 1
+				TextInput:
+					id: texto
+					hint_text: 'Adicionar nova tarefa...'
+					multiline: False
+					background_color: 0, 0, 0, 0
+					background_normal: ''
+					background_active: ''
+					foreground_color: INK
+					hint_text_color: MUTED
+					cursor_color: PRIMARY
+					font_size: '15sp'
+					padding: [0, (self.height - self.line_height) / 2.0, 0, 0]
+					on_text_validate: root.addWidget()
+			AddButton:
 				on_release: root.addWidget()
-		
-
 
 
 <Tarefa>:
+	texto: ''
+	feito: False
 	size_hint_y: None
-	height: '100sp'
-
+	height: '66dp'
+	padding: '14dp', 0
+	spacing: '10dp'
+	canvas.before:
+		Color:
+			rgba: 0, 0, 0, 0.04
+		RoundedRectangle:
+			pos: self.x, self.y - dp(2)
+			size: self.width, self.height
+			radius: [16,]
+		Color:
+			rgba: CARD
+		RoundedRectangle:
+			pos: self.pos
+			size: self.size
+			radius: [16,]
+	CheckCircle:
+		feito: root.feito
+		on_release: root.alternar()
 	Label:
 		id: label
-		font_size: 25
-		color: 0,0,0,1
-		font_name:"assets/fonts/DotBoundary-Fixed Fixed.otf"
+		text: ('[s]' + root.texto + '[/s]') if root.feito else root.texto
+		markup: True
+		color: MUTED if root.feito else INK
+		font_size: '16sp'
+		halign: 'left'
+		valign: 'middle'
+		text_size: self.width, None
+		shorten: True
+		shorten_from: 'right'
+	DeleteBtn:
+		on_release: app.root.get_screen('tarefas_name').removeWidget(root)
 
-	BotaoApagar:
-		text: "X"
-		size_hint_x: None
-		width: 60
-		on_release: app.root.get_screen('tarefas_name').removeWidget(self.parent)
+
+<Ajuda>:
+	BoxLayout:
+		orientation: 'vertical'
+		canvas.before:
+			Color:
+				rgba: BG
+			Rectangle:
+				pos: self.pos
+				size: self.size
+		TopBar:
+			title: 'Ajuda'
+		ScrollView:
+			BoxLayout:
+				orientation: 'vertical'
+				padding: '18dp'
+				spacing: '14dp'
+				size_hint_y: None
+				height: self.minimum_height
+				Widget:
+					size_hint_y: None
+					height: '4dp'
+				HelpCard:
+					icon: '1'
+					head: 'Organize suas tarefas'
+					body: 'Cadastre tudo o que precisa fazer e acompanhe em um so lugar.'
+				HelpCard:
+					icon: '2'
+					head: 'Marque como concluida'
+					body: 'Toque na caixa ao lado da tarefa para marca-la como feita.'
+				HelpCard:
+					icon: '3'
+					head: 'Remova o que nao precisa'
+					body: 'Use o X ao lado da tarefa para apaga-la da lista.'
+				HelpCard:
+					icon: '+'
+					head: 'Adicione rapidamente'
+					body: 'Digite na barra inferior e toque em + ou pressione enter.'
 
 
-
-
-
-# customs
-
-# botão vai herdar tanto behavior quanto label
-
-# fazer um botão no .kv
-<BotaoApagar@ButtonBehavior+Label>:
-	canvas.before:
-		Color:
-			rgba: 1, 0, 0, 0.5
-		Rectangle:
-			pos: self.pos
-			size: self.width, self.height
-
-<BotaoAdicionar@ButtonBehavior+Label>
-	canvas.before:
-		Color:
-			rgba: 0, 0, 1, 0.6
-		Rectangle:
-			pos: self.pos
-			size: self.width, self.height
+<Categorias>:
+	BoxLayout:
+		orientation: 'vertical'
+		canvas.before:
+			Color:
+				rgba: BG
+			Rectangle:
+				pos: self.pos
+				size: self.size
+		TopBar:
+			title: 'Categorias'
+		FloatLayout:
+			Label:
+				text: 'Em breve'
+				bold: True
+				color: MUTED
+				font_size: '18sp'
+				pos_hint: {'center_x': .5, 'center_y': .5}

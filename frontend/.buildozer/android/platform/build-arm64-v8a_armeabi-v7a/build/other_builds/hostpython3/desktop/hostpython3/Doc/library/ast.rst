@@ -1,5 +1,5 @@
-:mod:`ast` --- Abstract Syntax Trees
-====================================
+:mod:`!ast` --- Abstract syntax trees
+=====================================
 
 .. module:: ast
    :synopsis: Abstract Syntax Tree classes and manipulation.
@@ -29,7 +29,7 @@ compiled into a Python code object using the built-in :func:`compile` function.
 
 .. _abstract-grammar:
 
-Abstract Grammar
+Abstract grammar
 ----------------
 
 The abstract grammar is currently defined as follows:
@@ -45,7 +45,7 @@ Node classes
 
    This is the base of all AST node classes.  The actual node classes are
    derived from the :file:`Parser/Python.asdl` file, which is reproduced
-   :ref:`below <abstract-grammar>`.  They are defined in the :mod:`_ast` C
+   :ref:`above <abstract-grammar>`.  They are defined in the :mod:`!_ast` C
    module and re-exported in :mod:`ast`.
 
    There is one class defined for each left-hand side symbol in the abstract
@@ -61,7 +61,7 @@ Node classes
 
    .. attribute:: _fields
 
-      Each concrete class has an attribute :attr:`_fields` which gives the names
+      Each concrete class has an attribute :attr:`!_fields` which gives the names
       of all child nodes.
 
       Each instance of a concrete class has one attribute for each child node,
@@ -74,6 +74,18 @@ Node classes
       as Python lists.  All possible attributes must be present and have valid
       values when compiling an AST with :func:`compile`.
 
+   .. attribute:: _field_types
+
+      The :attr:`!_field_types` attribute on each concrete class is a dictionary
+      mapping field names (as also listed in :attr:`_fields`) to their types.
+
+      .. doctest::
+
+           >>> ast.TypeVar._field_types
+           {'name': <class 'str'>, 'bound': ast.expr | None, 'default_value': ast.expr | None}
+
+      .. versionadded:: 3.13
+
    .. attribute:: lineno
                   col_offset
                   end_lineno
@@ -81,12 +93,12 @@ Node classes
 
       Instances of :class:`ast.expr` and :class:`ast.stmt` subclasses have
       :attr:`lineno`, :attr:`col_offset`, :attr:`end_lineno`, and
-      :attr:`end_col_offset` attributes.  The :attr:`lineno` and
-      :attr:`end_lineno` are the first and last line numbers of the source
-      text span (1-indexed so the first line is line 1), and the
-      :attr:`col_offset` and :attr:`end_col_offset` are the corresponding
-      UTF-8 byte offsets of the first and last tokens that generated the node.
-      The UTF-8 offset is recorded because the parser uses UTF-8 internally.
+      :attr:`end_col_offset` attributes.  The :attr:`lineno` and :attr:`end_lineno`
+      are the first and last line numbers of source text span (1-indexed so the
+      first line is line 1) and the :attr:`col_offset` and :attr:`end_col_offset`
+      are the corresponding UTF-8 byte offsets of the first and last tokens that
+      generated the node. The UTF-8 offset is recorded because the parser uses
+      UTF-8 internally.
 
       Note that the end positions are not required by the compiler and are
       therefore optional. The end offset is *after* the last symbol, for example
@@ -103,19 +115,15 @@ Node classes
    For example, to create and populate an :class:`ast.UnaryOp` node, you could
    use ::
 
-      node = ast.UnaryOp()
-      node.op = ast.USub()
-      node.operand = ast.Constant()
-      node.operand.value = 5
-      node.operand.lineno = 0
-      node.operand.col_offset = 0
-      node.lineno = 0
-      node.col_offset = 0
-
-   or the more compact ::
-
       node = ast.UnaryOp(ast.USub(), ast.Constant(5, lineno=0, col_offset=0),
                          lineno=0, col_offset=0)
+
+   If a field that is optional in the grammar is omitted from the constructor,
+   it defaults to ``None``. If a list field is omitted, it defaults to the empty
+   list. If a field of type :class:`!ast.expr_context` is omitted, it defaults to
+   :class:`Load() <ast.Load>`. If any other field is omitted, a :exc:`DeprecationWarning` is raised
+   and the AST node will not have this field. In Python 3.15, this condition will
+   raise an error.
 
 .. versionchanged:: 3.8
 
@@ -126,19 +134,32 @@ Node classes
    Simple indices are represented by their value, extended slices are
    represented as tuples.
 
+.. versionchanged:: 3.14
+
+    The :meth:`~object.__repr__` output of :class:`~ast.AST` nodes includes
+    the values of the node fields.
+
 .. deprecated:: 3.8
 
-   Old classes :class:`ast.Num`, :class:`ast.Str`, :class:`ast.Bytes`,
-   :class:`ast.NameConstant` and :class:`ast.Ellipsis` are still available,
+   Old classes :class:`!ast.Num`, :class:`!ast.Str`, :class:`!ast.Bytes`,
+   :class:`!ast.NameConstant` and :class:`!ast.Ellipsis` are still available,
    but they will be removed in future Python releases.  In the meantime,
    instantiating them will return an instance of a different class.
 
 .. deprecated:: 3.9
 
-   Old classes :class:`ast.Index` and :class:`ast.ExtSlice` are still
+   Old classes :class:`!ast.Index` and :class:`!ast.ExtSlice` are still
    available, but they will be removed in future Python releases.
    In the meantime, instantiating them will return an instance of
    a different class.
+
+.. deprecated-removed:: 3.13 3.15
+
+   Previous versions of Python allowed the creation of AST nodes that were missing
+   required fields. Similarly, AST node constructors allowed arbitrary keyword
+   arguments that were set as attributes of the AST node, even if they did not
+   match any of the fields of the AST node. This behavior is deprecated and will
+   be removed in Python 3.15.
 
 .. note::
     The descriptions of the specific node classes displayed here
@@ -146,15 +167,110 @@ Node classes
     Snakes <https://greentreesnakes.readthedocs.io/en/latest/>`__ project and
     all its contributors.
 
+
+.. _ast-root-nodes:
+
+Root nodes
+^^^^^^^^^^
+
+.. class:: Module(body, type_ignores)
+
+   A Python module, as with :ref:`file input <file-input>`.
+   Node type generated by :func:`ast.parse` in the default ``"exec"`` *mode*.
+
+   ``body`` is a :class:`list` of the module's :ref:`ast-statements`.
+
+   ``type_ignores`` is a :class:`list` of the module's type ignore comments;
+   see :func:`ast.parse` for more details.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse('x = 1'), indent=4))
+        Module(
+            body=[
+                Assign(
+                    targets=[
+                        Name(id='x', ctx=Store())],
+                    value=Constant(value=1))])
+
+
+.. class:: Expression(body)
+
+   A single Python :ref:`expression input <expression-input>`.
+   Node type generated by :func:`ast.parse` when *mode* is ``"eval"``.
+
+   ``body`` is a single node,
+   one of the :ref:`expression types <ast-expressions>`.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse('123', mode='eval'), indent=4))
+        Expression(
+            body=Constant(value=123))
+
+
+.. class:: Interactive(body)
+
+   A single :ref:`interactive input <interactive>`, like in :ref:`tut-interac`.
+   Node type generated by :func:`ast.parse` when *mode* is ``"single"``.
+
+   ``body`` is a :class:`list` of :ref:`statement nodes <ast-statements>`.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse('x = 1; y = 2', mode='single'), indent=4))
+        Interactive(
+            body=[
+                Assign(
+                    targets=[
+                        Name(id='x', ctx=Store())],
+                    value=Constant(value=1)),
+                Assign(
+                    targets=[
+                        Name(id='y', ctx=Store())],
+                    value=Constant(value=2))])
+
+
+.. class:: FunctionType(argtypes, returns)
+
+   A representation of an old-style type comments for functions,
+   as Python versions prior to 3.5 didn't support :pep:`484` annotations.
+   Node type generated by :func:`ast.parse` when *mode* is ``"func_type"``.
+
+   Such type comments would look like this::
+
+       def sum_two_number(a, b):
+           # type: (int, int) -> int
+           return a + b
+
+   ``argtypes`` is a :class:`list` of :ref:`expression nodes <ast-expressions>`.
+
+   ``returns`` is a single :ref:`expression node <ast-expressions>`.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse('(int, str) -> List[int]', mode='func_type'), indent=4))
+        FunctionType(
+            argtypes=[
+                Name(id='int', ctx=Load()),
+                Name(id='str', ctx=Load())],
+            returns=Subscript(
+                value=Name(id='List', ctx=Load()),
+                slice=Name(id='int', ctx=Load()),
+                ctx=Load()))
+
+   .. versionadded:: 3.8
+
+
 Literals
 ^^^^^^^^
 
 .. class:: Constant(value)
 
    A constant value. The ``value`` attribute of the ``Constant`` literal contains the
-   Python object it represents. The values represented can be simple types
-   such as a number, string or ``None``, but also immutable container types
-   (tuples and frozensets) if all of their elements are constant.
+   Python object it represents. The values represented can be instances of :class:`str`,
+   :class:`bytes`, :class:`int`, :class:`float`, :class:`complex`, and :class:`bool`,
+   and the constants :data:`None` and :data:`Ellipsis`.
 
    .. doctest::
 
@@ -174,9 +290,9 @@ Literals
    * ``conversion`` is an integer:
 
      * -1: no formatting
-     * 115: ``!s`` string formatting
-     * 114: ``!r`` repr formatting
-     * 97: ``!a`` ascii formatting
+     * 97 (``ord('a')``): ``!a`` :func:`ASCII <ascii>` formatting
+     * 114 (``ord('r')``): ``!r`` :func:`repr` formatting
+     * 115 (``ord('s')``): ``!s`` :func:`string <str>` formatting
 
    * ``format_spec`` is a :class:`JoinedStr` node representing the formatting
      of the value, or ``None`` if no format was specified. Both
@@ -203,12 +319,68 @@ Literals
                         value=Call(
                             func=Name(id='sin', ctx=Load()),
                             args=[
-                                Name(id='a', ctx=Load())],
-                            keywords=[]),
+                                Name(id='a', ctx=Load())]),
                         conversion=-1,
                         format_spec=JoinedStr(
                             values=[
                                 Constant(value='.3')]))]))
+
+
+.. class:: TemplateStr(values, /)
+
+   .. versionadded:: 3.14
+
+   Node representing a template string literal, comprising a series of
+   :class:`Interpolation` and :class:`Constant` nodes.
+   These nodes may be any order, and do not need to be interleaved.
+
+   .. doctest::
+
+        >>> expr = ast.parse('t"{name} finished {place:ordinal}"', mode='eval')
+        >>> print(ast.dump(expr, indent=4))
+        Expression(
+            body=TemplateStr(
+                values=[
+                    Interpolation(
+                        value=Name(id='name', ctx=Load()),
+                        str='name',
+                        conversion=-1),
+                    Constant(value=' finished '),
+                    Interpolation(
+                        value=Name(id='place', ctx=Load()),
+                        str='place',
+                        conversion=-1,
+                        format_spec=JoinedStr(
+                            values=[
+                                Constant(value='ordinal')]))]))
+
+.. class:: Interpolation(value, str, conversion, format_spec=None)
+
+   .. versionadded:: 3.14
+
+   Node representing a single interpolation field in a template string literal.
+
+   * ``value`` is any expression node (such as a literal, a variable, or a
+     function call).
+     This has the same meaning as ``FormattedValue.value``.
+   * ``str`` is a constant containing the text of the interpolation expression.
+
+     If ``str`` is set to ``None``, then ``value`` is used to generate code
+     when calling :func:`ast.unparse`. This no longer guarantees that the
+     generated code is identical to the original and is intended for code
+     generation.
+   * ``conversion`` is an integer:
+
+     * -1: no conversion
+     * 97 (``ord('a')``): ``!a`` :func:`ASCII <ascii>` conversion
+     * 114 (``ord('r')``): ``!r`` :func:`repr` conversion
+     * 115 (``ord('s')``): ``!s`` :func:`string <str>` conversion
+
+     This has the same meaning as ``FormattedValue.conversion``.
+   * ``format_spec`` is a :class:`JoinedStr` node representing the formatting
+     of the value, or ``None`` if no format was specified. Both
+     ``conversion`` and ``format_spec`` can be set at the same time.
+     This has the same meaning as ``FormattedValue.format_spec``.
 
 
 .. class:: List(elts, ctx)
@@ -299,8 +471,7 @@ Variables
         Module(
             body=[
                 Expr(
-                    value=Name(id='a', ctx=Load()))],
-            type_ignores=[])
+                    value=Name(id='a', ctx=Load()))])
 
         >>> print(ast.dump(ast.parse('a = 1'), indent=4))
         Module(
@@ -308,16 +479,14 @@ Variables
                 Assign(
                     targets=[
                         Name(id='a', ctx=Store())],
-                    value=Constant(value=1))],
-            type_ignores=[])
+                    value=Constant(value=1))])
 
         >>> print(ast.dump(ast.parse('del a'), indent=4))
         Module(
             body=[
                 Delete(
                     targets=[
-                        Name(id='a', ctx=Del())])],
-            type_ignores=[])
+                        Name(id='a', ctx=Del())])])
 
 
 .. class:: Starred(value, ctx)
@@ -340,9 +509,10 @@ Variables
                                     value=Name(id='b', ctx=Store()),
                                     ctx=Store())],
                             ctx=Store())],
-                    value=Name(id='it', ctx=Load()))],
-            type_ignores=[])
+                    value=Name(id='it', ctx=Load()))])
 
+
+.. _ast-expressions:
 
 Expressions
 ^^^^^^^^^^^
@@ -362,8 +532,7 @@ Expressions
                 Expr(
                     value=UnaryOp(
                         op=USub(),
-                        operand=Name(id='a', ctx=Load())))],
-            type_ignores=[])
+                        operand=Name(id='a', ctx=Load())))])
 
 
 .. class:: UnaryOp(op, operand)
@@ -481,17 +650,16 @@ Expressions
    Comparison operator tokens.
 
 
-.. class:: Call(func, args, keywords, starargs, kwargs)
+.. class:: Call(func, args, keywords)
 
    A function call. ``func`` is the function, which will often be a
    :class:`Name` or :class:`Attribute` object. Of the arguments:
 
    * ``args`` holds a list of the arguments passed by position.
-   * ``keywords`` holds a list of :class:`keyword` objects representing
+   * ``keywords`` holds a list of :class:`.keyword` objects representing
      arguments passed by keyword.
 
-   When creating a ``Call`` node, ``args`` and ``keywords`` are required, but
-   they can be empty lists. ``starargs`` and ``kwargs`` are optional.
+   The ``args`` and ``keywords`` arguments are optional and default to empty lists.
 
    .. doctest::
 
@@ -552,10 +720,10 @@ Expressions
 
 .. class:: NamedExpr(target, value)
 
-    A named expression. This AST node is produced by the assignment expressions
-    operator (also known as the walrus operator). As opposed to the :class:`Assign`
-    node in which the first argument can be multiple nodes, in this case both
-    ``target`` and ``value`` must be single nodes.
+   A named expression. This AST node is produced by the assignment expressions
+   operator (also known as the walrus operator). As opposed to the :class:`Assign`
+   node in which the first argument can be multiple nodes, in this case both
+   ``target`` and ``value`` must be single nodes.
 
    .. doctest::
 
@@ -565,6 +733,7 @@ Expressions
                 target=Name(id='x', ctx=Store()),
                 value=Constant(value=4)))
 
+   .. versionadded:: 3.8
 
 Subscripting
 ~~~~~~~~~~~~
@@ -627,7 +796,10 @@ Comprehensions
 
    .. doctest::
 
-        >>> print(ast.dump(ast.parse('[x for x in numbers]', mode='eval'), indent=4))
+        >>> print(ast.dump(
+        ...     ast.parse('[x for x in numbers]', mode='eval'),
+        ...     indent=4,
+        ... ))
         Expression(
             body=ListComp(
                 elt=Name(id='x', ctx=Load()),
@@ -635,9 +807,11 @@ Comprehensions
                     comprehension(
                         target=Name(id='x', ctx=Store()),
                         iter=Name(id='numbers', ctx=Load()),
-                        ifs=[],
                         is_async=0)]))
-        >>> print(ast.dump(ast.parse('{x: x**2 for x in numbers}', mode='eval'), indent=4))
+        >>> print(ast.dump(
+        ...     ast.parse('{x: x**2 for x in numbers}', mode='eval'),
+        ...     indent=4,
+        ... ))
         Expression(
             body=DictComp(
                 key=Name(id='x', ctx=Load()),
@@ -649,9 +823,11 @@ Comprehensions
                     comprehension(
                         target=Name(id='x', ctx=Store()),
                         iter=Name(id='numbers', ctx=Load()),
-                        ifs=[],
                         is_async=0)]))
-        >>> print(ast.dump(ast.parse('{x for x in numbers}', mode='eval'), indent=4))
+        >>> print(ast.dump(
+        ...     ast.parse('{x for x in numbers}', mode='eval'),
+        ...     indent=4,
+        ... ))
         Expression(
             body=SetComp(
                 elt=Name(id='x', ctx=Load()),
@@ -659,7 +835,6 @@ Comprehensions
                     comprehension(
                         target=Name(id='x', ctx=Store()),
                         iter=Name(id='numbers', ctx=Load()),
-                        ifs=[],
                         is_async=0)]))
 
 
@@ -682,18 +857,15 @@ Comprehensions
                 elt=Call(
                     func=Name(id='ord', ctx=Load()),
                     args=[
-                        Name(id='c', ctx=Load())],
-                    keywords=[]),
+                        Name(id='c', ctx=Load())]),
                 generators=[
                     comprehension(
                         target=Name(id='line', ctx=Store()),
                         iter=Name(id='file', ctx=Load()),
-                        ifs=[],
                         is_async=0),
                     comprehension(
                         target=Name(id='c', ctx=Store()),
                         iter=Name(id='line', ctx=Load()),
-                        ifs=[],
                         is_async=0)]))
 
         >>> print(ast.dump(ast.parse('(n**2 for n in it if n>5 if n<10)', mode='eval'),
@@ -732,8 +904,10 @@ Comprehensions
                     comprehension(
                         target=Name(id='i', ctx=Store()),
                         iter=Name(id='soc', ctx=Load()),
-                        ifs=[],
                         is_async=1)]))
+
+
+.. _ast-statements:
 
 Statements
 ^^^^^^^^^^
@@ -759,8 +933,7 @@ Statements
                     targets=[
                         Name(id='a', ctx=Store()),
                         Name(id='b', ctx=Store())],
-                    value=Constant(value=1))],
-            type_ignores=[])
+                    value=Constant(value=1))])
 
         >>> print(ast.dump(ast.parse('a,b = c'), indent=4)) # Unpacking
         Module(
@@ -772,18 +945,21 @@ Statements
                                 Name(id='a', ctx=Store()),
                                 Name(id='b', ctx=Store())],
                             ctx=Store())],
-                    value=Name(id='c', ctx=Load()))],
-            type_ignores=[])
+                    value=Name(id='c', ctx=Load()))])
 
 
 .. class:: AnnAssign(target, annotation, value, simple)
 
    An assignment with a type annotation. ``target`` is a single node and can
-   be a :class:`Name`, a :class:`Attribute` or a :class:`Subscript`.
+   be a :class:`Name`, an :class:`Attribute` or a :class:`Subscript`.
    ``annotation`` is the annotation, such as a :class:`Constant` or :class:`Name`
-   node. ``value`` is a single optional node. ``simple`` is a boolean integer
-   set to True for a :class:`Name` node in ``target`` that do not appear in
-   between parenthesis and are hence pure names and not expressions.
+   node. ``value`` is a single optional node.
+
+   ``simple`` is always either 0 (indicating a "complex" target) or 1
+   (indicating a "simple" target). A "simple" target consists solely of a
+   :class:`Name` node that does not appear between parentheses; all other
+   targets are considered complex. Only simple targets appear in
+   the :attr:`~object.__annotations__` dictionary of modules and classes.
 
    .. doctest::
 
@@ -793,8 +969,7 @@ Statements
                 AnnAssign(
                     target=Name(id='c', ctx=Store()),
                     annotation=Name(id='int', ctx=Load()),
-                    simple=1)],
-            type_ignores=[])
+                    simple=1)])
 
         >>> print(ast.dump(ast.parse('(a): int = 1'), indent=4)) # Annotation with parenthesis
         Module(
@@ -803,8 +978,7 @@ Statements
                     target=Name(id='a', ctx=Store()),
                     annotation=Name(id='int', ctx=Load()),
                     value=Constant(value=1),
-                    simple=0)],
-            type_ignores=[])
+                    simple=0)])
 
         >>> print(ast.dump(ast.parse('a.b: int'), indent=4)) # Attribute annotation
         Module(
@@ -815,8 +989,7 @@ Statements
                         attr='b',
                         ctx=Store()),
                     annotation=Name(id='int', ctx=Load()),
-                    simple=0)],
-            type_ignores=[])
+                    simple=0)])
 
         >>> print(ast.dump(ast.parse('a[1]: int'), indent=4)) # Subscript annotation
         Module(
@@ -827,8 +1000,7 @@ Statements
                         slice=Constant(value=1),
                         ctx=Store()),
                     annotation=Name(id='int', ctx=Load()),
-                    simple=0)],
-            type_ignores=[])
+                    simple=0)])
 
 
 .. class:: AugAssign(target, op, value)
@@ -838,7 +1010,7 @@ Statements
    context), ``op`` is :class:`Add`, and ``value`` is a :class:`Constant` with
    value for 1.
 
-   The ``target`` attribute connot be of class :class:`Tuple` or :class:`List`,
+   The ``target`` attribute cannot be of class :class:`Tuple` or :class:`List`,
    unlike the targets of :class:`Assign`.
 
    .. doctest::
@@ -849,8 +1021,7 @@ Statements
                 AugAssign(
                     target=Name(id='x', ctx=Store()),
                     op=Add(),
-                    value=Constant(value=2))],
-            type_ignores=[])
+                    value=Constant(value=2))])
 
 
 .. class:: Raise(exc, cause)
@@ -866,8 +1037,7 @@ Statements
             body=[
                 Raise(
                     exc=Name(id='x', ctx=Load()),
-                    cause=Name(id='y', ctx=Load()))],
-            type_ignores=[])
+                    cause=Name(id='y', ctx=Load()))])
 
 
 .. class:: Assert(test, msg)
@@ -882,8 +1052,7 @@ Statements
             body=[
                 Assert(
                     test=Name(id='x', ctx=Load()),
-                    msg=Name(id='y', ctx=Load()))],
-            type_ignores=[])
+                    msg=Name(id='y', ctx=Load()))])
 
 
 .. class:: Delete(targets)
@@ -900,8 +1069,7 @@ Statements
                     targets=[
                         Name(id='x', ctx=Del()),
                         Name(id='y', ctx=Del()),
-                        Name(id='z', ctx=Del())])],
-            type_ignores=[])
+                        Name(id='z', ctx=Del())])])
 
 
 .. class:: Pass()
@@ -913,9 +1081,26 @@ Statements
         >>> print(ast.dump(ast.parse('pass'), indent=4))
         Module(
             body=[
-                Pass()],
-            type_ignores=[])
+                Pass()])
 
+
+.. class:: TypeAlias(name, type_params, value)
+
+   A :ref:`type alias <type-aliases>` created through the :keyword:`type`
+   statement. ``name`` is the name of the alias, ``type_params`` is a list of
+   :ref:`type parameters <ast-type-params>`, and ``value`` is the value of the
+   type alias.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse('type Alias = int'), indent=4))
+        Module(
+            body=[
+                TypeAlias(
+                    name=Name(id='Alias', ctx=Store()),
+                    value=Name(id='int', ctx=Load()))])
+
+   .. versionadded:: 3.12
 
 Other statements which are only applicable inside functions or loops are
 described in other sections.
@@ -936,8 +1121,7 @@ Imports
                     names=[
                         alias(name='x'),
                         alias(name='y'),
-                        alias(name='z')])],
-            type_ignores=[])
+                        alias(name='z')])])
 
 
 .. class:: ImportFrom(module, names, level)
@@ -958,8 +1142,7 @@ Imports
                         alias(name='x'),
                         alias(name='y'),
                         alias(name='z')],
-                    level=0)],
-            type_ignores=[])
+                    level=0)])
 
 
 .. class:: alias(name, asname)
@@ -977,8 +1160,7 @@ Imports
                     names=[
                         alias(name='a', asname='b'),
                         alias(name='c')],
-                    level=2)],
-            type_ignores=[])
+                    level=2)])
 
 Control flow
 ^^^^^^^^^^^^
@@ -1021,17 +1203,17 @@ Control flow
                                     value=Constant(value=Ellipsis))],
                             orelse=[
                                 Expr(
-                                    value=Constant(value=Ellipsis))])])],
-            type_ignores=[])
+                                    value=Constant(value=Ellipsis))])])])
 
 
 .. class:: For(target, iter, body, orelse, type_comment)
 
    A ``for`` loop. ``target`` holds the variable(s) the loop assigns to, as a
-   single :class:`Name`, :class:`Tuple` or :class:`List` node. ``iter`` holds
-   the item to be looped over, again as a single node. ``body`` and ``orelse``
-   contain lists of nodes to execute. Those in ``orelse`` are executed if the
-   loop finishes normally, rather than via a ``break`` statement.
+   single :class:`Name`, :class:`Tuple`, :class:`List`, :class:`Attribute` or
+   :class:`Subscript` node. ``iter`` holds the item to be looped over, again
+   as a single node. ``body`` and ``orelse`` contain lists of nodes to execute.
+   Those in ``orelse`` are executed if the loop finishes normally, rather than
+   via a ``break`` statement.
 
    .. attribute:: type_comment
 
@@ -1055,8 +1237,7 @@ Control flow
                             value=Constant(value=Ellipsis))],
                     orelse=[
                         Expr(
-                            value=Constant(value=Ellipsis))])],
-            type_ignores=[])
+                            value=Constant(value=Ellipsis))])])
 
 
 .. class:: While(test, body, orelse)
@@ -1066,7 +1247,7 @@ Control flow
 
    .. doctest::
 
-        >> print(ast.dump(ast.parse("""
+        >>> print(ast.dump(ast.parse("""
         ... while x:
         ...    ...
         ... else:
@@ -1081,8 +1262,7 @@ Control flow
                             value=Constant(value=Ellipsis))],
                     orelse=[
                         Expr(
-                            value=Constant(value=Ellipsis))])],
-            type_ignores=[])
+                            value=Constant(value=Ellipsis))])])
 
 
 .. class:: Break
@@ -1116,9 +1296,7 @@ Control flow
                             body=[
                                 Break()],
                             orelse=[
-                                Continue()])],
-                    orelse=[])],
-            type_ignores=[])
+                                Continue()])])])
 
 
 .. class:: Try(body, handlers, orelse, finalbody)
@@ -1163,9 +1341,37 @@ Control flow
                             value=Constant(value=Ellipsis))],
                     finalbody=[
                         Expr(
-                            value=Constant(value=Ellipsis))])],
-            type_ignores=[])
+                            value=Constant(value=Ellipsis))])])
 
+
+.. class:: TryStar(body, handlers, orelse, finalbody)
+
+   ``try`` blocks which are followed by ``except*`` clauses. The attributes are the
+   same as for :class:`Try` but the :class:`ExceptHandler` nodes in ``handlers``
+   are interpreted as ``except*`` blocks rather then ``except``.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse("""
+        ... try:
+        ...    ...
+        ... except* Exception:
+        ...    ...
+        ... """), indent=4))
+        Module(
+            body=[
+                TryStar(
+                    body=[
+                        Expr(
+                            value=Constant(value=Ellipsis))],
+                    handlers=[
+                        ExceptHandler(
+                            type=Name(id='Exception', ctx=Load()),
+                            body=[
+                                Expr(
+                                    value=Constant(value=Ellipsis))])])])
+
+   .. versionadded:: 3.11
 
 .. class:: ExceptHandler(type, name, body)
 
@@ -1195,10 +1401,7 @@ Control flow
                         ExceptHandler(
                             type=Name(id='TypeError', ctx=Load()),
                             body=[
-                                Pass()])],
-                    orelse=[],
-                    finalbody=[])],
-            type_ignores=[])
+                                Pass()])])])
 
 
 .. class:: With(items, body, type_comment)
@@ -1240,15 +1443,527 @@ Control flow
                                 func=Name(id='something', ctx=Load()),
                                 args=[
                                     Name(id='b', ctx=Load()),
-                                    Name(id='d', ctx=Load())],
-                                keywords=[]))])],
-            type_ignores=[])
+                                    Name(id='d', ctx=Load())]))])])
 
+
+Pattern matching
+^^^^^^^^^^^^^^^^
+
+
+.. class:: Match(subject, cases)
+
+   A ``match`` statement. ``subject`` holds the subject of the match (the object
+   that is being matched against the cases) and ``cases`` contains an iterable of
+   :class:`match_case` nodes with the different cases.
+
+   .. versionadded:: 3.10
+
+.. class:: match_case(pattern, guard, body)
+
+   A single case pattern in a ``match`` statement. ``pattern`` contains the
+   match pattern that the subject will be matched against. Note that the
+   :class:`AST` nodes produced for patterns differ from those produced for
+   expressions, even when they share the same syntax.
+
+   The ``guard`` attribute contains an expression that will be evaluated if
+   the pattern matches the subject.
+
+   ``body`` contains a list of nodes to execute if the pattern matches and
+   the result of evaluating the guard expression is true.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse("""
+        ... match x:
+        ...     case [x] if x>0:
+        ...         ...
+        ...     case tuple():
+        ...         ...
+        ... """), indent=4))
+        Module(
+            body=[
+                Match(
+                    subject=Name(id='x', ctx=Load()),
+                    cases=[
+                        match_case(
+                            pattern=MatchSequence(
+                                patterns=[
+                                    MatchAs(name='x')]),
+                            guard=Compare(
+                                left=Name(id='x', ctx=Load()),
+                                ops=[
+                                    Gt()],
+                                comparators=[
+                                    Constant(value=0)]),
+                            body=[
+                                Expr(
+                                    value=Constant(value=Ellipsis))]),
+                        match_case(
+                            pattern=MatchClass(
+                                cls=Name(id='tuple', ctx=Load())),
+                            body=[
+                                Expr(
+                                    value=Constant(value=Ellipsis))])])])
+
+   .. versionadded:: 3.10
+
+.. class:: MatchValue(value)
+
+   A match literal or value pattern that compares by equality. ``value`` is
+   an expression node. Permitted value nodes are restricted as described in
+   the match statement documentation. This pattern succeeds if the match
+   subject is equal to the evaluated value.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse("""
+        ... match x:
+        ...     case "Relevant":
+        ...         ...
+        ... """), indent=4))
+        Module(
+            body=[
+                Match(
+                    subject=Name(id='x', ctx=Load()),
+                    cases=[
+                        match_case(
+                            pattern=MatchValue(
+                                value=Constant(value='Relevant')),
+                            body=[
+                                Expr(
+                                    value=Constant(value=Ellipsis))])])])
+
+   .. versionadded:: 3.10
+
+.. class:: MatchSingleton(value)
+
+   A match literal pattern that compares by identity. ``value`` is the
+   singleton to be compared against: ``None``, ``True``, or ``False``. This
+   pattern succeeds if the match subject is the given constant.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse("""
+        ... match x:
+        ...     case None:
+        ...         ...
+        ... """), indent=4))
+        Module(
+            body=[
+                Match(
+                    subject=Name(id='x', ctx=Load()),
+                    cases=[
+                        match_case(
+                            pattern=MatchSingleton(value=None),
+                            body=[
+                                Expr(
+                                    value=Constant(value=Ellipsis))])])])
+
+   .. versionadded:: 3.10
+
+.. class:: MatchSequence(patterns)
+
+   A match sequence pattern. ``patterns`` contains the patterns to be matched
+   against the subject elements if the subject is a sequence. Matches a variable
+   length sequence if one of the subpatterns is a ``MatchStar`` node, otherwise
+   matches a fixed length sequence.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse("""
+        ... match x:
+        ...     case [1, 2]:
+        ...         ...
+        ... """), indent=4))
+        Module(
+            body=[
+                Match(
+                    subject=Name(id='x', ctx=Load()),
+                    cases=[
+                        match_case(
+                            pattern=MatchSequence(
+                                patterns=[
+                                    MatchValue(
+                                        value=Constant(value=1)),
+                                    MatchValue(
+                                        value=Constant(value=2))]),
+                            body=[
+                                Expr(
+                                    value=Constant(value=Ellipsis))])])])
+
+   .. versionadded:: 3.10
+
+.. class:: MatchStar(name)
+
+   Matches the rest of the sequence in a variable length match sequence pattern.
+   If ``name`` is not ``None``, a list containing the remaining sequence
+   elements is bound to that name if the overall sequence pattern is successful.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse("""
+        ... match x:
+        ...     case [1, 2, *rest]:
+        ...         ...
+        ...     case [*_]:
+        ...         ...
+        ... """), indent=4))
+        Module(
+            body=[
+                Match(
+                    subject=Name(id='x', ctx=Load()),
+                    cases=[
+                        match_case(
+                            pattern=MatchSequence(
+                                patterns=[
+                                    MatchValue(
+                                        value=Constant(value=1)),
+                                    MatchValue(
+                                        value=Constant(value=2)),
+                                    MatchStar(name='rest')]),
+                            body=[
+                                Expr(
+                                    value=Constant(value=Ellipsis))]),
+                        match_case(
+                            pattern=MatchSequence(
+                                patterns=[
+                                    MatchStar()]),
+                            body=[
+                                Expr(
+                                    value=Constant(value=Ellipsis))])])])
+
+   .. versionadded:: 3.10
+
+.. class:: MatchMapping(keys, patterns, rest)
+
+   A match mapping pattern. ``keys`` is a sequence of expression nodes.
+   ``patterns`` is a corresponding sequence of pattern nodes. ``rest`` is an
+   optional name that can be specified to capture the remaining mapping elements.
+   Permitted key expressions are restricted as described in the match statement
+   documentation.
+
+   This pattern succeeds if the subject is a mapping, all evaluated key
+   expressions are present in the mapping, and the value corresponding to each
+   key matches the corresponding subpattern. If ``rest`` is not ``None``, a dict
+   containing the remaining mapping elements is bound to that name if the overall
+   mapping pattern is successful.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse("""
+        ... match x:
+        ...     case {1: _, 2: _}:
+        ...         ...
+        ...     case {**rest}:
+        ...         ...
+        ... """), indent=4))
+        Module(
+            body=[
+                Match(
+                    subject=Name(id='x', ctx=Load()),
+                    cases=[
+                        match_case(
+                            pattern=MatchMapping(
+                                keys=[
+                                    Constant(value=1),
+                                    Constant(value=2)],
+                                patterns=[
+                                    MatchAs(),
+                                    MatchAs()]),
+                            body=[
+                                Expr(
+                                    value=Constant(value=Ellipsis))]),
+                        match_case(
+                            pattern=MatchMapping(rest='rest'),
+                            body=[
+                                Expr(
+                                    value=Constant(value=Ellipsis))])])])
+
+   .. versionadded:: 3.10
+
+.. class:: MatchClass(cls, patterns, kwd_attrs, kwd_patterns)
+
+   A match class pattern. ``cls`` is an expression giving the nominal class to
+   be matched. ``patterns`` is a sequence of pattern nodes to be matched against
+   the class defined sequence of pattern matching attributes. ``kwd_attrs`` is a
+   sequence of additional attributes to be matched (specified as keyword arguments
+   in the class pattern), ``kwd_patterns`` are the corresponding patterns
+   (specified as keyword values in the class pattern).
+
+   This pattern succeeds if the subject is an instance of the nominated class,
+   all positional patterns match the corresponding class-defined attributes, and
+   any specified keyword attributes match their corresponding pattern.
+
+   Note: classes may define a property that returns self in order to match a
+   pattern node against the instance being matched. Several builtin types are
+   also matched that way, as described in the match statement documentation.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse("""
+        ... match x:
+        ...     case Point2D(0, 0):
+        ...         ...
+        ...     case Point3D(x=0, y=0, z=0):
+        ...         ...
+        ... """), indent=4))
+        Module(
+            body=[
+                Match(
+                    subject=Name(id='x', ctx=Load()),
+                    cases=[
+                        match_case(
+                            pattern=MatchClass(
+                                cls=Name(id='Point2D', ctx=Load()),
+                                patterns=[
+                                    MatchValue(
+                                        value=Constant(value=0)),
+                                    MatchValue(
+                                        value=Constant(value=0))]),
+                            body=[
+                                Expr(
+                                    value=Constant(value=Ellipsis))]),
+                        match_case(
+                            pattern=MatchClass(
+                                cls=Name(id='Point3D', ctx=Load()),
+                                kwd_attrs=[
+                                    'x',
+                                    'y',
+                                    'z'],
+                                kwd_patterns=[
+                                    MatchValue(
+                                        value=Constant(value=0)),
+                                    MatchValue(
+                                        value=Constant(value=0)),
+                                    MatchValue(
+                                        value=Constant(value=0))]),
+                            body=[
+                                Expr(
+                                    value=Constant(value=Ellipsis))])])])
+
+   .. versionadded:: 3.10
+
+.. class:: MatchAs(pattern, name)
+
+   A match "as-pattern", capture pattern or wildcard pattern. ``pattern``
+   contains the match pattern that the subject will be matched against.
+   If the pattern is ``None``, the node represents a capture pattern (i.e a
+   bare name) and will always succeed.
+
+   The ``name`` attribute contains the name that will be bound if the pattern
+   is successful. If ``name`` is ``None``, ``pattern`` must also be ``None``
+   and the node represents the wildcard pattern.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse("""
+        ... match x:
+        ...     case [x] as y:
+        ...         ...
+        ...     case _:
+        ...         ...
+        ... """), indent=4))
+        Module(
+            body=[
+                Match(
+                    subject=Name(id='x', ctx=Load()),
+                    cases=[
+                        match_case(
+                            pattern=MatchAs(
+                                pattern=MatchSequence(
+                                    patterns=[
+                                        MatchAs(name='x')]),
+                                name='y'),
+                            body=[
+                                Expr(
+                                    value=Constant(value=Ellipsis))]),
+                        match_case(
+                            pattern=MatchAs(),
+                            body=[
+                                Expr(
+                                    value=Constant(value=Ellipsis))])])])
+
+   .. versionadded:: 3.10
+
+.. class:: MatchOr(patterns)
+
+   A match "or-pattern". An or-pattern matches each of its subpatterns in turn
+   to the subject, until one succeeds. The or-pattern is then deemed to
+   succeed. If none of the subpatterns succeed the or-pattern fails. The
+   ``patterns`` attribute contains a list of match pattern nodes that will be
+   matched against the subject.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse("""
+        ... match x:
+        ...     case [x] | (y):
+        ...         ...
+        ... """), indent=4))
+        Module(
+            body=[
+                Match(
+                    subject=Name(id='x', ctx=Load()),
+                    cases=[
+                        match_case(
+                            pattern=MatchOr(
+                                patterns=[
+                                    MatchSequence(
+                                        patterns=[
+                                            MatchAs(name='x')]),
+                                    MatchAs(name='y')]),
+                            body=[
+                                Expr(
+                                    value=Constant(value=Ellipsis))])])])
+
+   .. versionadded:: 3.10
+
+
+Type annotations
+^^^^^^^^^^^^^^^^
+
+.. class:: TypeIgnore(lineno, tag)
+
+   A ``# type: ignore`` comment located at *lineno*.
+   *tag* is the optional tag specified by the form ``# type: ignore <tag>``.
+
+   .. doctest::
+
+      >>> print(ast.dump(ast.parse('x = 1 # type: ignore', type_comments=True), indent=4))
+      Module(
+          body=[
+              Assign(
+                  targets=[
+                      Name(id='x', ctx=Store())],
+                  value=Constant(value=1))],
+          type_ignores=[
+              TypeIgnore(lineno=1, tag='')])
+      >>> print(ast.dump(ast.parse('x: bool = 1 # type: ignore[assignment]', type_comments=True), indent=4))
+      Module(
+          body=[
+              AnnAssign(
+                  target=Name(id='x', ctx=Store()),
+                  annotation=Name(id='bool', ctx=Load()),
+                  value=Constant(value=1),
+                  simple=1)],
+          type_ignores=[
+              TypeIgnore(lineno=1, tag='[assignment]')])
+
+   .. note::
+      :class:`!TypeIgnore` nodes are not generated when the *type_comments* parameter
+      is set to ``False`` (default).  See :func:`ast.parse` for more details.
+
+   .. versionadded:: 3.8
+
+.. _ast-type-params:
+
+Type parameters
+^^^^^^^^^^^^^^^
+
+:ref:`Type parameters <type-params>` can exist on classes, functions, and type
+aliases.
+
+.. class:: TypeVar(name, bound, default_value)
+
+   A :class:`typing.TypeVar`. ``name`` is the name of the type variable.
+   ``bound`` is the bound or constraints, if any. If ``bound`` is a :class:`Tuple`,
+   it represents constraints; otherwise it represents the bound. ``default_value``
+   is the default value; if the :class:`!TypeVar` has no default, this
+   attribute will be set to ``None``.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse("type Alias[T: int = bool] = list[T]"), indent=4))
+        Module(
+            body=[
+                TypeAlias(
+                    name=Name(id='Alias', ctx=Store()),
+                    type_params=[
+                        TypeVar(
+                            name='T',
+                            bound=Name(id='int', ctx=Load()),
+                            default_value=Name(id='bool', ctx=Load()))],
+                    value=Subscript(
+                        value=Name(id='list', ctx=Load()),
+                        slice=Name(id='T', ctx=Load()),
+                        ctx=Load()))])
+
+   .. versionadded:: 3.12
+
+   .. versionchanged:: 3.13
+      Added the *default_value* parameter.
+
+.. class:: ParamSpec(name, default_value)
+
+   A :class:`typing.ParamSpec`. ``name`` is the name of the parameter specification.
+   ``default_value`` is the default value; if the :class:`!ParamSpec` has no default,
+   this attribute will be set to ``None``.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse("type Alias[**P = [int, str]] = Callable[P, int]"), indent=4))
+        Module(
+            body=[
+                TypeAlias(
+                    name=Name(id='Alias', ctx=Store()),
+                    type_params=[
+                        ParamSpec(
+                            name='P',
+                            default_value=List(
+                                elts=[
+                                    Name(id='int', ctx=Load()),
+                                    Name(id='str', ctx=Load())],
+                                ctx=Load()))],
+                    value=Subscript(
+                        value=Name(id='Callable', ctx=Load()),
+                        slice=Tuple(
+                            elts=[
+                                Name(id='P', ctx=Load()),
+                                Name(id='int', ctx=Load())],
+                            ctx=Load()),
+                        ctx=Load()))])
+
+   .. versionadded:: 3.12
+
+   .. versionchanged:: 3.13
+      Added the *default_value* parameter.
+
+.. class:: TypeVarTuple(name, default_value)
+
+   A :class:`typing.TypeVarTuple`. ``name`` is the name of the type variable tuple.
+   ``default_value`` is the default value; if the :class:`!TypeVarTuple` has no
+   default, this attribute will be set to ``None``.
+
+   .. doctest::
+
+        >>> print(ast.dump(ast.parse("type Alias[*Ts = ()] = tuple[*Ts]"), indent=4))
+        Module(
+            body=[
+                TypeAlias(
+                    name=Name(id='Alias', ctx=Store()),
+                    type_params=[
+                        TypeVarTuple(
+                            name='Ts',
+                            default_value=Tuple(ctx=Load()))],
+                    value=Subscript(
+                        value=Name(id='tuple', ctx=Load()),
+                        slice=Tuple(
+                            elts=[
+                                Starred(
+                                    value=Name(id='Ts', ctx=Load()),
+                                    ctx=Load())],
+                            ctx=Load()),
+                        ctx=Load()))])
+
+   .. versionadded:: 3.12
+
+   .. versionchanged:: 3.13
+      Added the *default_value* parameter.
 
 Function and class definitions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. class:: FunctionDef(name, args, body, decorator_list, returns, type_comment)
+.. class:: FunctionDef(name, args, body, decorator_list, returns, type_comment, type_params)
 
    A function definition.
 
@@ -1258,10 +1973,14 @@ Function and class definitions
    * ``decorator_list`` is the list of decorators to be applied, stored outermost
      first (i.e. the first in the list will be applied last).
    * ``returns`` is the return annotation.
+   * ``type_params`` is a list of :ref:`type parameters <ast-type-params>`.
 
    .. attribute:: type_comment
 
        ``type_comment`` is an optional string with the type annotation as a comment.
+
+   .. versionchanged:: 3.12
+        Added ``type_params``.
 
 
 .. class:: Lambda(args, body)
@@ -1277,15 +1996,10 @@ Function and class definitions
                 Expr(
                     value=Lambda(
                         args=arguments(
-                            posonlyargs=[],
                             args=[
                                 arg(arg='x'),
-                                arg(arg='y')],
-                            kwonlyargs=[],
-                            kw_defaults=[],
-                            defaults=[]),
-                        body=Constant(value=Ellipsis)))],
-            type_ignores=[])
+                                arg(arg='y')]),
+                        body=Constant(value=Ellipsis)))])
 
 
 .. class:: arguments(posonlyargs, args, vararg, kwonlyargs, kw_defaults, kwarg, defaults)
@@ -1305,8 +2019,7 @@ Function and class definitions
 .. class:: arg(arg, annotation, type_comment)
 
    A single argument in a list. ``arg`` is a raw string of the argument
-   name, ``annotation`` is its annotation, such as a :class:`Str` or
-   :class:`Name` node.
+   name; ``annotation`` is its annotation, such as a :class:`Name` node.
 
    .. attribute:: type_comment
 
@@ -1325,7 +2038,6 @@ Function and class definitions
                 FunctionDef(
                     name='f',
                     args=arguments(
-                        posonlyargs=[],
                         args=[
                             arg(
                                 arg='a',
@@ -1348,8 +2060,7 @@ Function and class definitions
                     decorator_list=[
                         Name(id='decorator1', ctx=Load()),
                         Name(id='decorator2', ctx=Load())],
-                    returns=Constant(value='return annotation'))],
-            type_ignores=[])
+                    returns=Constant(value='return annotation'))])
 
 
 .. class:: Return(value)
@@ -1362,15 +2073,14 @@ Function and class definitions
         Module(
             body=[
                 Return(
-                    value=Constant(value=4))],
-            type_ignores=[])
+                    value=Constant(value=4))])
 
 
 .. class:: Yield(value)
            YieldFrom(value)
 
    A ``yield`` or ``yield from`` expression. Because these are expressions, they
-   must be wrapped in a :class:`Expr` node if the value sent back is not used.
+   must be wrapped in an :class:`Expr` node if the value sent back is not used.
 
    .. doctest::
 
@@ -1379,16 +2089,14 @@ Function and class definitions
             body=[
                 Expr(
                     value=Yield(
-                        value=Name(id='x', ctx=Load())))],
-            type_ignores=[])
+                        value=Name(id='x', ctx=Load())))])
 
         >>> print(ast.dump(ast.parse('yield from x'), indent=4))
         Module(
             body=[
                 Expr(
                     value=YieldFrom(
-                        value=Name(id='x', ctx=Load())))],
-            type_ignores=[])
+                        value=Name(id='x', ctx=Load())))])
 
 
 .. class:: Global(names)
@@ -1405,8 +2113,7 @@ Function and class definitions
                     names=[
                         'x',
                         'y',
-                        'z'])],
-            type_ignores=[])
+                        'z'])])
 
         >>> print(ast.dump(ast.parse('nonlocal x,y,z'), indent=4))
         Module(
@@ -1415,25 +2122,21 @@ Function and class definitions
                     names=[
                         'x',
                         'y',
-                        'z'])],
-            type_ignores=[])
+                        'z'])])
 
 
-.. class:: ClassDef(name, bases, keywords, starargs, kwargs, body, decorator_list)
+.. class:: ClassDef(name, bases, keywords, body, decorator_list, type_params)
 
    A class definition.
 
    * ``name`` is a raw string for the class name
    * ``bases`` is a list of nodes for explicitly specified base classes.
-   * ``keywords`` is a list of :class:`keyword` nodes, principally for 'metaclass'.
-     Other keywords will be passed to the metaclass, as per `PEP-3115
-     <https://www.python.org/dev/peps/pep-3115/>`_.
-   * ``starargs`` and ``kwargs`` are each a single node, as in a function call.
-     starargs will be expanded to join the list of base classes, and kwargs will
-     be passed to the metaclass.
+   * ``keywords`` is a list of :class:`.keyword` nodes, principally for 'metaclass'.
+     Other keywords will be passed to the metaclass, as per :pep:`3115`.
    * ``body`` is a list of nodes representing the code within the class
      definition.
    * ``decorator_list`` is a list of nodes, as in :class:`FunctionDef`.
+   * ``type_params`` is a list of :ref:`type parameters <ast-type-params>`.
 
    .. doctest::
 
@@ -1458,16 +2161,21 @@ Function and class definitions
                         Pass()],
                     decorator_list=[
                         Name(id='decorator1', ctx=Load()),
-                        Name(id='decorator2', ctx=Load())])],
-            type_ignores=[])
+                        Name(id='decorator2', ctx=Load())])])
+
+   .. versionchanged:: 3.12
+        Added ``type_params``.
 
 Async and await
 ^^^^^^^^^^^^^^^
 
-.. class:: AsyncFunctionDef(name, args, body, decorator_list, returns, type_comment)
+.. class:: AsyncFunctionDef(name, args, body, decorator_list, returns, type_comment, type_params)
 
    An ``async def`` function definition. Has the same fields as
    :class:`FunctionDef`.
+
+   .. versionchanged:: 3.12
+        Added ``type_params``.
 
 
 .. class:: Await(value)
@@ -1485,21 +2193,12 @@ Async and await
         body=[
             AsyncFunctionDef(
                 name='f',
-                args=arguments(
-                    posonlyargs=[],
-                    args=[],
-                    kwonlyargs=[],
-                    kw_defaults=[],
-                    defaults=[]),
+                args=arguments(),
                 body=[
                     Expr(
                         value=Await(
                             value=Call(
-                                func=Name(id='other_func', ctx=Load()),
-                                args=[],
-                                keywords=[])))],
-                decorator_list=[])],
-        type_ignores=[])
+                                func=Name(id='other_func', ctx=Load()))))])])
 
 
 .. class:: AsyncFor(target, iter, body, orelse, type_comment)
@@ -1514,24 +2213,26 @@ Async and await
    of :class:`ast.operator`, :class:`ast.unaryop`, :class:`ast.cmpop`,
    :class:`ast.boolop` and :class:`ast.expr_context`) on the returned tree
    will be singletons. Changes to one will be reflected in all other
-   occurrences of the same value (e.g. :class:`ast.Add`).
+   occurrences of the same value (for example, :class:`ast.Add`).
 
 
-:mod:`ast` Helpers
+:mod:`ast` helpers
 ------------------
 
 Apart from the node classes, the :mod:`ast` module defines these utility functions
 and classes for traversing abstract syntax trees:
 
-.. function:: parse(source, filename='<unknown>', mode='exec', *, type_comments=False, feature_version=None)
+.. function:: parse(source, filename='<unknown>', mode='exec', *, type_comments=False, feature_version=None, optimize=-1)
 
    Parse the source into an AST node.  Equivalent to ``compile(source,
-   filename, mode, ast.PyCF_ONLY_AST)``.
+   filename, mode, flags=FLAGS_VALUE, optimize=optimize)``,
+   where ``FLAGS_VALUE`` is ``ast.PyCF_ONLY_AST`` if ``optimize <= 0``
+   and ``ast.PyCF_OPTIMIZED_AST`` otherwise.
 
    If ``type_comments=True`` is given, the parser is modified to check
    and return type comments as specified by :pep:`484` and :pep:`526`.
    This is equivalent to adding :data:`ast.PyCF_TYPE_COMMENTS` to the
-   flags passed to :func:`compile()`.  This will report syntax errors
+   flags passed to :func:`compile`.  This will report syntax errors
    for misplaced type comments.  Without this flag, type comments will
    be ignored, and the ``type_comment`` field on selected AST nodes
    will always be ``None``.  In addition, the locations of ``# type:
@@ -1542,16 +2243,19 @@ and classes for traversing abstract syntax trees:
    modified to correspond to :pep:`484` "signature type comments",
    e.g. ``(str, int) -> List[str]``.
 
-   Also, setting ``feature_version`` to a tuple ``(major, minor)``
-   will attempt to parse using that Python version's grammar.
-   Currently ``major`` must equal to ``3``.  For example, setting
-   ``feature_version=(3, 4)`` will allow the use of ``async`` and
-   ``await`` as variable names.  The lowest supported version is
-   ``(3, 4)``; the highest is ``sys.version_info[0:2]``.
+   Setting ``feature_version`` to a tuple ``(major, minor)`` will result in
+   a "best-effort" attempt to parse using that Python version's grammar.
+   For example, setting ``feature_version=(3, 9)`` will attempt to disallow
+   parsing of :keyword:`match` statements.
+   Currently ``major`` must equal to ``3``. The lowest supported version is
+   ``(3, 7)`` (and this may increase in future Python versions);
+   the highest is ``sys.version_info[0:2]``. "Best-effort" attempt means there
+   is no guarantee that the parse (or success of the parse) is the same as
+   when run on the Python version corresponding to ``feature_version``.
 
-   If source contains a null character ('\0'), :exc:`ValueError` is raised.
+   If source contains a null character (``\0``), :exc:`ValueError` is raised.
 
-    .. warning::
+   .. warning::
       Note that successfully parsing source code into an AST object doesn't
       guarantee that the source code provided is valid Python code that can
       be executed as the compilation step can raise further :exc:`SyntaxError`
@@ -1569,6 +2273,10 @@ and classes for traversing abstract syntax trees:
 
    .. versionchanged:: 3.8
       Added ``type_comments``, ``mode='func_type'`` and ``feature_version``.
+
+   .. versionchanged:: 3.13
+      The minimum supported version for ``feature_version`` is now ``(3, 7)``.
+      The ``optimize`` argument was added.
 
 
 .. function:: unparse(ast_obj)
@@ -1591,26 +2299,41 @@ and classes for traversing abstract syntax trees:
 
 .. function:: literal_eval(node_or_string)
 
-   Safely evaluate an expression node or a string containing a Python literal or
+   Evaluate an expression node or a string containing only a Python literal or
    container display.  The string or node provided may only consist of the
    following Python literal structures: strings, bytes, numbers, tuples, lists,
-   dicts, sets, booleans, and ``None``.
+   dicts, sets, booleans, ``None`` and ``Ellipsis``.
 
-   This can be used for safely evaluating strings containing Python values from
-   untrusted sources without the need to parse the values oneself.  It is not
-   capable of evaluating arbitrarily complex expressions, for example involving
-   operators or indexing.
+   This can be used for evaluating strings containing Python values without the
+   need to parse the values oneself.  It is not capable of evaluating
+   arbitrarily complex expressions, for example involving operators or
+   indexing.
+
+   This function had been documented as "safe" in the past without defining
+   what that meant. That was misleading. This is specifically designed not to
+   execute Python code, unlike the more general :func:`eval`. There is no
+   namespace, no name lookups, or ability to call out. But it is not free from
+   attack: A relatively small input can lead to memory exhaustion or to C stack
+   exhaustion, crashing the process. There is also the possibility for
+   excessive CPU consumption denial of service on some inputs. Calling it on
+   untrusted data is thus not recommended.
 
    .. warning::
-      It is possible to crash the Python interpreter with a
-      sufficiently large/complex string due to stack depth limitations
-      in Python's AST compiler.
+      It is possible to crash the Python interpreter due to stack depth
+      limitations in Python's AST compiler.
+
+      It can raise :exc:`ValueError`, :exc:`TypeError`, :exc:`SyntaxError`,
+      :exc:`MemoryError` and :exc:`RecursionError` depending on the malformed
+      input.
 
    .. versionchanged:: 3.2
       Now allows bytes and set literals.
 
    .. versionchanged:: 3.9
       Now supports creating empty sets with ``'set()'``.
+
+   .. versionchanged:: 3.10
+      For string inputs, leading spaces and tabs are now stripped.
 
 
 .. function:: get_docstring(node, clean=True)
@@ -1628,8 +2351,8 @@ and classes for traversing abstract syntax trees:
 .. function:: get_source_segment(source, node, *, padded=False)
 
    Get source code segment of the *source* that generated *node*.
-   If some location information (:attr:`lineno`, :attr:`end_lineno`,
-   :attr:`col_offset`, or :attr:`end_col_offset`) is missing, return ``None``.
+   If some location information (:attr:`~ast.AST.lineno`, :attr:`~ast.AST.end_lineno`,
+   :attr:`~ast.AST.col_offset`, or :attr:`~ast.AST.end_col_offset`) is missing, return ``None``.
 
    If *padded* is ``True``, the first line of a multi-line statement will
    be padded with spaces to match its original position.
@@ -1640,7 +2363,7 @@ and classes for traversing abstract syntax trees:
 .. function:: fix_missing_locations(node)
 
    When you compile a node tree with :func:`compile`, the compiler expects
-   :attr:`lineno` and :attr:`col_offset` attributes for every node that supports
+   :attr:`~ast.AST.lineno` and :attr:`~ast.AST.col_offset` attributes for every node that supports
    them.  This is rather tedious to fill in for generated nodes, so this helper
    adds these attributes recursively where not already set, by setting them to
    the values of the parent node.  It works recursively starting at *node*.
@@ -1655,8 +2378,8 @@ and classes for traversing abstract syntax trees:
 
 .. function:: copy_location(new_node, old_node)
 
-   Copy source location (:attr:`lineno`, :attr:`col_offset`, :attr:`end_lineno`,
-   and :attr:`end_col_offset`) from *old_node* to *new_node* if possible,
+   Copy source location (:attr:`~ast.AST.lineno`, :attr:`~ast.AST.col_offset`, :attr:`~ast.AST.end_lineno`,
+   and :attr:`~ast.AST.end_col_offset`) from *old_node* to *new_node* if possible,
    and return *new_node*.
 
 
@@ -1702,14 +2425,18 @@ and classes for traversing abstract syntax trees:
       visited unless the visitor calls :meth:`generic_visit` or visits them
       itself.
 
+   .. method:: visit_Constant(node)
+
+      Handles all constant nodes.
+
    Don't use the :class:`NodeVisitor` if you want to apply changes to nodes
    during traversal.  For this a special visitor exists
    (:class:`NodeTransformer`) that allows modifications.
 
    .. deprecated:: 3.8
 
-      Methods :meth:`visit_Num`, :meth:`visit_Str`, :meth:`visit_Bytes`,
-      :meth:`visit_NameConstant` and :meth:`visit_Ellipsis` are deprecated
+      Methods :meth:`!visit_Num`, :meth:`!visit_Str`, :meth:`!visit_Bytes`,
+      :meth:`!visit_NameConstant` and :meth:`!visit_Ellipsis` are deprecated
       now and will not be called in future Python versions.  Add the
       :meth:`visit_Constant` method to handle all constant nodes.
 
@@ -1738,7 +2465,7 @@ and classes for traversing abstract syntax trees:
               )
 
    Keep in mind that if the node you're operating on has child nodes you must
-   either transform the child nodes yourself or call the :meth:`generic_visit`
+   either transform the child nodes yourself or call the :meth:`~ast.NodeVisitor.generic_visit`
    method for the node first.
 
    For nodes that were part of a collection of statements (that applies to all
@@ -1747,7 +2474,7 @@ and classes for traversing abstract syntax trees:
 
    If :class:`NodeTransformer` introduces new nodes (that weren't part of
    original tree) without giving them location information (such as
-   :attr:`lineno`), :func:`fix_missing_locations` should be called with
+   :attr:`~ast.AST.lineno`), :func:`fix_missing_locations` should be called with
    the new sub-tree to recalculate the location information::
 
       tree = ast.parse('foo', mode='eval')
@@ -1758,7 +2485,7 @@ and classes for traversing abstract syntax trees:
       node = YourTransformer().visit(node)
 
 
-.. function:: dump(node, annotate_fields=True, include_attributes=False, *, indent=None)
+.. function:: dump(node, annotate_fields=True, include_attributes=False, *, indent=None, show_empty=False)
 
    Return a formatted dump of the tree in *node*.  This is mainly useful for
    debugging purposes.  If *annotate_fields* is true (by default),
@@ -1775,13 +2502,47 @@ and classes for traversing abstract syntax trees:
    indents that many spaces per level.  If *indent* is a string (such as ``"\t"``),
    that string is used to indent each level.
 
+   If *show_empty* is false (the default), optional empty lists will be
+   omitted from the output.
+   Optional ``None`` values are always omitted.
+
    .. versionchanged:: 3.9
       Added the *indent* option.
+
+   .. versionchanged:: 3.13
+      Added the *show_empty* option.
+
+      .. doctest::
+
+         >>> print(ast.dump(ast.parse("""\
+         ... async def f():
+         ...     await other_func()
+         ... """), indent=4, show_empty=True))
+         Module(
+             body=[
+                 AsyncFunctionDef(
+                     name='f',
+                     args=arguments(
+                         posonlyargs=[],
+                         args=[],
+                         kwonlyargs=[],
+                         kw_defaults=[],
+                         defaults=[]),
+                     body=[
+                         Expr(
+                             value=Await(
+                                 value=Call(
+                                     func=Name(id='other_func', ctx=Load()),
+                                     args=[],
+                                     keywords=[])))],
+                     decorator_list=[],
+                     type_params=[])],
+             type_ignores=[])
 
 
 .. _ast-compiler-flags:
 
-Compiler Flags
+Compiler flags
 --------------
 
 The following flags may be passed to :func:`compile` in order to change
@@ -1799,6 +2560,13 @@ effects on the compilation of a program:
    Generates and returns an abstract syntax tree instead of returning a
    compiled code object.
 
+.. data:: PyCF_OPTIMIZED_AST
+
+   The returned AST is optimized according to the *optimize* argument
+   in :func:`compile` or :func:`ast.parse`.
+
+   .. versionadded:: 3.13
+
 .. data:: PyCF_TYPE_COMMENTS
 
    Enables support for :pep:`484` and :pep:`526` style type comments
@@ -1807,9 +2575,23 @@ effects on the compilation of a program:
    .. versionadded:: 3.8
 
 
+.. function:: compare(a, b, /, *, compare_attributes=False)
+
+   Recursively compares two ASTs.
+
+   *compare_attributes* affects whether AST attributes are considered
+   in the comparison. If *compare_attributes* is ``False`` (default), then
+   attributes are ignored. Otherwise they must all be equal. This
+   option is useful to check whether the ASTs are structurally equal but
+   differ in whitespace or similar details. Attributes include line numbers
+   and column offsets.
+
+   .. versionadded:: 3.14
+
+
 .. _ast-cli:
 
-Command-Line Usage
+Command-line usage
 ------------------
 
 .. versionadded:: 3.9
@@ -1825,28 +2607,50 @@ The following options are accepted:
 
 .. program:: ast
 
-.. cmdoption:: -h, --help
+.. option:: -h, --help
 
    Show the help message and exit.
 
-.. cmdoption:: -m <mode>
-               --mode <mode>
+.. option:: -m <mode>
+            --mode <mode>
 
    Specify what kind of code must be compiled, like the *mode* argument
    in :func:`parse`.
 
-.. cmdoption:: --no-type-comments
+.. option:: --no-type-comments
 
    Don't parse type comments.
 
-.. cmdoption:: -a, --include-attributes
+.. option:: -a, --include-attributes
 
    Include attributes such as line numbers and column offsets.
 
-.. cmdoption:: -i <indent>
-               --indent <indent>
+.. option:: -i <indent>
+            --indent <indent>
 
    Indentation of nodes in AST (number of spaces).
+
+.. option:: --feature-version <version>
+
+   Python version in the format 3.x (for example, 3.10). Defaults to the
+   current version of the interpreter.
+
+   .. versionadded:: 3.14
+
+.. option:: -O <level>
+            --optimize <level>
+
+   Optimization level for parser. Defaults to no optimization.
+
+   .. versionadded:: 3.14
+
+.. option:: --show-empty
+
+   Show empty lists and fields that are ``None``. Defaults to not showing empty
+   objects.
+
+   .. versionadded:: 3.14
+
 
 If :file:`infile` is specified its contents are parsed to AST and dumped
 to stdout.  Otherwise, the content is read from stdin.
@@ -1862,7 +2666,8 @@ to stdout.  Otherwise, the content is read from stdin.
     code that generated them. This is helpful for tools that make source code
     transformations.
 
-    `leoAst.py <http://leoeditor.com/appendices.html#leoast-py>`_ unifies the
+    `leoAst.py <https://leo-editor.github.io/leo-editor/appendices.html#leoast-py>`_
+    unifies the
     token-based and parse-tree-based views of python programs by inserting
     two-way links between tokens and ast nodes.
 
@@ -1874,4 +2679,4 @@ to stdout.  Otherwise, the content is read from stdin.
     `Parso <https://parso.readthedocs.io>`_ is a Python parser that supports
     error recovery and round-trip parsing for different Python versions (in
     multiple Python versions). Parso is also able to list multiple syntax errors
-    in your python file.
+    in your Python file.

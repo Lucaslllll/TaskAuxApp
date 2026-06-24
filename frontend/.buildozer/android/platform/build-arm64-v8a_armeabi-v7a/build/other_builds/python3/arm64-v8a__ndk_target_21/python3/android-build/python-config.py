@@ -1,10 +1,9 @@
-#!/usr/local/bin/python3.9
+#!/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/python3/arm64-v8a__ndk_target_21/python3/android-build/android-root/bin/python3.14
 # -*- python -*-
 
 # Keep this script in sync with python-config.sh.in
 
 import getopt
-import os
 import sys
 import sysconfig
 
@@ -14,7 +13,8 @@ valid_opts = ['prefix', 'exec-prefix', 'includes', 'libs', 'cflags',
 
 def exit_with_usage(code=1):
     print("Usage: {0} [{1}]".format(
-        sys.argv[0], '|'.join('--'+opt for opt in valid_opts)), file=sys.stderr)
+        sys.argv[0], '|'.join('--'+opt for opt in valid_opts)),
+        file=sys.stdout if code == 0 else sys.stderr)
     sys.exit(code)
 
 try:

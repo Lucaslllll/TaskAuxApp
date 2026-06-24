@@ -2,9 +2,8 @@ from __future__ import absolute_import
 from __future__ import unicode_literals
 from __future__ import division
 from collections import defaultdict
-from logging import getLogger, DEBUG
+import logging
 
-from six import with_metaclass, PY2
 
 from .jnius import (
     JavaClass, MetaJavaClass, JavaMethod, JavaStaticMethod,
@@ -14,10 +13,10 @@ from .jnius import (
 
 __all__ = ('autoclass', 'ensureclass', 'protocol_map')
 
-log = getLogger(__name__)
+log = logging.getLogger('kivy').getChild(__name__)
 
 
-class Class(with_metaclass(MetaJavaClass, JavaClass)):
+class Class(JavaClass, metaclass=MetaJavaClass):
     __javaclass__ = 'java/lang/Class'
 
     desiredAssertionStatus = JavaMethod('()Z')
@@ -72,14 +71,14 @@ class Class(with_metaclass(MetaJavaClass, JavaClass)):
         return '<%s at 0x%x>' % (self, id(self))
 
 
-class Object(with_metaclass(MetaJavaClass, JavaClass)):
+class Object(JavaClass, metaclass=MetaJavaClass):
     __javaclass__ = 'java/lang/Object'
 
     getClass = JavaMethod('()Ljava/lang/Class;')
     hashCode = JavaMethod('()I')
 
 
-class Modifier(with_metaclass(MetaJavaClass, JavaClass)):
+class Modifier(JavaClass, metaclass=MetaJavaClass):
     __javaclass__ = 'java/lang/reflect/Modifier'
 
     isAbstract = JavaStaticMethod('(I)Z')
@@ -95,7 +94,7 @@ class Modifier(with_metaclass(MetaJavaClass, JavaClass)):
     isTransient = JavaStaticMethod('(I)Z')
     isVolatile = JavaStaticMethod('(I)Z')
 
-class Method(with_metaclass(MetaJavaClass, JavaClass)):
+class Method(JavaClass, metaclass=MetaJavaClass):
     __javaclass__ = 'java/lang/reflect/Method'
 
     getName = JavaMethod('()Ljava/lang/String;')
@@ -105,10 +104,9 @@ class Method(with_metaclass(MetaJavaClass, JavaClass)):
     getModifiers = JavaMethod('()I')
     isVarArgs = JavaMethod('()Z')
     isDefault = JavaMethod('()Z')
-    
 
 
-class Field(with_metaclass(MetaJavaClass, JavaClass)):
+class Field(JavaClass, metaclass=MetaJavaClass):
     __javaclass__ = 'java/lang/reflect/Field'
 
     getName = JavaMethod('()Ljava/lang/String;')
@@ -117,7 +115,7 @@ class Field(with_metaclass(MetaJavaClass, JavaClass)):
     getModifiers = JavaMethod('()I')
 
 
-class Constructor(with_metaclass(MetaJavaClass, JavaClass)):
+class Constructor(JavaClass, metaclass=MetaJavaClass):
     __javaclass__ = 'java/lang/reflect/Constructor'
 
     toString = JavaMethod('()Ljava/lang/String;')
@@ -300,7 +298,7 @@ def autoclass(clsname, include_protected=True, include_private=True):
             sig = '({0}){1}'.format(
                 ''.join([get_signature(x) for x in method.getParameterTypes()]),
                 get_signature(method.getReturnType()))
-            if log.isEnabledFor(DEBUG):
+            if log.isEnabledFor(logging.DEBUG):
                 log_method(method, name, sig)
             classDict[name] = (JavaStaticMethod if static else JavaMethod)(sig, varargs=varargs)
             # methods that fit the characteristics of a JavaBean's methods get turned into properties.
@@ -335,7 +333,7 @@ def autoclass(clsname, include_protected=True, include_private=True):
                 return_sig = get_signature(method.getReturnType())
                 sig = '({0}){1}'.format(param_sig, return_sig)
 
-                if log.isEnabledFor(DEBUG):
+                if log.isEnabledFor(logging.DEBUG):
                     log_method(method, name, sig)
                 signatures.append((sig, Modifier.isStatic(method.getModifiers()), method.isVarArgs()))
 
@@ -379,31 +377,12 @@ def _map_getitem(self, k):
         raise KeyError()
     return rtr
 
-
-class Py2Iterator(object):
-    '''
-    In py2 the next() is called on the iterator, not __next__
-    so we need to wrap the java call to check hasNext to conform to
-    python's api
-    '''
-    def __init__(self, java_iterator):
-        self.java_iterator = java_iterator
-
-    def __iter__(self):
-        return self
-
-    def next(self):
-        log.debug("monkey patched next() called")
-        if not self.java_iterator.hasNext():
-            raise StopIteration()
-        return self.java_iterator.next()
-
-
-def safe_iterator(iterator):
-    if PY2:
-        return Py2Iterator(iterator)
-    return iterator
-
+def _map_entry_getitem(self, i):
+    if i == 0:
+        return self.getKey()
+    if i == 1:
+        return self.getValue()
+    raise IndexError()
 
 def _iterator_next(self):
     ''' dunder method for java.util.Iterator'''
@@ -429,14 +408,19 @@ protocol_map = {
         '__delitem__' : lambda self, item: self.remove(item),
         '__len__' : lambda self: self.size(),
         '__contains__' : lambda self, item: self.containsKey(item),
-        '__iter__' : lambda self: safe_iterator(self.keySet().iterator())
+        '__iter__' : lambda self: self.keySet().iterator()
+    },
+    'java.util.Map$Entry' : {
+        '__getitem__' : _map_entry_getitem,
+        '__iter__' : lambda self: iter([self.getKey(), self.getValue()]),
+        '__len__' : lambda self: 2
     },
     'java.util.Iterator' : {
-        '__iter__' : lambda self: safe_iterator(self),
+        '__iter__' : lambda self: self,
         '__next__' : _iterator_next,
     },
     'java.lang.Iterable' : {
-        '__iter__' : lambda self: safe_iterator(self.iterator()),
+        '__iter__' : lambda self: self.iterator(),
     },
     # this also addresses java.io.Closeable
     'java.lang.AutoCloseable' : {

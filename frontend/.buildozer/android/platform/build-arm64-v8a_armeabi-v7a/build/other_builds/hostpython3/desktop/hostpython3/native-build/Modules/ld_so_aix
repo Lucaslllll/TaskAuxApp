@@ -70,7 +70,7 @@ if test ! -n "$*"; then
 fi
 
 makexp=`dirname $0`/makexp_aix
-test -x "${makexp}" || makexp="/home/brinfo-linux/Documentos/Admin-Auxiliador/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/hostpython3/desktop/hostpython3/Modules/makexp_aix"
+test -x "${makexp}" || makexp="/home/lucas_duarte/Downloads/TaskAuxApp/frontend/.buildozer/android/platform/build-arm64-v8a_armeabi-v7a/build/other_builds/hostpython3/desktop/hostpython3/Modules/makexp_aix"
 
 # Check for existence of compiler.
 CC=$1; shift
@@ -132,7 +132,7 @@ do
   shift
 done
 
-if test "$objfile" = "libpython3.9.so"; then
+if test "$objfile" = "libpython3.14.so"; then
   ldsocoremode="true"
 fi
 
